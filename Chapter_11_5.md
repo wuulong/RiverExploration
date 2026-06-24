@@ -1,0 +1,60 @@
+## 11.5 [v2.1 增補] 民間河川拓樸註冊表 (WRA-Civ) 與社群共創規範
+
+隨者河流探索的深入，官方水利署（WRA）所定義的 6 碼河川拓樸編碼（例如主流與二級支流的英數編碼 `114021`）在面對細部小支流、野溪或無名溪時，常面臨資料缺失的窘境。為此，我們推出了「官方圖資為底，民間協作補齊」的 **WRA-Civ（Civilian River Topology Registry）編碼與社群共創架構**，讓所有探索者都能一同描繪台灣細緻的水系網路。
+
+---
+
+### 1. WRA-Civ 編碼原則
+
+為了避免與官方未來發布的編碼產生衝突，並維持資料庫的嚴謹性，民間編碼遵循以下規則：
+
+*   **連字號下鑽協定 (`-[CivCode]`)**：以官方編碼為前綴，後面加上連字號 `-` 與民間編碼。
+    *   *官方前綴*：南勢溪為 `114021`。
+    *   *民間一級支流*：加九寮溪編為 `114021-C01`、給里瀨溪為 `114021-C02`、內洞溪為 `114021-C03`（其中 `C` 代表 Civilian 貢獻）。
+    *   *民間二級支流*：若要編寫流入加九寮溪的更小無名溪，可直接下鑽為 `114021-C01-C01`。
+*   **優點**：此編碼方式在資料庫中能自動保留父子級（Parent-Child）的拓樸依存關係，同時保證與官方官方 6 碼編碼完全隔離，互不干涉。
+
+---
+
+### 2. 註冊表欄位定義與 GPS 留空規範
+
+民間河川拓樸註冊表採用 CSV 格式儲存於 [taiwan_river_topology_registry.csv](file:///Users/wuulong/github/bmad-pa/events/AIBooks/RiverExploration/taiwan_river_topology_registry.csv)，核心欄位包含：
+
+| 欄位名稱 | 說明 | 範例 |
+| :--- | :--- | :--- |
+| `river_code` | 河川拓樸編碼（官方或 WRA-Civ） | `114021-C01` |
+| `river_name` | 河川中文名稱（若無名則寫「無名溪」並加描述） | `加九寮溪` |
+| `parent_code` | 父級河川編碼 | `114021` |
+| `confluence_lon` | 匯流口經度 (WGS84) | `121.5972` |
+| `confluence_lat` | 匯流口緯度 (WGS84) | `24.8931` |
+| `is_civilian` | 是否為民間延伸資料 (0: 官方, 1: 民間) | `1` |
+| `contributor` | 貢獻者標記（以電子郵件或 GitHub 帳號識別） | `wuulong@gmail.com` |
+| `meta_data` | JSON 格式擴充欄位（可記錄步道、探險難度等） | `{"trail_name": "紅河谷步道"}` |
+
+#### ⚠️ 關鍵：未確認 GPS 之「預設留空白」規範
+在地理資訊系統中，錯誤的定位數據（Garbage In）會嚴重誤導後續的空間分析（例如在 QGIS 中使交點偏離至山脊）。因此，我們制定了**嚴格的預設留空白規範**：
+*   **規範**：若匯流口座標尚未經過「衛星影像視覺對齊」或「現地 GPX 航跡校正」驗證，經緯度欄位**必須保持空值（Null，在 CSV 中留白）**。
+*   **價值**：這些空白座標在資料庫中會自動轉化為 **「待辦勘查清單 (TODO List)」**，成為社群在規劃下一次實地河流探勘行程時的明確目標。
+
+---
+
+### 3. 社群共創與維護工作流
+
+WRA-Civ 的生命力來自社群的集體智慧。我們透過以下流程實現分散式協作：
+
+#### 步驟 A：Fork 與本地編修
+1.  將本專案的 GitHub 資源庫 Fork 至您的個人帳號。
+2.  在本地複製的 [taiwan_river_topology_registry.csv](file:///Users/wuulong/github/bmad-pa/events/AIBooks/RiverExploration/taiwan_river_topology_registry.csv) 中新增您的支流資料。
+3.  填入 WRA-Civ 編碼，並在 `contributor` 填寫您的名稱（例如 `wuulong@gmail.com`）。若匯流口尚未驗證，請維持 `confluence_lon` 與 `confluence_lat` 為空。
+
+#### 步驟 B：提出 Pull Request (PR)
+1.  提交變更並推送至您的 Fork 資源庫。
+2.  向主專案發起 Pull Request。
+3.  專案維護者或 AI 審計代理人將會啟動自動化 CI 檢查：
+    *   檢查 `river_code` 與 `parent_code` 的拓樸關聯性是否成立。
+    *   若有提供經緯度，自動以 GIS 工具進行投影與位置合法性盲檢。
+
+#### 步驟 C：現地勘查與回傳校正
+1.  當社群成員攜帶 WalkGIS 或手持 GPS 前往現場，記錄了該匯流口的實際軌跡（GPX 格式）後。
+2.  可透過 GitHub Issue 提交軌跡資料與照片，或直接發起 PR 更新該支流的經緯度數值。
+3.  一經合併，此「空白點」即被成功「點亮」，完成該河流拼圖的數位永生。
