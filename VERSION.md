@@ -1,5 +1,17 @@
 # 版本歷史
 
+## v2.2 (WRA-Civ Grand Topology & Zero-Hallucination Pipeline) - 2026-08-29
+*   **核心升級**：全台灣四大水資源區 (北/中/南/東) WRA-Civ 水文拓樸大一統。
+*   **方法論與技術進展**：
+    *   導入 **水利署 110 年全量官方開放資料集 (`wra_official_river_codes.json`)**，達成 837 筆官方權威 6 碼與維基 ID 的 100% 零幻覺對合 (is_civilian=0)。
+    *   確立 **兩階段 AI-CLI 協作產製 SOP**（LLM 語意理解探勘 ➔ 中間態樹狀 JSON ➔ 確定性程式寫入）。
+    *   完成 **573 筆全台水文拓樸實體落庫** (`taiwan_river_topology_registry.csv`)，並通過親緣路徑與唯一性 100% 盲檢驗證。
+*   **專書與工具歸檔**：
+    *   更新 **Chapter 11.5** 為四大水資源區大一統全景與 Mermaid 雙色拓樸圖。
+    *   專書目錄內實體歸檔核心寫入引擎 `scripts/river_topology_importer.py` 及真實 JSON 範本 `templates/touqian_tree_real.json`。
+
+---
+
 ## v2.1 (Relic & Deep-Time Modeling) - 2026-03-09
 *   **核心升級**：從「HGIS 對合」邁向「跨時空建模與遺蹟導航」。
 *   **方法論增補**：
@@ -10,6 +22,8 @@
     *   新增 2.6 (考古遺跡讀取與 ID 勾稽)、5.4 (OO-History 立論)、5.5 (劇本演義與南科案例)、10.4 (預測-驗證-修正工作流)、13 (未來展望)。
     *   第 5 章架構重整為二階段：數位賦能(現在) vs 深度建模(跨時空)。
 *   **技術整合**：對齊 `taiwan-history-atlas` 之 `relic_master` 資料結構與 `qgis-project-architect` 一鍵產製流程。
+
+---
 
 ## [v2.0] - 2026-02-23
 ### Added
@@ -52,4 +66,4 @@
 
 ## [v1.0] - 2026-01-01
 ### Added
-- **初始版本**：建立台灣 11 條主要流域的初步導航架構。
+- **初始版本**：建立台灣 11 條主要流域的初步導覽架構。
