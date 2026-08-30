@@ -1,0 +1,13 @@
+{
+  "river_code": "181000",
+  "river_name": "十里溪",
+  "cache_status": "NO_INDEPENDENT_WIKI_ENTRY",
+  "wiki_source_status": "WIKI_NO_INDEPENDENT_ENTRY",
+  "branch_count": 1,
+  "notes": "Wikipedia 上無獨立專屬條目，認定為無文獻紀錄之獨立水系，保留主流節點落庫。",
+  "provenance": {
+    "audited_at": "2026-08-30T06:49:41.503354",
+    "repaired_by": "System Cache Governor",
+    "verdict": "CONFIRMED_INDEPENDENT_RIVER_WITHOUT_WIKI"
+  }
+}

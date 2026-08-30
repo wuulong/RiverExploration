@@ -1,0 +1,249 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:06:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 25937553,
+      "tags": {
+        "name": "西湖溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233232,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233325,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "layer": "-1",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233338,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233386,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233418,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233459,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233543,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233627,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 422233676,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "name": "西湖溪",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 762505371,
+      "tags": {
+        "name": "西湖溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 954871815,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "layer": "-1",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "tunnel": "yes",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1167657384,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "alt_name:zh": "海豐1號排水路",
+        "alt_name:zh-Hans": "海丰1号排水路",
+        "alt_name:zh-Hant": "海豐1號排水路",
+        "layer": "-1",
+        "name": "西湖溪",
+        "name:en": "Xihu Creek",
+        "name:nan": "Se-ô͘-khe",
+        "name:nan-Hant": "西湖溪",
+        "name:nan-Latn-pehoeji": "Se-ô͘-khe",
+        "name:nan-Latn-tailo": "Se-ôo-khe",
+        "name:zh": "西湖溪",
+        "name:zh-Hans": "西湖溪",
+        "name:zh-Hant": "西湖溪",
+        "tunnel": "culvert",
+        "waterway": "drain"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1167657385,
+      "tags": {
+        "alt_name": "海豐1號排水路",
+        "name": "西湖溪",
+        "waterway": "drain"
+      }
+    }
+  ]
+}

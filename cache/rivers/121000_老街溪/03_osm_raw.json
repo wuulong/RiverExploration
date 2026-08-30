@@ -1,0 +1,60 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:03:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 110975371,
+      "tags": {
+        "name": "老街溪",
+        "name:en": "Laojie River",
+        "name:hak": "loˋ gieˊ haiˊ",
+        "name:nan": "Kū-ke-khe",
+        "name:nan-Hant": "舊街溪",
+        "name:nan-Latn-pehoeji": "Kū-ke-khe",
+        "name:nan-Latn-tailo": "Kū-ke-khe",
+        "name:zh": "老街溪",
+        "name:zh-Hans": "老街溪",
+        "name:zh-Hant": "老街溪",
+        "name:zh-Latn-pinyin": "lǎo jiē xī",
+        "waterway": "river",
+        "width": "30"
+      }
+    },
+    {
+      "type": "way",
+      "id": 535554133,
+      "tags": {
+        "layer": "-1",
+        "name": "老街溪",
+        "name:zh": "老街溪",
+        "tunnel": "yes",
+        "waterway": "river",
+        "width": "30m"
+      }
+    },
+    {
+      "type": "way",
+      "id": 535554134,
+      "tags": {
+        "name": "老街溪",
+        "name:zh": "老街溪",
+        "waterway": "river",
+        "width": "30m"
+      }
+    },
+    {
+      "type": "way",
+      "id": 925437025,
+      "tags": {
+        "name": "老街溪",
+        "name:zh": "老街溪",
+        "waterway": "river"
+      }
+    }
+  ]
+}

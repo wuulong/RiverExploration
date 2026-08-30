@@ -24,4 +24,4 @@
 
 1. **認領任務**：若您計畫前往上述流域（例如計畫去烏來走哈盆古道、去坪林露營或去滿月圓健行），您可以在本專案發起 Issue 聲明：「認領 `114021-C06 露門溪` 的現地 GPS 採集任務」。
 2. **現地採集**：在安全的前提下，抵達匯流口交會點，利用 WalkGIS 或手機 GPS 標記航點，或記錄一段 GPX 軌跡。
-3. **提交回傳**：回來後，發起 Pull Request 更新 [taiwan_river_topology_registry.csv](file:///Users/wuulong/github/bmad-pa/events/AIBooks/RiverExploration/taiwan_river_topology_registry.csv) 中的座標，並將本 Roadmap 中的狀態由 `🔴 待定位 (GPS Blank)` 修正為 `🟢 已點亮 (Verified)`，並填入您的認領人名稱。
+3. **提交回傳**：回來後，發起 Pull Request 更新 [taiwan_river_topology_registry.csv](taiwan_river_topology_registry.csv) 中的座標，並將本 Roadmap 中的狀態由 `🔴 待定位 (GPS Blank)` 修正為 `🟢 已點亮 (Verified)`，並填入您的認領人名稱。

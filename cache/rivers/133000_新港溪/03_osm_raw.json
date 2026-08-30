@@ -1,0 +1,86 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:05:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 310461316,
+      "tags": {
+        "alt_name": "成功溪",
+        "name": "新港溪",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1457396166,
+      "tags": {
+        "alt_name": "成功溪",
+        "name": "新港溪",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1457396167,
+      "tags": {
+        "alt_name": "成功溪",
+        "layer": "-1",
+        "name": "新港溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1457396176,
+      "tags": {
+        "alt_name": "成功溪",
+        "name": "新港溪",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1457396177,
+      "tags": {
+        "alt_name": "成功溪",
+        "layer": "-1",
+        "name": "新港溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1457396178,
+      "tags": {
+        "alt_name": "成功溪",
+        "name": "新港溪",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1457396179,
+      "tags": {
+        "alt_name": "成功溪",
+        "layer": "-1",
+        "name": "新港溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q11083246"
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:00:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 333408162,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 428372348,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 662819168,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 662819170,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 934721359,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 934721360,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020576,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020577,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020578,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020579,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020580,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020581,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020582,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020583,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020584,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1434020585,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444674097,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444674098,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444674099,
+      "tags": {
+        "name": "楓林溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444674100,
+      "tags": {
+        "layer": "-1",
+        "name": "楓林溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    }
+  ]
+}

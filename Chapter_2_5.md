@@ -15,7 +15,7 @@
 | 表格名稱 | 所屬層級 | 內容說明 |
 | :--- | :--- | :--- |
 | `volumes` / `contents` | **Layer 0** | 包含《臺灣通史》37 卷全文，支援 FTS5 全文檢索（`content_fts`）。 |
-| `entities` | **Layer 1** | 已標註類型的實體（如 `Irrigation`, `Location`, `Person`）。包含 JSON 格式的元數據。 |
+| `entities` | **Layer 1** | 已標註類型的實體（如 `Irrigation`, `Location`, `Person`）。包含 JSON 格式的元資料。 |
 | `mentions` | **Layer 1** | 每個實體在原文中出現的**具體段落 (Snippet)**。這是「有圖有真相」的關鍵。 |
 | `ai_knowledge_atlas` | **Layer 2** | AI 合成的專題模型。其中 `Toponym_Ref` 分項是 HGIS 空間對比的聖經。 |
 | `moi_settlements` | **Layer 1.5** | 整合自內政部的 37,000+ 筆古地名點位，提供經緯度座標。 |
@@ -59,6 +59,6 @@ WHERE name LIKE '%蘇厝%';
 
 ### 結語：從「閱讀者」變身「資料建築師」
 
-引入 `taiwan-history-atlas` 之後，你的河流探索將不再是從零開始的採集，而是站在前人的肩膀上進行「二次開發」。你所產出的每一份田野紀錄，都將與這套龐大的島嶼知識底盤產生動態鏈結。
+引入 `taiwan-history-atlas` 之後，你的河流探索將不再是從零開始的採集，而是站在前人的肩膀上進行「二次開發」。你所產出的每一份田野紀錄，都將與這套龐大的島嶼知識底盤產生動態連結。
 
 下一章，我們將暫時合上書本與資料庫，開啟地理資訊系統（GIS），學習如何將這些萃取出的座標與歷史，疊合在真正的「時空地圖」上。

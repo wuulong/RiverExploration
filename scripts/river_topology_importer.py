@@ -3,11 +3,11 @@
 """
 [metadata]
 name: river_topology_importer.py
-title: WRA-Civ 河川拓樸自動化轉換與 CSV 批次註冊工具
-description: 讀取 wiki_cli 產出之樹狀 JSON，自動計算 -[CivCode] 拓樸編碼與 topology_path，並安全無損寫入 CSV 註冊表。
+title: WRA-Civ 河川拓樸自動化轉換、 Rich Attributes 擴充與 CSV 批次註冊工具 (CGS v2.0 & Spec v1.0)
+description: 讀取樹狀 JSON，自動計算 -[CivCode] 拓樸編碼與 topology_path，支援對接 OSM 導航補充經緯度與 Rich Attributes (source_type, waterway_type, stream_order, has_osm_geo)，並提供靈活過濾器。
 category: hydrology
 manual: scripts/manuals/river_topology_importer.md
-dependencies: csv, json, os, sys
+dependencies: csv, json, os, sys, argparse
 cgs_version: 2.0
 """
 
@@ -17,20 +17,41 @@ import json
 import csv
 import re
 import argparse
+import urllib.parse
 from datetime import datetime
 
-__cli_spec_version__ = "2.0"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+WORKSPACE_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "..", ".."))
+if WORKSPACE_ROOT not in sys.path:
+    sys.path.insert(0, WORKSPACE_ROOT)
 
-MANUAL_PATH = "scripts/manuals/river_topology_importer.md"
+BOOK_DIR = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
+MANUAL_PATH = os.path.join(SCRIPT_DIR, "manuals", "river_topology_importer.md")
+WRA_JSON_PATH = os.path.join(BOOK_DIR, "wra_official_river_codes.json")
+CSV_PATH = os.path.join(BOOK_DIR, "taiwan_river_topology_registry.csv")
 
-WRA_JSON_PATH = "data/open-data/downloads/wra_official_river_codes.json"
-CSV_PATH = "events/AIBooks/RiverExploration/taiwan_river_topology_registry.csv"
+# Spec v1.0 標準欄位表
+STANDARD_HEADERS = [
+    "river_code", "river_name", "parent_code", "topology_path", "is_civilian",
+    "basin_name", "confluence_lon", "confluence_lat", "source_type", "waterway_type",
+    "stream_order", "has_osm_geo", "wikidata_id", "description", "meta_data",
+    "contributor", "updated_at"
+]
+
+def log_msg(level: str, msg: str):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{level}] {msg}", file=sys.stderr)
+
+def clean_river_name(name: str) -> str:
+    name = re.sub(r"<[^>]+>", "", name)
+    name = re.sub(r"\[\[[^\]]*\|([^\]]+)\]\]", r"\1", name)
+    name = re.sub(r"\[\[([^\]]+)\]\]", r"\1", name)
+    name = re.sub(r"'''(.*?)'''", r"\1", name)
+    name = re.sub(r"''*(.*?)''*", r"\1", name)
+    name = name.split("：")[0].split(":")[-1].strip()
+    return name
 
 def load_official_wra_baseline() -> dict:
-    """
-    讀取水利署全量官方開放資料集 wra_official_river_codes.json
-    回傳以河川名稱為 Key 的權威官方程式碼對照表: {river_name: (code, parent_code, parent_name)}
-    """
     workspace_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
     abs_json_path = os.path.abspath(os.path.join(workspace_root, WRA_JSON_PATH))
     
@@ -50,290 +71,262 @@ def load_official_wra_baseline() -> dict:
         sub2_name = (item.get("subsubsidiarybasinname") or "").strip()
         sub2_code = (item.get("subsubsidiarybasinrivercode") or "").strip()
         
-        # 1. 登記主流
         if b_name and b_code:
             official_map[b_name] = (b_code, "0", "")
-            
-        # 2. 登記一級支流
         if sub_name and sub_code and b_code:
             official_map[sub_name] = (sub_code, b_code, b_name)
-            
-        # 3. 登記二級次支流
         if sub2_name and sub2_code and sub_code:
             official_map[sub2_name] = (sub2_code, sub_code, sub_name)
             
     return official_map
 
-def log_msg(level: str, message: str, verbose: bool = False, json_mode: bool = False):
-    """CGS v2.0 結構化日誌輸出至 stderr"""
-    if level.upper() == "DEBUG" and not verbose:
-        return
-    if json_mode:
-        log_entry = {
-            "time": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
-            "level": level.upper(),
-            "script": "river_topology_importer.py",
-            "message": message
-        }
-        print(json.dumps(log_entry, ensure_ascii=False), file=sys.stderr)
-    else:
-        prefix_map = {
-            "INFO": "ℹ️ [INFO]",
-            "WARN": "⚠️ [WARN]",
-            "ERROR": "❌ [ERROR]",
-            "DEBUG": "🔍 [DEBUG]",
-            "SUCCESS": "✅ [SUCCESS]"
-        }
-        prefix = prefix_map.get(level.upper(), f"[{level.upper()}]")
-        print(f"{prefix} {message}", file=sys.stderr)
-
-def read_existing_csv(csv_file_path: str) -> tuple:
-    """讀取既有 CSV 註冊表，回傳 (headers, existing_records_dict)"""
-    if not os.path.exists(csv_file_path):
-        headers = [
-            "river_code", "river_name", "parent_code", "topology_path",
-            "is_civilian", "basin_name", "confluence_lon", "confluence_lat",
-            "wikidata_id", "description", "meta_data", "contributor", "updated_at"
-        ]
-        return headers, {}
+def read_existing_csv(csv_path: str):
+    if not os.path.exists(csv_path):
+        return STANDARD_HEADERS, {}
         
     records = {}
-    headers = []
-    with open(csv_file_path, "r", encoding="utf-8") as f:
+    with open(csv_path, "r", encoding="utf-8") as f:
         reader = csv.reader(f)
-        headers = next(reader, [])
+        try:
+            raw_headers = next(reader)
+        except StopIteration:
+            return STANDARD_HEADERS, {}
+            
         for row in reader:
-            if row:
-                records[row[0].strip()] = row
-    return headers, records
+            if not row:
+                continue
+            r_code = row[0].strip()
+            # 填補可能缺少的欄位至長度與 STANDARD_HEADERS 對齊
+            while len(row) < len(STANDARD_HEADERS):
+                row.append("")
+            records[r_code] = row
+            
+    return STANDARD_HEADERS, records
 
-def clean_river_name(raw_name: str) -> str:
-    """清洗 Wiki 抓取到的名稱，去除粗體標籤、說明文字與非河川雜訊"""
-    # 移除 Wiki 粗體標籤
-    name = re.sub(r"'''", "", raw_name)
-    # 若有名稱加冒號說明的狀況（如「月桂溪：大同鄉...」），只取冒號前之溪流名稱
-    if "：" in name:
-        name = name.split("：")[0].strip()
-    if ":" in name:
-        name = name.split(":")[0].strip()
-    return name.strip()
+def compute_stream_order(topology_path: str) -> int:
+    """從 topology_path (例: 0@114000@114020@114021) 計算階層感 (Stream Order)"""
+    if not topology_path:
+        return 1
+    parts = [p for p in topology_path.split("@") if p and p != "0"]
+    return max(1, len(parts))
 
-def process_tree_structure(structure: list, root_parent_code: str, root_parent_path: str, basin_name: str, contributor: str, existing_records: dict, official_wra_map: dict) -> list:
-    """
-    將 Wiki 扁平樹狀結構轉換為 WRA-Civ 拓樸註冊資料。
-    優先使用 100% 官方水利署開放資料集 (wra_official_river_codes.json) 進行真實程式碼對照整合；
-    僅對官方未收錄之野溪自動計算 -C[nn] 民間延伸程式碼。
-    """
-    new_rows = []
-    stack = [(0, root_parent_code, root_parent_path)]  # [(level, parent_code, parent_path)]
+def enrich_existing_records_with_osm(existing_records: dict):
+    """呼叫 osm_navigator 補齊已落庫 573 筆記錄之經緯度座標與 Rich Attributes"""
+    import subprocess
     
-    civ_counter_map = {}  # parent_code -> current_c_index
-    today_str = datetime.now().strftime("%Y-%m-%d")
-    
-    # 預先計算既有 parent 已經佔用的最大 C 號碼
-    for r_code, r_row in existing_records.items():
-        p_code = r_row[2].strip()
-        if "-C" in r_code:
-            parts = r_code.split("-C")
-            if len(parts) > 1:
-                try:
-                    c_num = int(parts[-1][:2])
-                    civ_counter_map[p_code] = max(civ_counter_map.get(p_code, 0), c_num)
-                except ValueError:
-                    pass
+    basin_bboxes = {
+        "頭前溪": (24.70, 121.00, 24.85, 121.35),
+        "淡水河": (24.80, 121.20, 25.20, 121.80),
+        "鳳山溪": (24.80, 121.00, 24.95, 121.30),
+        "中港溪": (24.60, 120.80, 24.75, 121.10),
+        "後龍溪": (24.45, 120.80, 24.60, 121.10),
+        "大安溪": (24.30, 120.60, 24.45, 121.10),
+        "大甲溪": (24.20, 120.55, 24.35, 121.30),
+        "烏溪": (23.95, 120.50, 24.15, 121.10),
+        "濁水溪": (23.70, 120.20, 23.90, 121.20),
+        "北港溪": (23.50, 120.10, 23.70, 120.60),
+        "朴子溪": (23.40, 120.10, 23.60, 120.60),
+        "八掌溪": (23.30, 120.10, 23.50, 120.70),
+        "急水溪": (23.20, 120.10, 23.40, 120.50),
+        "曾文溪": (23.00, 120.00, 23.30, 120.70),
+        "鹽水溪": (23.00, 120.10, 23.15, 120.40),
+        "二仁溪": (22.90, 120.15, 23.05, 120.50),
+        "高屏溪": (22.45, 120.30, 23.20, 120.90),
+        "卑南溪": (22.75, 121.00, 23.15, 121.30),
+        "秀姑巒溪": (23.10, 121.10, 23.60, 121.50),
+        "花蓮溪": (23.50, 121.40, 24.00, 121.65),
+        "立霧溪": (24.12, 121.31, 24.19, 121.67),
+        "和平溪": (24.25, 121.40, 24.40, 121.75),
+        "冬山河": (24.60, 121.70, 24.70, 121.85),
+        "蘭陽溪": (24.50, 121.30, 24.80, 121.85),
+        "新城溪": (24.55, 121.75, 24.65, 121.88)
+    }
 
-    # 建立已存在之 river_name 對照以防重複
-    existing_names = {row[1].strip(): row[0].strip() for row in existing_records.values()}
+    log_msg("INFO", "開始為既有記錄發動 OSM 地理經緯度與 Rich Attributes 補全...")
     
-    # 排除關鍵字黑名單
-    blacklist = ["地區", "橋", "高速公路", "台鐵", "http", "列表", "河川", "國道", "噶瑪蘭", "泰雅", "牛鬥", "葫蘆堵"]
-    
-    for item in structure:
-        level = item["level"]
-        raw_name = item["name"]
-        name = clean_river_name(raw_name)
+    osm_cache = {}
+    for basin_name, bbox in basin_bboxes.items():
+        s, w, n, e = bbox
+        ql = f'[out:json][timeout:30];way[waterway]({s},{w},{n},{e});out tags;'
+        url = f"https://overpass-api.de/api/interpreter?data={urllib.parse.quote(ql)}"
+        cmd = ["curl", "-s", "-A", "BMAD-PA-Osm-Navigator/2.0", url]
+        try:
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            data = json.loads(res.stdout)
+            for el in data.get("elements", []):
+                tags = el.get("tags", {})
+                name = tags.get("name")
+                if name and name not in osm_cache:
+                    lat = el.get("lat") or (el.get("bounds", {}).get("minlat") if "bounds" in el else "")
+                    lon = el.get("lon") or (el.get("bounds", {}).get("minlon") if "bounds" in el else "")
+                    osm_cache[name] = {
+                        "lat": str(lat) if lat else "",
+                        "lon": str(lon) if lon else "",
+                        "w_type": tags.get("waterway", "stream")
+                    }
+        except Exception as e:
+            log_msg("WARN", f"抓取 {basin_name} 之 OSM 資料失敗: {e}")
+
+    updated_cnt = 0
+    for r_code, row in existing_records.items():
+        name = row[1].strip()
+        topology_path = row[3].strip()
+        is_civ = row[4].strip()
         
-        # 排除無關條目與分類
-        if any(b in name for b in blacklist) and not name.endswith("溪") and not name.endswith("河"):
-            continue
-        if name in ["中央管河川", "台灣河流列表", "台灣河流長度列表"]:
-            continue
-            
-        # 調整 stack 找出正確的 parent
-        while stack and stack[-1][0] >= level:
-            stack.pop()
-            
-        if not stack:
-            parent_code = root_parent_code
-            parent_path = root_parent_path
+        # 計算 Stream Order
+        order = str(compute_stream_order(topology_path))
+        
+        # STANDARD_HEADERS 索引對照:
+        # 0: river_code
+        # 1: river_name
+        # 2: parent_code
+        # 3: topology_path
+        # 4: is_civilian
+        # 5: basin_name
+        # 6: confluence_lon
+        # 7: confluence_lat
+        # 8: source_type
+        # 9: waterway_type
+        # 10: stream_order
+        # 11: has_osm_geo
+        # 12: wikidata_id
+        # 13: description
+        # 14: meta_data
+        # 15: contributor
+        # 16: updated_at
+        
+        row[10] = order  # stream_order
+        
+        if name in osm_cache:
+            info = osm_cache[name]
+            if not row[6] and info["lon"]: row[6] = info["lon"]
+            if not row[7] and info["lat"]: row[7] = info["lat"]
+            row[8] = "Verified_Both" if is_civ == "0" else "OSM"
+            row[9] = info["w_type"]
+            row[11] = "1"
+            updated_cnt += 1
         else:
-            parent_code = stack[-1][1]
-            parent_path = stack[-1][2]
-            
-        # 1. 若該河流名稱已存在於 CSV 中，則沿用其程式碼
-        if name in existing_names:
-            curr_code = existing_names[name]
-            curr_path = f"{parent_path}@{curr_code}"
-            stack.append((level, curr_code, curr_path))
+            if not row[8] or row[8] in ["WRA", "Wiki", "OSM", "Verified_Both"]:
+                row[8] = "WRA" if is_civ == "0" else "Wiki"
+            if not row[9] or row[9] in ["river", "stream", "canal"]:
+                row[9] = "river" if is_civ == "0" else "stream"
+            row[11] = "1" if (row[6] and row[7]) else "0"
+
+    log_msg("SUCCESS", f"已成功為 {updated_cnt} 筆紀錄補齊 OSM 實體經緯度與 Rich Attributes！")
+
+def export_filtered_records(records: dict, min_order: int = 5, exclude_osm_only: bool = False, geo_only: bool = False, target_basin: str = None) -> list:
+    """依據 Spec v1.0 屬性條件進行極致過濾"""
+    filtered = []
+    for r_code, row in records.items():
+        name = row[1].strip()
+        basin = row[5].strip()
+        s_type = row[8].strip()
+        s_order = int(row[10].strip()) if row[10].strip().isdigit() else 1
+        has_geo = row[11].strip() == "1"
+
+        if target_basin and basin != target_basin:
             continue
-            
-        # 2. 強制規範對照整合：若該河流存在於 100% 官方水利署資料庫中，直接使用官方真實 6 碼 (is_civilian = 0)
-        if name in official_wra_map:
-            off_code, off_parent, _ = official_wra_map[name]
-            curr_code = off_code
-            curr_path = f"{parent_path}@{curr_code}"
-            is_civ = "0"
-            contrib = "WRA"
-            desc = f"{basin_name}官方水系"
-            log_msg("INFO", f"🎯 [官方對照整合] 找到水利署權威 6 碼: {name} ➔ {curr_code}")
-        else:
-            # 3. 官方無紀錄之野溪，分配新 WRA-Civ 民間延伸程式碼 (is_civilian = 1)
-            c_idx = civ_counter_map.get(parent_code, 0) + 1
-            civ_counter_map[parent_code] = c_idx
-            
-            curr_code = f"{parent_code}-C{c_idx:02d}"
-            curr_path = f"{parent_path}@{curr_code}"
-            is_civ = "1"
-            contrib = contributor
-            desc = f"{basin_name}水系民間支流"
-        
-        row = [
-            curr_code,                     # river_code
-            name,                          # river_name
-            parent_code,                   # parent_code
-            curr_path,                     # topology_path
-            is_civ,                        # is_civilian
-            basin_name,                    # basin_name
-            "",                            # confluence_lon (留空 TODO)
-            "",                            # confluence_lat (留空 TODO)
-            "",                            # wikidata_id
-            desc,                          # description
-            "{}",                          # meta_data
-            contrib,                       # contributor
-            today_str                      # updated_at
-        ]
-        
-        new_rows.append(row)
-        existing_records[curr_code] = row
-        existing_names[name] = curr_code
-        stack.append((level, curr_code, curr_path))
-        
-    return new_rows
+        if s_order > min_order:
+            continue
+        if exclude_osm_only and s_type == "OSM":
+            continue
+        if geo_only and not has_geo:
+            continue
+
+        filtered.append(row)
+    return filtered
 
 def generate_mermaid_diagram(records: dict, target_basin: str = None) -> str:
-    """從 CSV 紀錄生成 Mermaid 拓樸圖語法"""
-    lines = [
-        "graph TD",
-        "    classDef official fill:#e1f5fe,stroke:#0288d1,stroke-width:1px;",
-        "    classDef civilian fill:#fff3e0,stroke:#f57c00,stroke-width:1px;",
-        ""
-    ]
+    """從紀錄產出 Mermaid 雙色拓樸關係圖 (藍色官方, 橘色民間)"""
+    lines = ["graph TD"]
+    styles = []
     
-    official_nodes = []
-    civilian_nodes = []
-    
-    for r_code, r_row in records.items():
-        name = r_row[1].strip()
-        p_code = r_row[2].strip()
-        basin = r_row[5].strip()
-        is_civ = r_row[4].strip() == "1"
+    for r_code, row in records.items():
+        name = row[1].strip()
+        p_code = row[2].strip()
+        basin = row[5].strip()
+        is_civ = row[4].strip() == "1"
         
         if target_basin and basin != target_basin:
             continue
             
-        node_id = f"R_{r_code.replace('-', '_')}"
-        label = f'"{name} ({r_code})"'
+        node_id = f"N_{r_code.replace('-', '_')}"
+        lines.append(f'    {node_id}["{name} ({r_code})"]')
         
         if is_civ:
-            civilian_nodes.append(node_id)
+            styles.append(f"    style {node_id} fill:#e67e22,stroke:#d35400,stroke-width:2px,color:#ffffff")
         else:
-            official_nodes.append(node_id)
+            styles.append(f"    style {node_id} fill:#2980b9,stroke:#1f618d,stroke-width:2px,color:#ffffff")
             
-        if p_code != "0" and p_code in records:
-            p_node_id = f"R_{p_code.replace('-', '_')}"
-            link_symbol = "-.->" if is_civ else "-->"
-            lines.append(f"    {p_node_id} {link_symbol} {node_id}[{label}]")
+        if p_code != "0":
+            p_node_id = f"N_{p_code.replace('-', '_')}"
+            lines.append(f"    {p_node_id} --> {node_id}")
             
-    lines.append("")
-    if official_nodes:
-        lines.append(f"    class {','.join(official_nodes)} official;")
-    if civilian_nodes:
-        lines.append(f"    class {','.join(civilian_nodes)} civilian;")
-        
+    lines.extend(styles)
     return "\n".join(lines)
 
 def main():
-    parser = argparse.ArgumentParser(description="WRA-Civ 河川拓樸自動化轉換與 CSV 批次註冊工具 (CGS v2.0)")
-    parser.add_argument("command", choices=["import", "mermaid", "validate", "schema", "version"], default="import", help="執行命令")
-    parser.add_argument("-i", "--input", help="輸入 JSON 結構檔案路徑 (來自 wiki_cli)")
-    parser.add_argument("-p", "--parent-code", help="根父節點河川程式碼 (例如: 蘭陽溪 114001, 濁水溪 121005)")
-    parser.add_argument("-b", "--basin", help="水系流域名稱 (例如: 蘭陽溪, 濁水溪)")
+    parser = argparse.ArgumentParser(description="WRA-Civ 河川拓樸自動化轉換與 Spec v1.0 富屬性管理工具 (CGS v2.0)")
+    parser.add_argument("command", choices=["import", "enrich", "export", "mermaid", "schema", "version"], default="import", help="執行命令")
+    parser.add_argument("-i", "--input", help="輸入 JSON 結構檔案路徑")
+    parser.add_argument("-p", "--parent-code", help="根父節點河川程式碼")
+    parser.add_argument("-b", "--basin", help="水系流域名稱 (例: 頭前溪)")
     parser.add_argument("-c", "--contributor", default="wuulong@gmail.com", help="貢獻者標記")
     parser.add_argument("--csv", default=CSV_PATH, help="指定 CSV 註冊表路徑")
-    parser.add_argument("-j", "--json", action="store_true", help="以 JSON 格式輸出處理結果")
+    
+    # Spec v1.0 過濾參數
+    parser.add_argument("--min-stream-order", type=int, default=5, help="過濾允許最大拓樸深度 (例: 2 只留主流與一級支流)")
+    parser.add_argument("--exclude-osm-only", action="store_true", help="排除僅 OSM 抓取到的微小溪流")
+    parser.add_argument("--geo-only", action="store_true", help="僅留存具備 OSM 地理經緯度之水線")
+
+    parser.add_argument("-j", "--json", action="store_true", help="以 JSON 格式輸出")
     parser.add_argument("-v", "--verbose", action="store_true", help="詳細日誌")
-    
+
     args = parser.parse_args()
-    
+
     if args.command == "version":
-        print(f"river_topology_importer.py v1.1.0 (CGS Spec v{__cli_spec_version__})")
+        print(f"river_topology_importer.py v2.0.0 (CGS Spec v{__cli_spec_version__})")
         sys.exit(0)
+
+    if os.path.isabs(args.csv):
+        abs_csv_path = args.csv
+    else:
+        abs_csv_path = os.path.abspath(args.csv) if os.path.exists(os.path.abspath(args.csv)) else os.path.abspath(os.path.join(WORKSPACE_ROOT, args.csv))
         
-    workspace_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-    abs_csv_path = os.path.abspath(os.path.join(workspace_root, args.csv))
     headers, existing_records = read_existing_csv(abs_csv_path)
-    
-    if args.command == "mermaid":
-        mermaid_code = generate_mermaid_diagram(existing_records, args.basin)
-        print(mermaid_code)
-        sys.exit(0)
-        
-    if args.command == "import":
-        if not args.input or not os.path.exists(args.input):
-            log_msg("ERROR", f"輸入 JSON 檔案不存在: {args.input}")
-            sys.exit(1)
-            
-        log_msg("INFO", f"讀取 Wiki 樹狀 JSON: {args.input}")
-        with open(args.input, "r", encoding="utf-8") as f:
-            structure = json.load(f)
-            
-        workspace_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
-        abs_csv_path = os.path.abspath(os.path.join(workspace_root, args.csv))
-        
-        headers, existing_records = read_existing_csv(abs_csv_path)
-        
-        if args.parent_code not in existing_records:
-            log_msg("WARN", f"父節點程式碼 {args.parent_code} 未在 CSV 中找到，請確認根節點已存在。")
-            root_path = f"0@{args.parent_code}"
-        else:
-            root_path = existing_records[args.parent_code][3]
-            
-        official_wra_map = load_official_wra_baseline()
-        log_msg("INFO", f"已加載水利署全量官方開放資料集，包含 {len(official_wra_map)} 個權威程式碼對")
-        
-        new_rows = process_tree_structure(
-            structure,
-            args.parent_code,
-            root_path,
-            args.basin,
-            args.contributor,
-            existing_records,
-            official_wra_map
-        )
-        
-        log_msg("SUCCESS", f"拓樸計算完成，共生成 {len(new_rows)} 條全新 WRA-Civ 節點記錄")
-        
-        # 寫回 CSV
+
+    if args.command == "enrich":
+        enrich_existing_records_with_osm(existing_records)
         with open(abs_csv_path, "w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(headers)
+            writer.writerow(STANDARD_HEADERS)
             for row in existing_records.values():
                 writer.writerow(row)
-                
-        log_msg("SUCCESS", f"成功寫入 CSV 註冊表: {abs_csv_path}")
-        
+        log_msg("SUCCESS", f"全量舊記錄 Spec v1.0 屬性補全完成，寫入: {abs_csv_path}")
+        sys.exit(0)
+
+    if args.command == "mermaid":
+        mermaid_code = generate_mermaid_diagram(existing_records, target_basin=args.basin)
+        print(mermaid_code)
+        sys.exit(0)
+
+    if args.command == "export":
+        filtered = export_filtered_records(
+            existing_records,
+            min_order=args.min_stream_order,
+            exclude_osm_only=args.exclude_osm_only,
+            geo_only=args.geo_only,
+            target_basin=args.basin
+        )
+        log_msg("INFO", f"屬性過濾完成，共符合 {len(filtered)} / {len(existing_records)} 筆記錄")
         if args.json:
-            print(json.dumps(new_rows, indent=2, ensure_ascii=False))
+            print(json.dumps(filtered, ensure_ascii=False, indent=2))
+        else:
+            writer = csv.writer(sys.stdout)
+            writer.writerow(STANDARD_HEADERS)
+            for r in filtered:
+                writer.writerow(r)
+        sys.exit(0)
 
 if __name__ == "__main__":
     main()

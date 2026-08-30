@@ -1,0 +1,42 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:00:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 409100220,
+      "tags": {
+        "name": "石門溪",
+        "name:en": "Shimen River",
+        "name:ja": "石門渓",
+        "name:nan": "Chio̍h-mn̂g-khe",
+        "name:nan-Hant": "石門溪",
+        "name:nan-Latn-pehoeji": "Chio̍h-mn̂g-khe",
+        "name:nan-Latn-tailo": "Tsio̍h-mn̂g-khe",
+        "name:zh": "石門溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 426515145,
+      "tags": {
+        "name": "石門溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 725788012,
+      "tags": {
+        "name": "石門溪",
+        "source:name": "NLSC",
+        "waterway": "stream"
+      }
+    }
+  ]
+}

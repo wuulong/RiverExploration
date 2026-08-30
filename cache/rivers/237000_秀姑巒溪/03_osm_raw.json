@@ -1,0 +1,73 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:18:05Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 75275722,
+      "tags": {
+        "name": "秀姑巒溪",
+        "name:ams": "Siwkolan a tarawadaw",
+        "name:en": "Xiuguluan River",
+        "name:nan": "Siù-ko͘-loân-khe",
+        "name:nan-Hant": "秀姑巒溪",
+        "name:nan-Latn-pehoeji": "Siù-ko͘-loân-khe",
+        "name:nan-Latn-tailo": "Siù-koo-luân-khe",
+        "name:zh": "秀姑巒溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 761445358,
+      "tags": {
+        "name": "秀姑巒溪",
+        "name:ams": "Siwkolan a tarawadaw",
+        "name:en": "Xiuguluan River",
+        "name:nan": "Siù-ko͘-loân-khe",
+        "name:nan-Hant": "秀姑巒溪",
+        "name:nan-Latn-pehoeji": "Siù-ko͘-loân-khe",
+        "name:nan-Latn-tailo": "Siù-koo-luân-khe",
+        "name:zh": "秀姑巒溪",
+        "waterway": "river",
+        "wikidata": "Q708591"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1051537250,
+      "tags": {
+        "name": "秀姑巒溪",
+        "name:ams": "Siwkolan a tarawadaw",
+        "name:en": "Xiuguluan River",
+        "name:nan": "Siù-ko͘-loân-khe",
+        "name:nan-Hant": "秀姑巒溪",
+        "name:nan-Latn-pehoeji": "Siù-ko͘-loân-khe",
+        "name:nan-Latn-tailo": "Siù-koo-luân-khe",
+        "name:zh": "秀姑巒溪",
+        "waterway": "river",
+        "wikidata": "Q708591"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1204803401,
+      "tags": {
+        "name": "秀姑巒溪",
+        "name:ams": "Siwkolan a tarawadaw",
+        "name:en": "Xiuguluan River",
+        "name:nan": "Siù-ko͘-loân-khe",
+        "name:nan-Hant": "秀姑巒溪",
+        "name:nan-Latn-pehoeji": "Siù-ko͘-loân-khe",
+        "name:nan-Latn-tailo": "Siù-koo-luân-khe",
+        "name:zh": "秀姑巒溪",
+        "waterway": "river",
+        "wikidata": "Q708591"
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:07:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 241580207,
+      "tags": {
+        "alt_name:de": "DaJia Fluss",
+        "alt_name:en": "Tachia Creek",
+        "name": "大甲溪",
+        "name:en": "Dajia River",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 394290181,
+      "tags": {
+        "alt_name:de": "DaJia Fluss",
+        "alt_name:en": "Tachia Creek",
+        "name": "大甲溪",
+        "name:en": "Dajia River",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 477102840,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 480854501,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 480854503,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 483267920,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 788246943,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1086486436,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1460961669,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1460961670,
+      "tags": {
+        "alt_name:en": "Dajia River",
+        "alt_name:nan": "Tāi-kah-khe",
+        "layer": "-1",
+        "name": "大甲溪",
+        "name:en": "Tachia Creek",
+        "name:nan": "Tāi-kah-khe",
+        "name:nan-Hant": "大甲溪",
+        "name:nan-Latn-pehoeji": "Tāi-kah-khe",
+        "name:nan-Latn-tailo": "Tāi-kah-khe",
+        "name:zh": "大甲溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q714246",
+        "wikipedia": "zh:大甲溪"
+      }
+    }
+  ]
+}

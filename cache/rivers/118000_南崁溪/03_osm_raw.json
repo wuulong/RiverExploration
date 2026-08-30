@@ -1,0 +1,102 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:02:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 198324648,
+      "tags": {
+        "boat": "no",
+        "name": "南崁溪",
+        "name:en": "Nankan River",
+        "name:nan": "Lâm-kham-khe",
+        "name:nan-Latn-pehoeji": "Lâm-kham-khe",
+        "name:zh": "南崁溪",
+        "waterway": "river",
+        "wikidata": "Q6963739",
+        "wikipedia": "zh:南崁溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 200170362,
+      "tags": {
+        "boat": "no",
+        "name": "南崁溪",
+        "name:en": "Nankan River",
+        "name:nan": "Lâm-kham-khe",
+        "name:nan-Latn-pehoeji": "Lâm-kham-khe",
+        "name:zh": "南崁溪",
+        "waterway": "river",
+        "wikidata": "Q6963739",
+        "wikipedia": "zh:南崁溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 200170364,
+      "tags": {
+        "boat": "no",
+        "name": "南崁溪",
+        "name:en": "Nankan River",
+        "name:nan": "Lâm-kham-khe",
+        "name:nan-Hant": "南崁溪",
+        "name:nan-Latn-pehoeji": "Lâm-kham-khe",
+        "name:nan-Latn-tailo": "Lâm-kham-khe",
+        "name:zh": "南崁溪",
+        "waterway": "river",
+        "wikidata": "Q6963739",
+        "wikipedia": "zh:南崁溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 762477016,
+      "tags": {
+        "boat": "no",
+        "layer": "-1",
+        "name": "南崁溪",
+        "name:en": "Nankan River",
+        "name:zh": "南崁溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436342266,
+      "tags": {
+        "boat": "no",
+        "name": "南崁溪",
+        "name:en": "Nankan River",
+        "name:nan": "Lâm-kham-khe",
+        "name:nan-Latn-pehoeji": "Lâm-kham-khe",
+        "name:zh": "南崁溪",
+        "waterway": "river",
+        "wikidata": "Q6963739",
+        "wikipedia": "zh:南崁溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436342267,
+      "tags": {
+        "boat": "no",
+        "layer": "-1",
+        "name": "南崁溪",
+        "name:en": "Nankan River",
+        "name:nan": "Lâm-kham-khe",
+        "name:nan-Latn-pehoeji": "Lâm-kham-khe",
+        "name:zh": "南崁溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q6963739",
+        "wikipedia": "zh:南崁溪"
+      }
+    }
+  ]
+}

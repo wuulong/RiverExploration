@@ -1,0 +1,62 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:01:01Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 333037103,
+      "tags": {
+        "name": "後州溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 761966896,
+      "tags": {
+        "name": "後州溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444674185,
+      "tags": {
+        "name": "後州溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444674186,
+      "tags": {
+        "layer": "-1",
+        "name": "後州溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1448536474,
+      "tags": {
+        "name": "後州溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1448536475,
+      "tags": {
+        "layer": "-1",
+        "name": "後州溪",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    }
+  ]
+}

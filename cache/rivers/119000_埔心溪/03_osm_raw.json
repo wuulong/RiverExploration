@@ -1,0 +1,86 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:03:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 362927873,
+      "tags": {
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 362972692,
+      "tags": {
+        "layer": "-1",
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 362972696,
+      "tags": {
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "waterway": "river",
+        "wikidata": "Q21041593"
+      }
+    },
+    {
+      "type": "way",
+      "id": 664055913,
+      "tags": {
+        "layer": "-1",
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "tunnel": "yes",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 664055914,
+      "tags": {
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435817123,
+      "tags": {
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1435817124,
+      "tags": {
+        "layer": "-1",
+        "name": "埔心溪",
+        "name:en": "Pusin River",
+        "name:zh": "埔心溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    }
+  ]
+}

@@ -43,7 +43,7 @@ flowchart TD
 
 ### 2. 中間態樹狀 JSON 規格與真實產物 (Real Tree JSON Output)
 
-在實際運作中，LLM 解析 Wiki 水系列表時，只需要依據 Wiki 的清單縮排產出 `level` 數字即可，**不需要在 JSON 每一筆中指定父節點**，後續的父子親緣關係與程式碼完全交由 `river_topology_importer.py` 透過 Stack 堆疊演演算法精確還原。
+在實際運作中，LLM 解析 Wiki 水系列表時，只需要依據 Wiki 的清單縮排產出 `level` 數字即可，**不需要在 JSON 每一筆中指定父節點**，後續的父子親緣關係與程式碼完全交由 `river_topology_importer.py` 透過 Stack 堆疊演演演演演演演演演演演演演演演演演演算法精確還原。
 
 #### 💡 頭前溪實測真實產出片段（`templates/touqian_tree_real.json`）：
 ```json

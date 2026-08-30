@@ -1,0 +1,13 @@
+{
+  "river_code": "211000",
+  "river_name": "烏萬溪",
+  "cache_status": "VERIFIED_SINGLE_STREAM",
+  "wiki_source_status": "WIKI_HAS_ENTRY",
+  "branch_count": 1,
+  "notes": "Agentic AI 審閱 507 字條目，雖內文有『匯集新化附近諸支流』但無具名支流，權威定案為獨立單一主流水系。",
+  "provenance": {
+    "audited_at": "2026-08-30T06:49:41.503354",
+    "repaired_by": "Antigravity Agentic AI Direct Reading",
+    "verdict": "CONFIRMED_SINGLE_STREAM"
+  }
+}

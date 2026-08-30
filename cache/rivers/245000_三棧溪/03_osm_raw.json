@@ -1,0 +1,42 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:19:10Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 511260823,
+      "tags": {
+        "name": "三棧溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 511661765,
+      "tags": {
+        "name": "三棧溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 511661793,
+      "tags": {
+        "name": "三棧溪",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 511661810,
+      "tags": {
+        "name": "三棧溪",
+        "waterway": "river"
+      }
+    }
+  ]
+}

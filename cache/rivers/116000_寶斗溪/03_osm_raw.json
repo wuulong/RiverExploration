@@ -1,0 +1,103 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:02:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 286531906,
+      "tags": {
+        "name": "寶斗溪",
+        "name:en": "Baodou River",
+        "name:nan": "Pó-táu-khoe",
+        "name:nan-Hant": "寶斗溪",
+        "name:nan-Latn-pehoeji": "Pó-táu-khoe",
+        "name:nan-Latn-tailo": "Pó-táu-khue",
+        "name:zh": "寶斗溪",
+        "waterway": "river",
+        "wikidata": "Q10956226"
+      }
+    },
+    {
+      "type": "way",
+      "id": 332268532,
+      "tags": {
+        "name": "寶斗溪",
+        "name:en": "Baodou River",
+        "name:nan": "Pó-táu-khoe",
+        "name:nan-Hant": "寶斗溪",
+        "name:nan-Latn-pehoeji": "Pó-táu-khoe",
+        "name:nan-Latn-tailo": "Pó-táu-khue",
+        "name:zh": "寶斗溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685211,
+      "tags": {
+        "name": "寶斗溪",
+        "name:en": "Baodou River",
+        "name:nan": "Pó-táu-khoe",
+        "name:nan-Hant": "寶斗溪",
+        "name:nan-Latn-pehoeji": "Pó-táu-khoe",
+        "name:nan-Latn-tailo": "Pó-táu-khue",
+        "name:zh": "寶斗溪",
+        "waterway": "river",
+        "wikidata": "Q10956226"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685212,
+      "tags": {
+        "layer": "-1",
+        "name": "寶斗溪",
+        "name:en": "Baodou River",
+        "name:nan": "Pó-táu-khoe",
+        "name:nan-Hant": "寶斗溪",
+        "name:nan-Latn-pehoeji": "Pó-táu-khoe",
+        "name:nan-Latn-tailo": "Pó-táu-khue",
+        "name:zh": "寶斗溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q10956226"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685213,
+      "tags": {
+        "name": "寶斗溪",
+        "name:en": "Baodou River",
+        "name:nan": "Pó-táu-khoe",
+        "name:nan-Hant": "寶斗溪",
+        "name:nan-Latn-pehoeji": "Pó-táu-khoe",
+        "name:nan-Latn-tailo": "Pó-táu-khue",
+        "name:zh": "寶斗溪",
+        "waterway": "river",
+        "wikidata": "Q10956226"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685214,
+      "tags": {
+        "layer": "-1",
+        "name": "寶斗溪",
+        "name:en": "Baodou River",
+        "name:nan": "Pó-táu-khoe",
+        "name:nan-Hant": "寶斗溪",
+        "name:nan-Latn-pehoeji": "Pó-táu-khoe",
+        "name:nan-Latn-tailo": "Pó-táu-khue",
+        "name:zh": "寶斗溪",
+        "tunnel": "culvert",
+        "waterway": "river",
+        "wikidata": "Q10956226"
+      }
+    }
+  ]
+}

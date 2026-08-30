@@ -1,0 +1,142 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:04:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 30074991,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fongshan River",
+        "name:zh": "鳳山溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 91846587,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "river",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 128851513,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "river",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 155868133,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "river",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 326360693,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "river",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 326360694,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "river",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 520947385,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "stream",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    },
+    {
+      "type": "way",
+      "id": 537158795,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 537158798,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "stream"
+      }
+    },
+    {
+      "type": "way",
+      "id": 760894361,
+      "tags": {
+        "name": "鳳山溪",
+        "name:en": "Fengshan River",
+        "name:nan": "Hōng-soaⁿ-khe",
+        "name:zh": "鳳山溪",
+        "ref": "129000",
+        "waterway": "river",
+        "wikidata": "Q5465035",
+        "wikipedia": "zh:鳳山溪"
+      }
+    }
+  ]
+}

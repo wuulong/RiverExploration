@@ -1,0 +1,158 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:03:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 126832469,
+      "tags": {
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 405692383,
+      "tags": {
+        "name": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 405692385,
+      "tags": {
+        "alt_name": "觀音溪幹線",
+        "name": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 405692387,
+      "tags": {
+        "alt_name": "觀音溪幹線",
+        "name": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 708442748,
+      "tags": {
+        "layer": "-1",
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 708442749,
+      "tags": {
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 708442762,
+      "tags": {
+        "layer": "-1",
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 708442763,
+      "tags": {
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 708442768,
+      "tags": {
+        "layer": "-1",
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 708442769,
+      "tags": {
+        "name": "觀音溪",
+        "name:en": "Guanyin River",
+        "name:zh": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436849982,
+      "tags": {
+        "name": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436849983,
+      "tags": {
+        "layer": "-1",
+        "name": "觀音溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436849984,
+      "tags": {
+        "name": "觀音溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436849985,
+      "tags": {
+        "layer": "-1",
+        "name": "觀音溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1436849986,
+      "tags": {
+        "layer": "-1",
+        "name": "觀音溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    }
+  ]
+}

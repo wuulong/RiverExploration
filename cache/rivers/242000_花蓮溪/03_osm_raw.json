@@ -1,0 +1,46 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:19:10Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 761445356,
+      "tags": {
+        "alt_name:nan": "Hoa-liân-khe;Hoe-lian-khe",
+        "alt_name:nan-Latn-pehoeji": "Hoa-liân-khe;Hoe-lian-khe",
+        "alt_name:nan-Latn-tailo": "Hua-liân-khe;Hue-lian-khe",
+        "boat": "no",
+        "name": "花蓮溪",
+        "name:en": "Hualian River",
+        "name:nan": "Hoa-lian-khe",
+        "name:nan-Hant": "花蓮溪",
+        "name:nan-Latn-pehoeji": "Hoa-lian-khe",
+        "name:nan-Latn-tailo": "Hua-lian-khe",
+        "name:zh": "花蓮溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 800387618,
+      "tags": {
+        "alt_name:nan": "Hoa-liân-khe;Hoe-lian-khe",
+        "alt_name:nan-Latn-pehoeji": "Hoa-liân-khe;Hoe-lian-khe",
+        "alt_name:nan-Latn-tailo": "Hua-liân-khe;Hue-lian-khe",
+        "boat": "no",
+        "name": "花蓮溪",
+        "name:en": "Hualian River",
+        "name:nan": "Hoa-lian-khe",
+        "name:nan-Hant": "花蓮溪",
+        "name:nan-Latn-pehoeji": "Hoa-lian-khe",
+        "name:nan-Latn-tailo": "Hua-lian-khe",
+        "name:zh": "花蓮溪",
+        "waterway": "river"
+      }
+    }
+  ]
+}

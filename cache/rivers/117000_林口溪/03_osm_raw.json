@@ -1,0 +1,294 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-08-29T16:02:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 199146683,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166642,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166643,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166644,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166662,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166663,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166664,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166665,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166666,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166667,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1443166668,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685215,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685216,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685217,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685218,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685219,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1444685220,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1459985172,
+      "tags": {
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "waterway": "river"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1459985173,
+      "tags": {
+        "layer": "-1",
+        "name": "林口溪",
+        "name:en": "Linkou River",
+        "name:nan": "Nâ-á-kháu-khoe",
+        "name:nan-Hant": "林仔口溪",
+        "name:nan-Latn-pehoeji": "Nâ-á-kháu-khoe",
+        "name:nan-Latn-tailo": "Nâ-á-kháu-khue",
+        "name:zh": "林口溪",
+        "tunnel": "culvert",
+        "waterway": "river"
+      }
+    }
+  ]
+}
