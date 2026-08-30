@@ -4,15 +4,15 @@ book_id: "RiverExploration"
 title: "流域導航：台灣母親之河的深度探索與實踐指南"
 category: "methodology"
 author: "wuulong / Antigravity"
-version: "1.0.0"
+version: "2.4.0"
 ---
 
 # 《流域導航：台灣母親之河的深度探索與實踐指南》
 
 ## 版本資訊
-*   **版本**：v2.3 (WRA-Civ Full Taiwan 150 Rivers & OSM Geometry Alignment)
+*   **版本**：v2.4 (3D Hydrological Elevation & AI-Native JSONL Migration)
 *   **日期**：2026-08-30
-*   **狀態**：完成全台灣 150 條主流水系（998 筆水脈）大一統拓樸登錄，對照整合 OpenStreetMap 物理水網經緯度座標與水利署官方 Baseline。
+*   **狀態**：完成全台 1,418 條水脈 3D 水理拓樸大一統、AI-Native JSONL 雙軌格式上線、354 筆實體 3D 海拔高程與幾何厚化。
 
 ## 目錄
 

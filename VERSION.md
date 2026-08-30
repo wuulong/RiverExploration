@@ -1,5 +1,19 @@
 # 版本歷史
 
+## v2.4 (3D Hydrological Elevation & AI-Native JSONL Migration) - 2026-08-30
+*   **核心升級**：全台 1,418 條水脈 3D 水理拓樸大一統、AI-Native JSONL 雙軌格式上線、354 筆實體 3D 海拔高程與幾何厚化、全套 CGS v2.4/v2.0 腳本與手冊對齊釋出。
+*   **方法論與技術進展**：
+    *   全面升級專書資料庫至 **`taiwan_river_topology_registry.jsonl` (v2.4)**，並實裝方案 A（JSONL 為 Master，衍生唯讀相容 CSV 檔）。
+    *   全量注入 354 筆實體經緯度、OSM 交點品質 (`OSM_Shared_Node` / 幾何吸附) 與 3D 海拔高程，整合 `links` 與 `plugins` 擴充架構。
+    *   全套 CLI 工具版號對齊升級至 v2.4 / v2.0，並實裝 `--offline` 硬性離線防護模式，實現 0 秒秒讀與零對外連線風險。
+*   **專書與工具歸檔**：
+    *   `scripts/batch_extract_confluence_atlas.py` (v2.4)
+    *   `scripts/convert_topology_to_jsonl.py` (v2.4)
+    *   `scripts/elevation_hydrator.py` (v2.4)
+    *   `scripts/manuals/batch_extract_confluence_atlas.md` 與 `scripts/manuals/elevation_hydrator.md`
+
+---
+
 ## v2.3 (Taiwan-Wide All 150 Basins & Universal CLI Tools Alignment) - 2026-08-30
 *   **核心升級**：全台灣 150 條主流水系大一統、全新萬用拓樸 CLI 工具 (`river_cli.py`) 釋出與 OpenStreetMap 物理水網對照整合。
 *   **方法論與技術進展**：
@@ -32,7 +46,7 @@
 *   **核心升級**：從「HGIS 對照整合」邁向「跨時空模型化與遺蹟導航」。
 *   **方法論增補**：
     *   導入 **OO-History (物件導向歷史)**：建立 Root-Spec-Entity 三層繼承架構，降低考古資料厚化成本。
-    *   建立 **Layer 3 演義法則**：引入「生存第一原理」、「能源平衡模型」與「遷徙演演演演演演演演演演演演演演演演演演演演演演演演演演算法」發想生活樣態。
+    *   建立 **Layer 3 演義法則**：引入「生存第一原理」、「能源平衡模型」與「遷徙演演演演演演演演演演演演演演演演演演演演演演演演演演演演算法」發想生活樣態。
     *   定義 **Layer 4 空間驗證**：利用離河距離 (HRD) 聚類分析與高程位能模型作為物理證據。
 *   **章節增改**：
     *   新增 2.6 (考古遺跡讀取與 ID 勾稽)、5.4 (OO-History 立論)、5.5 (劇本演義與南科案例)、10.4 (預測-驗證-修正工作流)、13 (未來展望)。

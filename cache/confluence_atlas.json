@@ -1,15 +1,15 @@
 {
   "metadata": {
     "title": "全台水系實體水網幾何匯流點地圖集 (Confluence Atlas)",
-    "generator": "BMAD-PA Confluence Engine v3.1.0",
-    "generated_at": "2026-08-30 17:46:11",
-    "source_csv": "/Users/wuulong/github/bmad-pa/events/AIBooks/RiverExploration/taiwan_river_topology_registry.csv",
+    "generator": "BMAD-PA Confluence Engine v3.2.0",
+    "generated_at": "2026-08-30 19:04:21",
+    "source_csv": "taiwan_river_topology_registry.jsonl",
     "statistics": {
       "total": 1418,
-      "shared_node": 310,
-      "nearest_match": 56,
+      "shared_node": 317,
+      "nearest_match": 58,
       "outfall_sea": 0,
-      "no_geo": 1101
+      "no_geo": 1132
     }
   },
   "confluence_atlas": {
@@ -28,7 +28,7 @@
       "estimated_length_km": 46.82,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C01-C01": {
       "confluence_id": "J-130000-C01-C01",
@@ -45,7 +45,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "1300E0": {
       "confluence_id": "J-1300E0",
@@ -62,7 +62,7 @@
       "estimated_length_km": 31.7,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C02": {
       "confluence_id": "J-130000-C02",
@@ -79,7 +79,7 @@
       "estimated_length_km": 44.6,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03": {
       "confluence_id": "J-130000-C03",
@@ -96,7 +96,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C01": {
       "confluence_id": "J-130000-C03-C01",
@@ -113,7 +113,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C01-C01": {
       "confluence_id": "J-130000-C03-C01-C01",
@@ -130,7 +130,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C01-C02": {
       "confluence_id": "J-130000-C03-C01-C02",
@@ -147,7 +147,7 @@
       "estimated_length_km": 40.02,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C01-C03": {
       "confluence_id": "J-130000-C03-C01-C03",
@@ -164,7 +164,7 @@
       "estimated_length_km": 25.71,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C01-C03-C01": {
       "confluence_id": "J-130000-C03-C01-C03-C01",
@@ -181,7 +181,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C02": {
       "confluence_id": "J-130000-C03-C02",
@@ -198,7 +198,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C03-C02-C01": {
       "confluence_id": "J-130000-C03-C02-C01",
@@ -215,7 +215,7 @@
       "estimated_length_km": 0.99,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C04": {
       "confluence_id": "J-130000-C04",
@@ -232,7 +232,7 @@
       "estimated_length_km": 14.18,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130000-C04-C01": {
       "confluence_id": "J-130000-C04-C01",
@@ -249,7 +249,7 @@
       "estimated_length_km": 16.81,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 150.0
     },
     "130000-C04-C02": {
@@ -267,7 +267,7 @@
       "estimated_length_km": 16.15,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 178.0
     },
     "130020": {
@@ -285,7 +285,7 @@
       "estimated_length_km": 87.36,
       "name_en": "Youluo River",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130020-C01": {
       "confluence_id": "J-130020-C01",
@@ -302,7 +302,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130025": {
       "confluence_id": "J-130025",
@@ -319,7 +319,7 @@
       "estimated_length_km": 31.61,
       "name_en": "Lalu Brook",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 372.0
     },
     "130010": {
@@ -337,7 +337,7 @@
       "estimated_length_km": 97.12,
       "name_en": "Shangping River",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130010-C01": {
       "confluence_id": "J-130010-C01",
@@ -354,7 +354,7 @@
       "estimated_length_km": 20.23,
       "name_en": "Huayuan River",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 1291.0
     },
     "130010-C02": {
@@ -372,7 +372,7 @@
       "estimated_length_km": 37.89,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 1025.0
     },
     "130010-C03": {
@@ -390,7 +390,7 @@
       "estimated_length_km": 21.81,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 1200.0
     },
     "130011": {
@@ -408,7 +408,7 @@
       "estimated_length_km": 41.73,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 932.0
     },
     "130060": {
@@ -426,7 +426,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130061": {
       "confluence_id": "J-130061",
@@ -443,7 +443,7 @@
       "estimated_length_km": 6.45,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130070": {
       "confluence_id": "J-130070",
@@ -460,7 +460,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130071": {
       "confluence_id": "J-130071",
@@ -477,7 +477,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "1300A0": {
       "confluence_id": "J-1300A0",
@@ -494,7 +494,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "1300D0": {
       "confluence_id": "J-1300D0",
@@ -511,7 +511,7 @@
       "estimated_length_km": 2.35,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "1300C0": {
       "confluence_id": "J-1300C0",
@@ -528,7 +528,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130090": {
       "confluence_id": "J-130090",
@@ -545,7 +545,7 @@
       "estimated_length_km": 6.8,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130080": {
       "confluence_id": "J-130080",
@@ -562,7 +562,7 @@
       "estimated_length_km": 7.06,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "1300B0": {
       "confluence_id": "J-1300B0",
@@ -579,7 +579,7 @@
       "estimated_length_km": 9.06,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130040": {
       "confluence_id": "J-130040",
@@ -596,7 +596,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130050": {
       "confluence_id": "J-130050",
@@ -613,7 +613,7 @@
       "estimated_length_km": 1.83,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130030": {
       "confluence_id": "J-130030",
@@ -630,7 +630,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130023": {
       "confluence_id": "J-130023",
@@ -647,7 +647,7 @@
       "estimated_length_km": 8.14,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 249.0
     },
     "130024": {
@@ -665,7 +665,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130022": {
       "confluence_id": "J-130022",
@@ -682,7 +682,7 @@
       "estimated_length_km": 0.0,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38"
+      "updated_at": "2026-08-30 19:04:21"
     },
     "130021": {
       "confluence_id": "J-130021",
@@ -699,7 +699,7 @@
       "estimated_length_km": 6.64,
       "name_en": "",
       "name_wiki": "",
-      "updated_at": "2026-08-30 17:09:38",
+      "updated_at": "2026-08-30 19:04:21",
       "confluence_elevation_m": 198.0
     },
     "114021": {

@@ -24,7 +24,7 @@ import time
 import argparse
 from datetime import datetime
 
-__cli_spec_version__ = "3.1.0"
+__cli_spec_version__ = "2.0"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 BOOK_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
@@ -79,14 +79,13 @@ def calculate_way_length_km(geometry):
         total_m += haversine_dist(p1["lat"], p1["lon"], p2["lat"], p2["lon"])
     return round(total_m / 1000.0, 2)
 
-def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", basin_code: str = "000000"):
-    """水系級一次性批次打包 QL 下載 (Spec v3.1.0)，使用 basin_code 防禦全台同名水系衝突"""
+def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", basin_code: str = "000000", offline: bool = False):
+    """水系級一次性批次打包 QL 下載 (Spec v3.2.0)，支援 --offline 剛性離線保護模式"""
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
 
     os.makedirs(GEOM_CACHE_DIR, exist_ok=True)
-    # 使用水系代碼 + 水系名稱 作為唯一快取鍵 (Unique Cache Key)
     cache_key = f"basin_{basin_code}_{basin_name}_raw"
     basin_cache_file = os.path.join(GEOM_CACHE_DIR, f"{cache_key}.json")
 
@@ -100,7 +99,12 @@ def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", bas
         except Exception:
             pass
 
-    # 2. 生成全體河流與變體清單
+    # 2. 若啟用 --offline 剛性離線模式，未命中時絕對不打 API，安全回傳
+    if offline:
+        print(f"\n  ├─ 🛡️ [離線保護模式 (--offline)] 快取未命中水系 [{basin_code}_{basin_name}]，跳過網路 API 下載。", file=sys.stderr)
+        return []
+
+    # 3. 生成全體河流與變體清單並發動 11 秒 QL 下載
     clean_names = list(dict.fromkeys(clean_river_name(n) for n in river_names if clean_river_name(n) and is_valid_chinese_river_name(clean_river_name(n))))
     if not clean_names:
         return []
@@ -112,7 +116,7 @@ def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", bas
 
     regex_pattern = "|".join(re.escape(v) for v in all_variants)
 
-    print(f"\n🌐 [Overpass API v3.1.0] 發動 11 秒一次性批次打包 QL，抓取水系 [{basin_code}_{basin_name}] 全體 {len(clean_names)} 條水脈...", file=sys.stderr)
+    print(f"\n🌐 [Overpass API v3.2.0] 發動 11 秒一次性批次打包 QL，抓取水系 [{basin_code}_{basin_name}] 全體 {len(clean_names)} 條水脈...", file=sys.stderr)
 
     ql = f'[out:json][timeout:30];way[waterway][name~"{regex_pattern}"](21.8,119.8,25.4,122.1);out body geom;'
     target_url = f"https://overpass-api.de/api/interpreter?data={urllib.parse.quote(ql)}"
@@ -129,7 +133,7 @@ def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", bas
         except Exception:
             time.sleep(1.5)
 
-    # 3. 下載完成第一秒，100% 強力落庫寫入唯一快取小檔！
+    # 4. 下載完成第一秒，100% 強力落庫寫入唯一快取小檔！
     try:
         with open(basin_cache_file, "w", encoding="utf-8") as f_out:
             json.dump(all_elements, f_out, ensure_ascii=False, indent=2)
@@ -164,7 +168,7 @@ def print_status(output_json_path):
     print(f"❓ 尚無 OSM 幾何線條: {stats.get('no_geo', 0)} 筆")
     print("============================================================")
 
-def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool = False, limit: int = None, target_basin: str = None):
+def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool = False, limit: int = None, target_basin: str = None, offline: bool = False):
     with open(csv_path, "r", encoding="utf-8") as f:
         records = list(csv.DictReader(f))
 
@@ -230,9 +234,9 @@ def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool 
         sys.stderr.write(f"\r🔍 正在計算水系幾何 [{idx}/{total_basins}] {b_code}_{b_name:<16} | 包含 {len(b_records)} 條水脈...")
         sys.stderr.flush()
 
-        # 批次發動 Overpass API 精準水系級補網 (Spec v3.1.0 帶入 b_code)
+        # 批次發動 Overpass API 精準水系級補網 (Spec v3.2.0 帶入 b_code 與 offline 旗標)
         basin_river_names = [r["river_name"] for r in b_records]
-        elements = fetch_osm_geom_for_basin(basin_river_names, basin_name=b_name, basin_code=b_code)
+        elements = fetch_osm_geom_for_basin(basin_river_names, basin_name=b_name, basin_code=b_code, offline=offline)
         
         # 整理水系內各河流幾何
         river_geoms = {}
@@ -352,13 +356,14 @@ def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool 
     print(f"📊 統計摘要: 共有 Node 交點: {stats['shared_node']} 筆 | 幾何端點匹配: {stats['nearest_match']} 筆 | 出海口: {stats['outfall_sea']} 筆 | 無 OSM 幾何: {stats['no_geo']} 筆", file=sys.stderr)
 
 def main():
-    parser = argparse.ArgumentParser(description="全台 150 水系實體水網幾何匯流點與多維水文屬性全量計算引擎 (CGS v3.0.0)")
+    parser = argparse.ArgumentParser(description="全台 150 水系實體水網幾何匯流點與多維水文屬性全量計算引擎 (CGS v3.2.0)")
     parser.add_argument("-c", "--csv", default=CSV_PATH, help="來源拓撲登記表 CSV 路徑")
     parser.add_argument("-o", "--out", default=OUTPUT_JSON_PATH, help="產出 JSON 檔案路徑")
     parser.add_argument("-r", "--resume", action="store_true", help="啟用中斷點續做模式")
     parser.add_argument("-n", "--limit", type=int, default=None, help="限制處理水系數量")
     parser.add_argument("-b", "--basin", type=str, default=None, help="指定計算單一水系名稱 (例如: 頭前溪)")
     parser.add_argument("-s", "--status", action="store_true", help="顯示當前計算進度與統計看板")
+    parser.add_argument("--offline", action="store_true", help="剛性離線保護模式：快取未命中時絕對不打 API 下載")
 
     args = parser.parse_args()
 
@@ -366,7 +371,7 @@ def main():
         print_status(args.out)
         return
 
-    analyze_confluence_atlas(args.csv, args.out, resume=args.resume, limit=args.limit, target_basin=args.basin)
+    analyze_confluence_atlas(args.csv, args.out, resume=args.resume, limit=args.limit, target_basin=args.basin, offline=args.offline)
 
 if __name__ == "__main__":
     main()

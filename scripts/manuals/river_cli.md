@@ -1,40 +1,49 @@
-# river_cli.py 使用手冊 (CGS v2.0)
+# river_cli.py 使用手冊 (專書 v2.4 / CGS v2.0)
 
 *   **腳本位置**：`scripts/river_cli.py`
-*   **版本**：v2.0.0
-*   **規格規範**：CLI Governance Spec (CGS v2.0) & WRA-Civ Topology Spec (v1.0)
+*   **專書對齊版本**：v2.4 (3D Hydrological Elevation & AI-Native JSONL Migration)
+*   **規格規範**：CLI Governance Spec (CGS v2.0) & AI-Native JSONL Spec (v2.4)
 
 ---
 
 ## 1. 工具簡介與核心職責
 
-`river_cli.py` 是專為探索者、GIS 分析師與 AI Agent 設計的 **全台水文拓樸萬用查詢與多格式轉譯工具**。
+`river_cli.py` 是專為探索者、GIS 分析師與 AI Agent 設計的 **全台水文拓樸 3D 萬用查詢與多格式轉譯工具**。
 
-整理資料庫是一回事，**隨心所欲地「查詢與轉換資料」是另一回事**！`river_cli.py` 解決了傳統 CSV 難以直觀閱讀、追溯親緣與轉譯地圖資產的痛點，提供以下核心能力：
+專書升級至 v2.4 後，`river_cli.py` 預設直接讀取 Master 資料庫 `taiwan_river_topology_registry.jsonl`，全面解鎖 3D 海拔地形降落分析與多維權威外鏈，提供以下 5 大核心能力：
 
-1. **多維度模糊查詢 (Search / Query)**：關鍵字比對名稱、程式碼、描述；可組合流域名稱、官方/民間屬性、GPS 座標有無與 Stream Order 階層。
-2. **親緣鏈雙向追溯 (Trace)**：指定任意河段，一鍵「向上回溯至出海口主流」或「向下散發所有子孫溪流」。
-3. **7 大格式一鍵轉譯 (Multi-Format Export)**：
-   * 🌳 `tree`：終端機彩色文字樹。
-   * 🗺️ `geojson`：空間點/線資產（供 QGIS / 導航 App 開啟）。
-   * 🗺️ `kml`：三維圖資（供 Google Earth / 登山 Garmin 檢視）。
-   * 🎨 `mermaid`：黑夜模式高對比雙色關係圖。
-   * 📊 `csv` / 🤖 `json` / `jsonl`：極速 API 與資料處理格式。
+1. **⛰️ 3D 海拔縱剖面與降落圖 (Profile)**：直接在終端機繪製水系主流與支流的 3D 海拔 ASCII 降落趨勢圖。
+2. **🔗 權威外鏈面板 (Links)**：結構化查詢並顯示特定水脈的 Wikipedia、OSM、WalkGIS 與 Wikidata 跨庫識別連結。
+3. **🌲 豐富 3D 彩色文字樹 (Tree)**：樹狀圖除呈現官方/民間屬性與階層外，更自動帶入 **3D 海拔高度 (`⛰️ 150m`)** 與 **📍 OSM 幾何交點品質標籤**。
+4. **🗺️ 3D 空間幾何轉譯 (3D GeoJSON / 3D KML)**：匯出包含 `[lon, lat, elevation_m]` 3D Z軸座標，供 Google Earth 3D 擬真與 QGIS 透視。
+5. **親緣鏈雙向追溯 (Trace)**：指定任意河段，一鍵「向上回溯至出海口主流」或「向下散發所有子孫溪流」。
 
 ---
 
 ## 2. 命令列參數與使用 SOP (CLI Interface)
 
-### 🔹 1. 關鍵字模糊搜尋與文字樹
+### 🔹 1. 3D 海拔縱剖面分析 (Profile)
 ```bash
-# 搜尋名稱包含「霞喀羅」的河流
-python3 scripts/river_cli.py search "霞喀羅"
+# 繪製「頭前溪」水系的 3D 海拔降落趨勢圖
+python3 scripts/river_cli.py profile 頭前溪
+```
 
-# 查詢「頭前溪」水系中 stream_order <= 2 的主流與一級大支流 (文字樹)
+### 🔹 2. 查詢水脈權威外鏈 (Links)
+```bash
+# 查詢「桶後溪」的 Wikipedia, OSM, WalkGIS 與 Wikidata 面板
+python3 scripts/river_cli.py links 桶後溪
+```
+
+### 🔹 3. 關鍵字搜尋與 3D 彩色文字樹 (Search)
+```bash
+# 搜尋「王爺坑溪」並列出帶有高程與幾何品質標籤的家族樹
+python3 scripts/river_cli.py search 王爺坑溪
+
+# 查詢「頭前溪」水系中 stream_order <= 2 的主流與一級大支流
 python3 scripts/river_cli.py search -b "頭前溪" -n 2
 ```
 
-### 🔹 2. 上下游拓樸親緣追溯
+### 🔹 4. 上下游拓樸親緣追溯 (Trace)
 ```bash
 # 追溯「油羅溪 (130020)」一路回溯至出海口的主流親緣鏈
 python3 scripts/river_cli.py trace 130020 --direction up
@@ -43,16 +52,16 @@ python3 scripts/river_cli.py trace 130020 --direction up
 python3 scripts/river_cli.py trace 130000 --direction down
 ```
 
-### 🔹 3. 多格式一鍵轉譯與檔案匯出
+### 🔹 5. 3D 圖資導出 (3D GeoJSON / 3D KML / Mermaid)
 ```bash
-# 轉譯「頭前溪」為 GeoJSON 空間圖資檔 (供 QGIS 直接開啟)
-python3 scripts/river_cli.py export -b "頭前溪" -f geojson -o touqian.geojson
+# 導出頭前溪 3D GeoJSON (包含 Z 軸高程)
+python3 scripts/river_cli.py search -b "頭前溪" -f geojson -o touqian_3d.geojson
 
-# 轉譯「淡水河」為 KML 檔 (供 Google Earth 載入)
-python3 scripts/river_cli.py export -b "淡水河" -f kml -o tamsui.kml
+# 導出淡水河 3D KML (供 Google Earth 3D 檢視)
+python3 scripts/river_cli.py search -b "淡水河" -f kml -o tamsui_3d.kml
 
-# 轉譯「頭前溪」為高對比雙色 Mermaid 圖 (直接貼入 Markdown)
-python3 scripts/river_cli.py export -b "頭前溪" -f mermaid
+# 轉譯頭前溪為黑夜模式 Mermaid 關係圖
+python3 scripts/river_cli.py search -b "頭前溪" -f mermaid
 ```
 
 ---
