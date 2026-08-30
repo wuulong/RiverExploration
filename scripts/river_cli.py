@@ -326,7 +326,7 @@ def main():
     else:
         matched = records
 
-    # 多格式轉譯器處理 (自動解析 meta_data JSON 字串為原生態系系物件)
+    # 多格式轉譯器處理 (自動解析 meta_data JSON 字串為原生態系系系物件)
     fmt = args.format.lower()
     
     # 針對 JSON 相關格式解開 meta_data 字串

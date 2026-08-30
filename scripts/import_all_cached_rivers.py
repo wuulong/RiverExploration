@@ -104,11 +104,24 @@ def process_cached_folder(folder_name: str, official_wra_map: dict, existing_rec
             parent_code = stack[-1][1]
             parent_path = stack[-1][2]
 
-        # 1. 官方水利署權威對照整合優先（若在水利署 Baseline 中，強制採用權威 6 碼校正）
+        # 1. 官方水利署權威對照整合優先（若在水利署 Baseline 中，強制採用權威 6 碼與權威 Parent 校正）
         if name in official_wra_map:
             off_code, off_parent, _ = official_wra_map[name]
             curr_code = off_code
-            curr_path = f"{parent_path}@{curr_code}" if parent_path != "0" else f"0@{curr_code}"
+            # 若為官方水脈，強制使用水利署權威 off_parent 校正
+            parent_code = off_parent
+            
+            # 從既有紀錄或堆疊中重建權威 topology_path
+            p_path = "0"
+            if parent_code != "0":
+                if parent_code in existing_records:
+                    p_path = existing_records[parent_code][3].strip()
+                elif stack and stack[-1][1] == parent_code:
+                    p_path = stack[-1][2]
+                else:
+                    p_path = f"0@{parent_code}"
+            
+            curr_path = f"{p_path}@{curr_code}" if p_path != "0" else f"0@{curr_code}"
             is_civ = "0"
             contrib = "WRA"
             desc = f"{basin_name}官方水系"
