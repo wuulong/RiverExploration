@@ -141,7 +141,8 @@ def process_cached_folder(folder_name: str, official_wra_map: dict, existing_rec
                 w_type = "river" if is_civ == "0" else "stream"
                 
             has_geo = "1" if (lon and lat) else "0"
-            order = str(compute_stream_order(curr_path))
+            parts = [p for p in curr_path.split("@") if p and p != "0"]
+            order = str(len(parts))
 
             row[6] = lon
             row[7] = lat

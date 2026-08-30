@@ -36,7 +36,7 @@ flowchart TD
 
 1. **權威結構分佈 (`is_civilian`)**：
    * **水利署官方權威 6 碼 (`is_civilian=0`)**：**306 筆 (30.7%)** —— 100% 對照整合經濟部水利署開放資料庫。
-   * **民間延伸編碼 (`-C[nn]`, `is_civilian=1`)**：**690 筆 (69.3%)** —— 由 WRA-Civ 硬性演演演演演演演演演演算法派發。
+   * **民間延伸編碼 (`-C[nn]`, `is_civilian=1`)**：**690 筆 (69.3%)** —— 由 WRA-Civ 硬性演演演演演演演演演演演演演演算法派發。
 
 2. **Stream Order (拓樸階層感) 涵蓋分佈**：
    * **1 階 (主流)**：142 筆 (14.3%) —— 涵蓋全台獨立入海河口。
@@ -69,18 +69,62 @@ flowchart TD
 > 💡 **註：無名野溪處置說明**
 > 在 WRA-Civ 規格中，OSM 地圖上無名字的野溪 (Unnamed Streams) **預設不發放 `-C[nn]` 編碼也不寫入 CSV**，僅留存於 OSM 底層圖層，以防 CSV 暴增數萬筆無名溝渠。
 
-#### 📌 CLI 工具完整使用指南 (CLI Command & Filtering SOP)
-透過專書附帶之拓樸 CLI 工具 [`scripts/river_topology_importer.py`](scripts/river_topology_importer.py)，探索者能隨心所欲地進行資料過濾、JSON 轉譯以及 Mermaid 雙色視覺化拓樸圖導出：
+#### 📌 萬用查詢與多格式轉譯 CLI 工具使用指南 (`river_cli.py`)
+
+為了讓探索者能隨心所欲地查詢資料庫並進行格式轉換，專書在 v2.3 正式推出了萬用水文拓樸 CLI 工具 [`scripts/river_cli.py`](scripts/river_cli.py)（對應說明書請參閱 [`scripts/manuals/river_cli.md`](scripts/manuals/river_cli.md)）。
+
+此工具解決了傳統 CSV 難以直觀閱讀的痛點，支援多維度模糊搜尋、上下游雙向追溯與 7 大格式（`tree`, `geojson`, `kml`, `mermaid`, `json`, `jsonl`, `csv`）一鍵轉換：
+
+##### 🌳 1. 終端機文字樹狀圖範例（頭前溪全水系拓樸）
+執行指令 `python3 scripts/river_cli.py search -b "頭前溪"`，即可在終端機列出由主流 `130000` 出發、層層下鑽至 5 階細微溪谷的完整家族樹：
+
+```text
+🌊 頭前溪 (130000) [官方] (階層:1)
+└── 豆子埔溪 (130000-C01) [民間] (階層:2)
+    └── 東山溪 (130000-C01-C01) [民間] (階層:3)
+└── 冷水坑溪 (1300E0) [官方] (階層:2)
+└── 柯子湖溪 (130000-C02) [民間] (階層:2)
+└── 崁下溪 (130000-C03) [民間] (階層:2)
+    └── 九芎溪 (130000-C03-C01) [民間] (階層:3)
+        └── 倒別牛溪 (130000-C03-C01-C01) [民間] (階層:4)
+        └── 中坑溪 (130000-C03-C01-C02) [民間] (階層:4)
+        └── 水坑溪 (130000-C03-C01-C03) [民間] (階層:4)
+            └── 赤柯寮溪 (130000-C03-C01-C03-C01) [民間] (階層:5)
+    └── 荳子埔溪 (130000-C03-C02) [民間] (階層:3)
+        └── 燥坑溪 (130000-C03-C02-C01) [民間] (階層:4)
+└── 鹿寮坑溪 (130000-C04) [民間] (階層:2)
+    └── 王爺坑溪 (130000-C04-C01) [民間] (階層:3)
+    └── 大肚溪 (130000-C04-C02) [民間] (階層:3)
+└── 油羅溪 (130020) [官方] (階層:2)
+    └── 馬胎溪 (130020-C01) [民間] (階層:3)
+    └── 那羅溪 (130025) [官方] (階層:3)
+└── 上坪溪 (130010) [官方] (階層:2)
+    └── 花園溪 (130010-C01) [民間] (階層:3)
+    └── 麥巴來溪 (130010-C02) [民間] (階層:3)
+    └── 爺巴堪溪 (130010-C03) [民間] (階層:3)
+    └── 霞喀羅溪 (130011) [官方] (階層:3)
+```
+
+##### 🛠️ 2. 常用操作指令 SOP
 
 ```bash
-# 1. [mermaid 命令] 導出特定水系 (如頭前溪) 之高對比雙色 Mermaid 拓樸圖 (藍色官方/橘色民間)
-python3 scripts/river_topology_importer.py mermaid -b "頭前溪"
+# A. 關鍵字模糊搜尋 (搜尋名稱包含「霞喀羅」的溪流)
+python3 scripts/river_cli.py search "霞喀羅"
 
-# 2. [export 命令] 導出全台過濾後的拓樸 CSV (僅保留主流與一級大支流 stream_order <= 2，切除 70% 細野溪)
-python3 scripts/river_topology_importer.py export --min-stream-order 2
+# B. 屬性獨立過濾 (只看水利署官方 6 碼權威河流)
+python3 scripts/river_cli.py search --official-only
 
-# 3. [export 命令 + -j 參數] 導出指定水系 (如淡水河) 之乾淨拓樸 JSON 陣列
-python3 scripts/river_topology_importer.py export -b "淡水河" --min-stream-order 2 -j
+# C. 上下游親緣鏈追溯 (從「油羅溪 130020」一路向上追回出海口主流)
+python3 scripts/river_cli.py trace 130020 --direction up
+
+# D. 導出 GeoJSON 空間圖資 (供 QGIS / 地圖導航 App 直接開啟)
+python3 scripts/river_cli.py export -b "頭前溪" -f geojson -o touqian.geojson
+
+# E. 導出 KML 檔 (供 Google Earth / 登山 Garmin 設備載入)
+python3 scripts/river_cli.py export -b "淡水河" -f kml -o tamsui.kml
+
+# F. 導出黑夜模式高對比雙色 Mermaid 圖
+python3 scripts/river_cli.py export -b "頭前溪" -f mermaid
 ```
 
 ---

@@ -1,16 +1,18 @@
 # 版本歷史
 
-## v2.3 (Taiwan-Wide All 150 Basins & OSM Rich-Attributes Alignment) - 2026-08-30
-*   **核心升級**：全台灣 150 條主流水系（涵蓋所有縣市管獨立水系）與 OpenStreetMap 物理水網大一統。
+## v2.3 (Taiwan-Wide All 150 Basins & Universal CLI Tools Alignment) - 2026-08-30
+*   **核心升級**：全台灣 150 條主流水系大一統、全新萬用拓樸 CLI 工具 (`river_cli.py`) 釋出與 OpenStreetMap 物理水網對照整合。
 *   **方法論與技術進展**：
-    *   從原本 26 大中央管水系全面擴充為 **150 條全台獨立入海水系**，達成 **996 筆拓樸水脈全量落庫** (`taiwan_river_topology_registry.csv`)。
-    *   導入 **OpenStreetMap (OSM) 物理水網** 與 `scripts/gis/osm_navigator.py`，補齊實體幾何經緯度。
-    *   標準化 **17 個 Rich Attributes 欄位**（`source_type`, `waterway_type`, `stream_order`, `has_osm_geo`），提供 CLI 一鍵參數化過濾器 (`--min-stream-order`)。
-    *   確立 **快取目錄持久化治理哲學 (`data/open-data/cache/rivers/`)**：每個水系皆留存 01 原始 Wiki、02 LLM 支流樹、03 OSM 幾何與 `metadata.json` 修復履歷，供人工三階審計除錯。
-    *   明確 **LLM 局限性與社群 PR 勘誤機制**：誠摯歡迎社群針對 CSV 發起 GitHub Pull Request 直接修正水脈親緣。
+    *   從原本 26 大中央管水系全面擴充為 **150 條全台獨立入海水系**，達成 **998 筆拓樸水脈全量落庫** (`taiwan_river_topology_registry.csv`)。
+    *   進行 **全台主流基石校正體檢**：修正 18 筆獨立主流 Parent/Order 錯置，硬性對齊水利署 837 筆官方權威開放資料集 (`wra_official_river_codes.json`)。
+    *   導入 **OpenStreetMap (OSM) 物理水網**，補齊實體幾何經緯度與 `Verified_Both` 雙重認證標籤。
+    *   標準化 **17 個 Rich Attributes 欄位**（`source_type`, `waterway_type`, `stream_order`, `has_osm_geo`）。
+    *   確立 **快取目錄持久化治理哲學 (`cache/rivers/`)**：留存 01 Wiki 原始檔、02 LLM 支流樹、03 OSM 幾何與 `metadata.json` 修復履歷。
+    *   升級 **黑夜模式 (Dark Mode) 高對比雙色 Mermaid 拓樸圖**。
 *   **專書與工具歸檔**：
-    *   新增 **Chapter 11.6** 記錄全台 150 水系大一統全景、OSM 整合與快取治理機制。
-    *   專書歸檔 `scripts/hydrology/batch_import_taiwan_rivers.py`, `scripts/hydrology/audit_and_repair_river_cache.py`, `scripts/hydrology/import_all_cached_rivers.py` 等 CGS v2.0 治理工具。
+    *   全新推出並歸檔 **萬用水文拓樸 CLI 工具 [`scripts/river_cli.py`](scripts/river_cli.py)**（支援多維度模糊搜尋、上下游雙向追溯、終端機彩色文字樹，以及 GeoJSON/KML/Mermaid 等 7 大格式一鍵轉譯）與說明書 [`scripts/manuals/river_cli.md`](scripts/manuals/river_cli.md)。
+    *   新增 **Chapter 11.6** 記錄全台 150 水系大一統全景、`river_cli.py` SOP、OSM 整合與快取治理機制。
+    *   專書自包含歸檔 `scripts/river_topology_importer.py`, `scripts/batch_import_taiwan_rivers.py`, `scripts/audit_and_repair_river_cache.py`, `scripts/import_all_cached_rivers.py` 等全套 CGS v2.0 治理工具。
 
 ---
 
@@ -30,7 +32,7 @@
 *   **核心升級**：從「HGIS 對照整合」邁向「跨時空模型化與遺蹟導航」。
 *   **方法論增補**：
     *   導入 **OO-History (物件導向歷史)**：建立 Root-Spec-Entity 三層繼承架構，降低考古資料厚化成本。
-    *   建立 **Layer 3 演義法則**：引入「生存第一原理」、「能源平衡模型」與「遷徙演演演演演演演演演演演演演演演演演算法」發想生活樣態。
+    *   建立 **Layer 3 演義法則**：引入「生存第一原理」、「能源平衡模型」與「遷徙演演演演演演演演演演演演演演演演演演演演演算法」發想生活樣態。
     *   定義 **Layer 4 空間驗證**：利用離河距離 (HRD) 聚類分析與高程位能模型作為物理證據。
 *   **章節增改**：
     *   新增 2.6 (考古遺跡讀取與 ID 勾稽)、5.4 (OO-History 立論)、5.5 (劇本演義與南科案例)、10.4 (預測-驗證-修正工作流)、13 (未來展望)。
