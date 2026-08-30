@@ -24,7 +24,7 @@
 透過厚資料標註，WalkGIS 上的每一個紅點都不再是冰冷的座標。當你點開 `五塊厝 (古)`，讀到那段「兄弟避災」的史料片段時，跨越百年的河流力量將在你的螢幕上復活。這就是我們追求的——具備歷史感官的數位導航。
 
 #### 實戰案例體驗：
-*   🔗 **[曾文溪水利與生態系系系系系系系系系系系系系系系系系系系系探索地圖 (2026)](https://walkgis-544663807110.us-west1.run.app/?node=official&map=20260128_zengwen_exploration)**：查看 696 個厚資料 POI 如何重現「青瞑蛇」地景。
+*   🔗 **[曾文溪水利與生態系系系系系系系系系系系系系系系系系系系系系系系探索地圖 (2026)](https://walkgis-544663807110.us-west1.run.app/?node=official&map=20260128_zengwen_exploration)**：查看 696 個厚資料 POI 如何重現「青瞑蛇」地景。
 *   🔗 **[二仁溪流域探索地圖 (2026)](https://walkgis-544663807110.us-west1.run.app/?node=official&map=2026xxxx_erren_exploration)**：見證界河糧倉與 15 分鐘極速對照整合的成果。
 
 **總結**：

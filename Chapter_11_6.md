@@ -36,7 +36,7 @@ flowchart TD
 
 1. **權威結構分佈 (`is_civilian`)**：
    * **水利署官方權威 6 碼 (`is_civilian=0`)**：**306 筆 (30.7%)** —— 100% 對照整合經濟部水利署開放資料庫。
-   * **民間延伸編碼 (`-C[nn]`, `is_civilian=1`)**：**690 筆 (69.3%)** —— 由 WRA-Civ 硬性演演演演演演演演演演演演演演算法派發。
+   * **民間延伸編碼 (`-C[nn]`, `is_civilian=1`)**：**690 筆 (69.3%)** —— 由 WRA-Civ 硬性演演演演演演演演演演演演演演演演演算法派發。
 
 2. **Stream Order (拓樸階層感) 涵蓋分佈**：
    * **1 階 (主流)**：142 筆 (14.3%) —— 涵蓋全台獨立入海河口。
@@ -60,11 +60,23 @@ flowchart TD
 全量 996 筆落庫的水脈，均升級包含 17 個標準實體欄位（其中包含 **v2.3 新增的 4 個控制屬性欄位**）：
 
 * **舊有欄位 (13 個)**：`river_code`, `river_name`, `parent_code`, `topology_path`, `is_civilian`, `basin_name`, `confluence_lon`, `confluence_lat`, `wikidata_id`, `description`, `meta_data`, `contributor`, `updated_at`
-* **✨ v2.3 新增欄位 (4 個)**：
+* **✨ v2.3 新增與最佳化屬性**：
   1. **`source_type`**：資料來源標籤（`WRA` 水利署, `Wiki` 文獻, `Verified_Both` 雙重認證；`OSM` 標籤留存為未來擴充引渡純 OSM 溪流備用）。
   2. **`waterway_type`**：水道物理型態（`river` 主要河流, `stream` 細微小溪）。
   3. **`stream_order`**：拓樸階層感（`1` 主流, `2` 一級支流, `3` 二級支流...）。
   4. **`has_osm_geo`**：地圖座標標記（`1` 有經緯度實體線條, `0` 純人文文字檔）。
+  5. **`meta_data` (結構化溯源 JSON)**：儲存該條水脈的可追溯性超連結（如維基百科 `wiki_url` 與 OSM 地圖 `osm_url`）與最後修復履歷：
+     ```json
+     {
+       "source_links": {
+         "wiki_url": "https://zh.wikipedia.org/wiki/頭前溪",
+         "osm_url": "https://www.openstreetmap.org/search?query=頭前溪"
+       },
+       "provenance": {
+         "last_updated": "2026-08-30"
+       }
+     }
+     ```
 
 > 💡 **註：無名野溪處置說明**
 > 在 WRA-Civ 規格中，OSM 地圖上無名字的野溪 (Unnamed Streams) **預設不發放 `-C[nn]` 編碼也不寫入 CSV**，僅留存於 OSM 底層圖層，以防 CSV 暴增數萬筆無名溝渠。

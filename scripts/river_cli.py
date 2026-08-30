@@ -326,18 +326,30 @@ def main():
     else:
         matched = records
 
-    # 多格式轉譯器處理
+    # 多格式轉譯器處理 (自動解析 meta_data JSON 字串為原生態系系物件)
     fmt = args.format.lower()
+    
+    # 針對 JSON 相關格式解開 meta_data 字串
+    parsed_matched = []
+    for r in matched:
+        r_copy = dict(r)
+        if r_copy.get("meta_data"):
+            try:
+                r_copy["meta_data"] = json.loads(r_copy["meta_data"])
+            except Exception:
+                pass
+        parsed_matched.append(r_copy)
+
     output_str = ""
     
     if fmt == "tree":
         output_str = export_as_tree(matched)
     elif fmt == "json":
-        output_str = json.dumps(matched, ensure_ascii=False, indent=2)
+        output_str = json.dumps(parsed_matched, ensure_ascii=False, indent=2)
     elif fmt == "jsonl":
-        output_str = "\n".join([json.dumps(r, ensure_ascii=False) for r in matched])
+        output_str = "\n".join([json.dumps(r, ensure_ascii=False) for r in parsed_matched])
     elif fmt == "geojson":
-        output_str = json.dumps(export_as_geojson(matched), ensure_ascii=False, indent=2)
+        output_str = json.dumps(export_as_geojson(parsed_matched), ensure_ascii=False, indent=2)
     elif fmt == "kml":
         output_str = export_as_kml(matched)
     elif fmt == "mermaid":
