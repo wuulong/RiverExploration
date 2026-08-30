@@ -260,6 +260,35 @@ def main():
 
     print(f"\n\n✅ 全量快取無損對照整合完成！共新增 {total_new} 筆全新節點記錄。", file=sys.stderr)
 
+    today_str = datetime.now().strftime("%Y-%m-%d")
+
+    # 🛡️【硬性防護網】遞迴補齊所有缺少的祖先/孤兒節點與水系名稱一致性
+    missing_parents = set()
+    for r_row in existing_records.values():
+        p_code = r_row[2].strip()
+        if p_code != '0' and p_code not in existing_records:
+            missing_parents.add(p_code)
+
+    for p_code in missing_parents:
+        if p_code in official_wra_map:
+            name, parent, basin = official_wra_map[p_code]
+            row = [
+                p_code, name, parent,
+                f'0@{p_code}' if parent == '0' else f'0@{parent}@{p_code}',
+                '0', basin, '', '', 'WRA', 'river',
+                '1' if parent == '0' else '2',
+                '0', '', f'{basin}官方水系',
+                json.dumps({'source_links': {'wiki_url': f'https://zh.wikipedia.org/wiki/{name}', 'osm_url': f'https://www.openstreetmap.org/search?query={name}'}, 'provenance': {'last_updated': '2026-08-30'}}, ensure_ascii=False),
+                'WRA', today_str
+            ]
+            existing_records[p_code] = row
+
+    # 強制校正水系名稱一致性
+    for r_code, r_row in existing_records.items():
+        if r_row[4] == '0' and r_code in official_wra_map:
+            r_row[2] = official_wra_map[r_code][1] # parent
+            r_row[5] = official_wra_map[r_code][2] # basin_name
+
     # 寫入 CSV
     with open(args.csv, "w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
