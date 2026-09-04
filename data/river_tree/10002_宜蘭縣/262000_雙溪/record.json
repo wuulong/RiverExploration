@@ -20,7 +20,10 @@
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C26",
+      "0-C27"
+    ],
     "replaced_by": "",
     "river_office_id": "1",
     "river_office_name": "第一河川分署",

@@ -1,26 +1,28 @@
 {
-  "river_code": "0-C16",
-  "river_name": "劉厝排水",
-  "parent_code": "0",
-  "parent_name": "",
-  "basin_code": "0-C16",
-  "basin_name": "劉厝排水(七股溪)",
-  "topology_path": "0@0-C16",
+  "river_code": "160000-C03",
+  "river_name": "下溪洲排水",
+  "parent_code": "160000",
+  "parent_name": "將軍溪排水",
+  "basin_code": "0-C13",
+  "basin_name": "將軍溪排水(將軍溪)",
+  "topology_path": "0@160000@160000-C03",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
-  "stream_order": 1,
-  "description": "劉厝排水(七股溪)水系民間支流",
+  "stream_order": 2,
+  "description": "將軍溪排水(將軍溪)水系民間支流",
   "contributor": "wuulong@gmail.com",
   "links": {
     "walkgis_url": "",
-    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%8A%89%E5%8E%9D%E6%8E%92%E6%B0%B4",
-    "osm_url": "https://www.openstreetmap.org/search?query=%E5%8A%89%E5%8E%9D%E6%8E%92%E6%B0%B4",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E4%B8%8B%E6%BA%AA%E6%B4%B2%E6%8E%92%E6%B0%B4",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E4%B8%8B%E6%BA%AA%E6%B4%B2%E6%8E%92%E6%B0%B4",
     "wikidata_id": ""
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C13-C03"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",
@@ -35,7 +37,7 @@
       "臺南市"
     ],
     "arbitration_rule": "Right_Bank_Outfall",
-    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '七股' 推導至 臺南市)",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '將軍' 推導至 臺南市)",
     "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
     "is_office_county_matched": true,
     "provenance": {

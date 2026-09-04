@@ -1,11 +1,11 @@
 {
-  "river_code": "0-C10-C04",
+  "river_code": "132000-C04",
   "river_name": "南隘溪",
-  "parent_code": "0-C10",
-  "parent_name": "鹽港溪",
+  "parent_code": "132000",
+  "parent_name": "鹽港溪排水",
   "basin_code": "0-C10",
   "basin_name": "鹽港溪排水",
-  "topology_path": "0@0-C10@0-C10-C04",
+  "topology_path": "0@132000@132000-C04",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
@@ -20,7 +20,9 @@
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C10-C04"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",

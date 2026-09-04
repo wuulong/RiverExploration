@@ -1,26 +1,28 @@
 {
-  "river_code": "0-C26",
-  "river_name": "雙溪",
-  "parent_code": "0",
-  "parent_name": "",
-  "basin_code": "0-C26",
-  "basin_name": "雙溪",
-  "topology_path": "0@0-C26",
+  "river_code": "160000-C02",
+  "river_name": "北埔中排",
+  "parent_code": "160000",
+  "parent_name": "將軍溪排水",
+  "basin_code": "0-C13",
+  "basin_name": "將軍溪排水(將軍溪)",
+  "topology_path": "0@160000@160000-C02",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
-  "stream_order": 1,
-  "description": "雙溪水系民間支流",
+  "stream_order": 2,
+  "description": "將軍溪排水(將軍溪)水系民間支流",
   "contributor": "wuulong@gmail.com",
   "links": {
     "walkgis_url": "",
-    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E9%9B%99%E6%BA%AA%20%28%E6%96%B0%E5%8C%97%E5%B8%82%29",
-    "osm_url": "https://www.openstreetmap.org/search?query=%E9%9B%99%E6%BA%AA%20%28%E6%96%B0%E5%8C%97%E5%B8%82%29",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E5%9F%94%E4%B8%AD%E6%8E%92",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%8C%97%E5%9F%94%E4%B8%AD%E6%8E%92",
     "wikidata_id": ""
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C13-C02"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",
@@ -28,14 +30,14 @@
     "has_outfall_gps": false,
     "outfall_lon": null,
     "outfall_lat": null,
-    "primary_county": "新北市",
-    "primary_county_code": "65000",
+    "primary_county": "臺南市",
+    "primary_county_code": "67000",
     "is_border_river": false,
     "border_counties": [
-      "新北市"
+      "臺南市"
     ],
     "arbitration_rule": "Right_Bank_Outfall",
-    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '雙溪' 推導至 新北市)",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '將軍' 推導至 臺南市)",
     "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
     "is_office_county_matched": true,
     "provenance": {

@@ -1,26 +1,28 @@
 {
-  "river_code": "0-C17",
-  "river_name": "鹽水港溪",
-  "parent_code": "0",
-  "parent_name": "",
-  "basin_code": "0-C17",
-  "basin_name": "鹽水港溪(山鹽溪)",
-  "topology_path": "0@0-C17",
+  "river_code": "160000-C04",
+  "river_name": "大灣中排",
+  "parent_code": "160000",
+  "parent_name": "將軍溪排水",
+  "basin_code": "0-C13",
+  "basin_name": "將軍溪排水(將軍溪)",
+  "topology_path": "0@160000@160000-C04",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
-  "stream_order": 1,
-  "description": "鹽水港溪(山鹽溪)水系民間支流",
+  "stream_order": 2,
+  "description": "將軍溪排水(將軍溪)水系民間支流",
   "contributor": "wuulong@gmail.com",
   "links": {
     "walkgis_url": "",
-    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E9%B9%BD%E6%B0%B4%E6%B8%AF%E6%BA%AA%20%28%E9%AB%98%E9%9B%84%E5%B8%82%29",
-    "osm_url": "https://www.openstreetmap.org/search?query=%E9%B9%BD%E6%B0%B4%E6%B8%AF%E6%BA%AA%20%28%E9%AB%98%E9%9B%84%E5%B8%82%29",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E7%81%A3%E4%B8%AD%E6%8E%92",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%A4%A7%E7%81%A3%E4%B8%AD%E6%8E%92",
     "wikidata_id": ""
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C13-C04"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",
@@ -28,14 +30,14 @@
     "has_outfall_gps": false,
     "outfall_lon": null,
     "outfall_lat": null,
-    "primary_county": "高雄市",
-    "primary_county_code": "64000",
+    "primary_county": "臺南市",
+    "primary_county_code": "67000",
     "is_border_river": false,
     "border_counties": [
-      "高雄市"
+      "臺南市"
     ],
     "arbitration_rule": "Right_Bank_Outfall",
-    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '山鹽' 推導至 高雄市)",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '將軍' 推導至 臺南市)",
     "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
     "is_office_county_matched": true,
     "provenance": {

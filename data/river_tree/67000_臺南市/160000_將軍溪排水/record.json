@@ -21,7 +21,9 @@
   "attribute_json": {
     "raw_river_name": "將軍溪排水",
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C13"
+    ],
     "replaced_by": "",
     "river_office_id": "5",
     "river_office_name": "第五河川分署",

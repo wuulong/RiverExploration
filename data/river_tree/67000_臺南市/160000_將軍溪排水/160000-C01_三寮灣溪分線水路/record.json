@@ -1,11 +1,11 @@
 {
-  "river_code": "0-C13-C02",
-  "river_name": "北埔中排",
-  "parent_code": "0-C13",
-  "parent_name": "將軍溪",
+  "river_code": "160000-C01",
+  "river_name": "三寮灣溪分線水路",
+  "parent_code": "160000",
+  "parent_name": "將軍溪排水",
   "basin_code": "0-C13",
   "basin_name": "將軍溪排水(將軍溪)",
-  "topology_path": "0@0-C13@0-C13-C02",
+  "topology_path": "0@160000@160000-C01",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
@@ -14,13 +14,15 @@
   "contributor": "wuulong@gmail.com",
   "links": {
     "walkgis_url": "",
-    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%8C%97%E5%9F%94%E4%B8%AD%E6%8E%92",
-    "osm_url": "https://www.openstreetmap.org/search?query=%E5%8C%97%E5%9F%94%E4%B8%AD%E6%8E%92",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E4%B8%89%E5%AF%AE%E7%81%A3%E6%BA%AA%E5%88%86%E7%B7%9A%E6%B0%B4%E8%B7%AF",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E4%B8%89%E5%AF%AE%E7%81%A3%E6%BA%AA%E5%88%86%E7%B7%9A%E6%B0%B4%E8%B7%AF",
     "wikidata_id": ""
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C13-C01"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",

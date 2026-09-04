@@ -1,11 +1,11 @@
 {
-  "river_code": "0-C09-C01",
+  "river_code": "131000-C01",
   "river_name": "油車溝溪",
-  "parent_code": "0-C09",
-  "parent_name": "客雅溪",
+  "parent_code": "131000",
+  "parent_name": "客雅溪排水",
   "basin_code": "0-C09",
   "basin_name": "客雅溪排水",
-  "topology_path": "0@0-C09@0-C09-C01",
+  "topology_path": "0@131000@131000-C01",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
@@ -20,7 +20,9 @@
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C09-C01"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",

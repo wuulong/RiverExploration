@@ -1,11 +1,11 @@
 {
-  "river_code": "0-C10-C02",
-  "river_name": "苦仔坑溪",
-  "parent_code": "0-C10",
-  "parent_name": "鹽港溪",
+  "river_code": "132000-C03",
+  "river_name": "柳子湳",
+  "parent_code": "132000",
+  "parent_name": "鹽港溪排水",
   "basin_code": "0-C10",
   "basin_name": "鹽港溪排水",
-  "topology_path": "0@0-C10@0-C10-C02",
+  "topology_path": "0@132000@132000-C03",
   "is_civilian": 1,
   "source_type": "Wiki",
   "waterway_type": "stream",
@@ -14,13 +14,15 @@
   "contributor": "wuulong@gmail.com",
   "links": {
     "walkgis_url": "",
-    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%8B%A6%E4%BB%94%E5%9D%91%E6%BA%AA",
-    "osm_url": "https://www.openstreetmap.org/search?query=%E8%8B%A6%E4%BB%94%E5%9D%91%E6%BA%AA",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E6%9F%B3%E5%AD%90%E6%B9%B3",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E6%9F%B3%E5%AD%90%E6%B9%B3",
     "wikidata_id": ""
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C10-C03"
+    ],
     "replaced_by": "",
     "river_office_id": "",
     "river_office_name": "",

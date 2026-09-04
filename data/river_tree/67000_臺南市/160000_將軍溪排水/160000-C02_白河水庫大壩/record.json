@@ -20,7 +20,9 @@
   },
   "attribute_json": {
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C13-C02"
+    ],
     "replaced_by": "",
     "river_office_id": "5",
     "river_office_name": "第五河川分署",

@@ -21,7 +21,9 @@
   "attribute_json": {
     "raw_river_name": "鹽水港溪",
     "code_status": "draft",
-    "deprecated_codes": [],
+    "deprecated_codes": [
+      "0-C17"
+    ],
     "replaced_by": "",
     "river_office_id": "6",
     "river_office_name": "第六河川分署",
