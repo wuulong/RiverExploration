@@ -34,9 +34,12 @@
     "wikidata_id": "Q11113632"
   },
 
-  "meta_data": {
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
     "provenance": {
-      "last_updated": "2026-08-30"
+      "last_updated": "2026-09-04"
     }
   },
 
@@ -88,7 +91,19 @@
 
 ---
 
-## 2. 欄位定義與命名空間規格 (Namespace Specification)
+## 3. 資料不可變性合約 (Immutability Contract & Governance)
+
+為保護外部 API 依賴、WalkGIS 空間圖層對接與學術引用不致斷鏈，WRA-Civ 資料庫實施嚴格的 **不可變主鍵原則 (Immutable Primary Key Rule)**：
+
+1. **🔒 硬性不可變欄位 (Immutable Attributes)**：
+   * **`river_code`**：一旦分配並釋出，**絕對禁止刪除、更換或重新計算編號**！外部系統以此程式碼作為 API 與 URI 主鍵。
+   * **`parent_code` / `basin_code` / `topology_path`**：除非水文親緣關係經過重大物理考據校正，否則拓樸主幹路徑保持穩定。
+2. **✏️ 允許修訂與增量欄位 (Mutable & Enrichable Attributes)**：
+   * **`river_name`**：允許修正錯別字、地方俗名或原民族語地名。
+   * **`description`**：允許修正補充水庫史蹟、水性描述或誤置資訊。
+   * **`links` / `plugins`**：允許 100% 增量厚化 3D 海拔高度、實體 GIS 幾何、文化歷史 events 與 pois 陣列！
+3. **🛡️ 轉換器自動保護鎖 (Primary Key Guard)**：
+   * 轉換工具 `convert_topology_to_jsonl.py` 在執行時自動校驗 `river_code` 完整性，若檢測到歷史已釋出之程式碼遭刪除或異動，將**硬性阻斷並報錯中止 (Exit Code 1)**。
 
 ### 🔹 Core 核心拓樸屬性 (Top-Level)
 | 欄位名稱 | 型態 | 說明與規範 |
@@ -132,10 +147,25 @@
    * `historical_events`: 流域歷史事件清單 (`year`, `name`, `description`)
    * `indigenous_names`: 族群原住民族語稱呼與地名意涵 (`tribe`, `original_name`, `meaning`)
    * `hydraulic_history`: 水利工程開發史與清代/日治堤防發掘
-4. **`plugins.pois` (沿線景點與水利史蹟 POI 陣列)**：
-   * `poi_id`: 景點唯一編號 (`POI-[river_code]-[seq]`)
-   * `name`: 景點/古道/水利設施名稱
-   * `category`: 景點類別 (`Historical_Bridge`, `Historical_Trail`, `Hydraulic_Infrastructure`, `Scenic_Spot`)
-   * `lon` / `lat`: WGS84 精確座標
-   * `elevation_m`: POI 實體海拔高度 (公尺)
-   * `walkgis_feature_id`: 對接 WalkGIS 圖層 feature ID
+---
+
+### 🔹 `attribute_json` 動態屬性與治理命名空間
+收納包含生命週期狀態、出海口縣市歸屬與界河仲裁等元資料控制項：
+* `code_status`: 程式碼生命週期狀態 (`draft` 初期草案, `confirmed` 已凍結, `deprecated` 已廢除)
+* `primary_county`: 實體出海口歸屬主要縣市 (例: `新竹市`, `新北市`)
+* `primary_county_code`: 內政部 5 位數官方行政區劃程式碼 (例: `10018`, `65000`)
+* `is_border_river`: 是否為雙縣市界河標記 (`true` / `false`)
+* `border_counties`: 界河跨越縣市陣列 (例: `["新北市", "臺北市"]`)
+* `arbitration_rule`: 界河單一歸屬仲裁規則 (採用 `Right_Bank_Outfall` 右岸法向量探針點 $P_{right} = P_2 + 200\text{m} \cdot \hat{N}_{right}$ 與內政部 Shapefile PIP 判定)
+* `deprecated_codes`: 歷史廢除程式碼陣列
+* `replaced_by`: 新取代程式碼
+* `provenance`: 資料源與最後修復履歷
+
+---
+
+## 4. 雙層程式碼目錄樹匯出規範 (Double-Coded Directory Tree Spec)
+
+支援透過 CLI 工具自動導出全台實體檔案目錄樹，供作業系統檔案總管直接操作：
+* **第一層格式**: `[primary_county_code]_[primary_county]` (例: `10018_新竹市`, `65000_新北市`) ➔ 按內政部官方程式碼由北到南與由東到西排序。
+* **第二層及以下**: `[river_code]_[river_name]` (例: `130000_頭前溪`, `130020_油羅溪`) ➔ 按水文拓樸親緣階層嵌套建立。
+* **目錄預設資產**: 每個目錄下放置 `record.json` 記載該水脈 Native JSON 完整屬性。

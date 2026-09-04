@@ -1,0 +1,54 @@
+{
+  "river_code": "156000-C01-C02",
+  "river_name": "濁水溪",
+  "parent_code": "156000-C01",
+  "parent_name": "朴子溪 - 牛稠溪",
+  "basin_code": "156000",
+  "basin_name": "朴子溪",
+  "topology_path": "0@156000@156000-C01@156000-C01-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "朴子溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E6%BF%81%E6%B0%B4%E6%BA%AA%20%28%E5%98%89%E7%BE%A9%E7%B8%A3%29",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E6%BF%81%E6%B0%B4%E6%BA%AA%20%28%E5%98%89%E7%BE%A9%E7%B8%A3%29",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "raw_river_name": "濁水溪",
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

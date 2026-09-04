@@ -1,0 +1,61 @@
+{
+  "river_code": "173030-C02",
+  "river_name": "枋寮溪",
+  "parent_code": "173030",
+  "parent_name": "旗山溪",
+  "basin_code": "173030",
+  "basin_name": "高屏溪",
+  "topology_path": "0@173000@173030@173030-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "高屏溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E6%9E%8B%E5%AF%AE%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E6%9E%8B%E5%AF%AE%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "7",
+    "river_office_name": "第七河川分署",
+    "office_valid_counties": [
+      "高雄市",
+      "屏東縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.6096677,
+    "outfall_lat": 22.9895877,
+    "primary_county": "高雄市",
+    "primary_county_code": "64000",
+    "is_border_river": false,
+    "border_counties": [
+      "高雄市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.6097,22.9896 落入 高雄市 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-173030-C02",
+      "confluence_lon": 120.6096677,
+      "confluence_lat": 22.9895877,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 21.93,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,63 @@
+{
+  "river_code": "134040-C02",
+  "river_name": "石井溪",
+  "parent_code": "134040",
+  "parent_name": "峨眉溪",
+  "basin_code": "134040",
+  "basin_name": "中港溪",
+  "topology_path": "0@134000@134040@134040-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "中港溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E7%9F%B3%E4%BA%95%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E7%9F%B3%E4%BA%95%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "2",
+    "river_office_name": "第二河川分署",
+    "office_valid_counties": [
+      "桃園市",
+      "新竹縣",
+      "新竹市",
+      "苗栗縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.9828067,
+    "outfall_lat": 24.6792752,
+    "primary_county": "新竹縣",
+    "primary_county_code": "10004",
+    "is_border_river": false,
+    "border_counties": [
+      "新竹縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.9828,24.6793 落入 新竹縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-134040-C02",
+      "confluence_lon": 120.9828067,
+      "confluence_lat": 24.6792752,
+      "confluence_type": "Geometric_Endpoint_Match_2657m",
+      "estimated_length_km": 50.11,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

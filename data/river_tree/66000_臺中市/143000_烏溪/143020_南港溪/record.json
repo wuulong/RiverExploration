@@ -1,0 +1,62 @@
+{
+  "river_code": "143020",
+  "river_name": "南港溪",
+  "parent_code": "143000",
+  "parent_name": "烏溪",
+  "basin_code": "143000",
+  "basin_name": "烏溪",
+  "topology_path": "0@143000@143020",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "烏溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/南港溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=南港溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.8768209,
+    "outfall_lat": 24.6413939,
+    "primary_county": "臺中市",
+    "primary_county_code": "66000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺中市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Nearest (出海口點位 120.8768,24.6414 最接近 臺中市 邊界)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Nearest",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-143020",
+      "confluence_lon": 120.8768209,
+      "confluence_lat": 24.6413939,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 82.03,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

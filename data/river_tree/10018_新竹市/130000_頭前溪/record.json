@@ -1,0 +1,66 @@
+{
+  "river_code": "130000",
+  "river_name": "頭前溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "130000",
+  "basin_name": "頭前溪",
+  "topology_path": "0@130000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "頭前溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/頭前溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=頭前溪",
+    "wikidata_id": "Q8007827"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "2",
+    "river_office_name": "第二河川分署",
+    "office_valid_counties": [
+      "桃園市",
+      "新竹縣",
+      "新竹市",
+      "苗栗縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.4075428,
+    "outfall_lat": 23.4133136,
+    "primary_county": "新竹市",
+    "primary_county_code": "10018",
+    "is_border_river": true,
+    "border_counties": [
+      "新竹市",
+      "新竹縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Right_Bank_Border_Arbitration (界河右岸原則仲裁歸屬 新竹市)",
+    "county_derivation_tier": "Tier_1_Border_Arbitration",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-130000",
+      "confluence_lon": 120.4075428,
+      "confluence_lat": 23.4133136,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 0.0,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

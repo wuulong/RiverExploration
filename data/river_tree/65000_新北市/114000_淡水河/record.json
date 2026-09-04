@@ -1,0 +1,65 @@
+{
+  "river_code": "114000",
+  "river_name": "淡水河",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "114000",
+  "basin_name": "魚寮溪",
+  "topology_path": "0@114000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "魚寮溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/淡水河",
+    "osm_url": "https://www.openstreetmap.org/search?query=淡水河",
+    "wikidata_id": "Q2420747"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "10",
+    "river_office_name": "第十河川分署",
+    "office_valid_counties": [
+      "基隆市",
+      "臺北市",
+      "新北市"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.3961415,
+    "outfall_lat": 25.1777344,
+    "primary_county": "新北市",
+    "primary_county_code": "65000",
+    "is_border_river": true,
+    "border_counties": [
+      "新北市",
+      "臺北市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Right_Bank_Border_Arbitration (界河右岸原則仲裁歸屬 新北市)",
+    "county_derivation_tier": "Tier_1_Border_Arbitration",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-114000",
+      "confluence_lon": 121.3961415,
+      "confluence_lat": 25.1777344,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 83.41,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": "zh:淡水河"
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

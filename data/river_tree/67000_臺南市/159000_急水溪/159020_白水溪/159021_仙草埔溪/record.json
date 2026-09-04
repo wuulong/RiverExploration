@@ -1,0 +1,53 @@
+{
+  "river_code": "159021",
+  "river_name": "仙草埔溪",
+  "parent_code": "159020",
+  "parent_name": "白水溪",
+  "basin_code": "159020",
+  "basin_name": "急水溪",
+  "topology_path": "0@159000@159020@159021",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "急水溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/仙草埔溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=仙草埔溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

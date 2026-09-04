@@ -1,0 +1,60 @@
+{
+  "river_code": "2560I0",
+  "river_name": "德荃溪",
+  "parent_code": "256000",
+  "parent_name": "蘭陽溪",
+  "basin_code": "256000",
+  "basin_name": "蘭陽溪",
+  "topology_path": "0@256000@2560I0",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "蘭陽溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/德荃溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=德荃溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "1",
+    "river_office_name": "第一河川分署",
+    "office_valid_counties": [
+      "宜蘭縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.4641593,
+    "outfall_lat": 24.5341478,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.4642,24.5341 落入 宜蘭縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-2560I0",
+      "confluence_lon": 121.4641593,
+      "confluence_lat": 24.5341478,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 6.84,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,63 @@
+{
+  "river_code": "154015",
+  "river_name": "雲林溪",
+  "parent_code": "154010",
+  "parent_name": "虎尾溪",
+  "basin_code": "154010",
+  "basin_name": "北港溪",
+  "topology_path": "0@154000@154010@154015",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "北港溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/雲林溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=雲林溪",
+    "wikidata_id": "Q86726133"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.5359804,
+    "outfall_lat": 23.7063971,
+    "primary_county": "雲林縣",
+    "primary_county_code": "10009",
+    "is_border_river": false,
+    "border_counties": [
+      "雲林縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.5360,23.7064 落入 雲林縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-154015",
+      "confluence_lon": 120.5359804,
+      "confluence_lat": 23.7063971,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 47.32,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

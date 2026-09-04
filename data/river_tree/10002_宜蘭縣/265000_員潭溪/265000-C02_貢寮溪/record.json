@@ -1,0 +1,60 @@
+{
+  "river_code": "265000-C02",
+  "river_name": "貢寮溪",
+  "parent_code": "265000",
+  "parent_name": "員潭溪",
+  "basin_code": "265000",
+  "basin_name": "員潭溪",
+  "topology_path": "0@265000@265000-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "員潭溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%B2%A2%E5%AF%AE%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E8%B2%A2%E5%AF%AE%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "1",
+    "river_office_name": "第一河川分署",
+    "office_valid_counties": [
+      "宜蘭縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.6328342,
+    "outfall_lat": 25.1710208,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Nearest (出海口點位 121.6328,25.1710 最接近 宜蘭縣 邊界)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Nearest",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-265000-C02",
+      "confluence_lon": 121.6328342,
+      "confluence_lat": 25.1710208,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 10.65,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,52 @@
+{
+  "river_code": "2370M0",
+  "river_name": "石公溪",
+  "parent_code": "237000",
+  "parent_name": "秀姑巒溪",
+  "basin_code": "237000",
+  "basin_name": "石公溪",
+  "topology_path": "0@237000@2370M0",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "石公溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/石公溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=石公溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "9",
+    "river_office_name": "第九河川分署",
+    "office_valid_counties": [
+      "花蓮縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "花蓮縣",
+    "primary_county_code": "10015",
+    "is_border_river": false,
+    "border_counties": [
+      "花蓮縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "River_Office_Single_County_Fallback (由 第九河川分署 唯一管轄縣市 花蓮縣 推導)",
+    "county_derivation_tier": "Tier_4_River_Office_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

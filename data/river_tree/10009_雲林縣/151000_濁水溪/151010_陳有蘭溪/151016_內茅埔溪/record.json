@@ -1,0 +1,62 @@
+{
+  "river_code": "151016",
+  "river_name": "內茅埔溪",
+  "parent_code": "151010",
+  "parent_name": "陳有蘭溪",
+  "basin_code": "151010",
+  "basin_name": "濁水溪",
+  "topology_path": "0@151000@151010@151016",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "濁水溪官方水系",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%85%A7%E8%8C%85%E5%9F%94%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%85%A7%E8%8C%85%E5%9F%94%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "4",
+    "river_office_name": "第四河川分署",
+    "office_valid_counties": [
+      "彰化縣",
+      "雲林縣",
+      "南投縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.841542,
+    "outfall_lat": 23.6837541,
+    "primary_county": "南投縣",
+    "primary_county_code": "10008",
+    "is_border_river": false,
+    "border_counties": [
+      "南投縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.8415,23.6838 落入 南投縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-151016",
+      "confluence_lon": 120.841542,
+      "confluence_lat": 23.6837541,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 13.6,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

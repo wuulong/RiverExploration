@@ -1,0 +1,62 @@
+{
+  "river_code": "140090",
+  "river_name": "內灣圳排水",
+  "parent_code": "140000",
+  "parent_name": "大安溪",
+  "basin_code": "140000",
+  "basin_name": "大安溪",
+  "topology_path": "0@140000@140090",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "大安溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/內灣圳排水",
+    "osm_url": "https://www.openstreetmap.org/search?query=內灣圳排水",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.8362439,
+    "outfall_lat": 24.2998835,
+    "primary_county": "臺中市",
+    "primary_county_code": "66000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺中市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Nearest (出海口點位 120.8362,24.2999 最接近 臺中市 邊界)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Nearest",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-140090",
+      "confluence_lon": 120.8362439,
+      "confluence_lat": 24.2998835,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 4.7,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

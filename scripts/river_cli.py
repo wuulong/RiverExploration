@@ -269,15 +269,18 @@ def export_as_mermaid(records: list) -> str:
     return "\n".join(lines)
 
 def cmd_links(records: list, query: str):
-    """查詢並印出特定水脈的所有外部權威鏈結 (Links)"""
+    """查詢並印出特定水脈的所有外部權威連結 (Links)"""
     target = next((r for r in records if query.lower() in r.get("river_name", "").lower() or query.lower() in r.get("river_code", "").lower()), None)
     if not target:
         print(f"❌ 找不到符合條件的水脈: {query}", file=sys.stderr)
         return
 
     links = target.get("links", {})
-    print(f"\n🔗 【{target['river_name']} ({target['river_code']}) 權威鏈結面板】")
-    print(f"  ├─ 📌 Wikidata ID    : {links.get('wikidata_id') or '無'}")
+    qid = links.get("wikidata_id", "")
+    wikidata_url_str = f"{qid} (https://www.wikidata.org/wiki/{qid})" if qid else "無"
+
+    print(f"\n🔗 【{target['river_name']} ({target['river_code']}) 權威連結面板】")
+    print(f"  ├─ 📌 Wikidata ID    : {wikidata_url_str}")
     print(f"  ├─ 📖 Wikipedia URL  : {links.get('wikipedia_url') or '無'}")
     print(f"  ├─ 🗺️ OpenStreetMap : {links.get('osm_url') or '無'}")
     print(f"  └─ 🌐 WalkGIS URL    : {links.get('walkgis_url') or '無'}\n")
@@ -321,7 +324,7 @@ def cmd_profile_ascii(records: list, query: str):
     print(f"📊 已獲取高程: {len(ele_records)} 筆 (最高: {max_ele}m | 最低: {min_ele}m) | 待厚化高程: {len(no_ele_records)} 筆")
     print("=" * 80)
     
-    # 動態計算水系中最長名稱與代碼寬度
+    # 動態計算水系中最長名稱與程式碼寬度
     max_code_w = max(len(r['river_code']) for r in basin_records) + 2  # 包含括號 ()
     
     # 1. 輸出已知高程水脈
@@ -344,6 +347,63 @@ def cmd_profile_ascii(records: list, query: str):
             
     print("=" * 80 + "\n")
 
+def cmd_export_dirs(records: list, target_dir: str):
+    """將全台水脈按 [縣市]/[代號_溪名]/... 自動建立階層目錄並發放 record.json"""
+    import os, json
+    abs_target = os.path.abspath(target_dir)
+    print(f"📁 準備構建實體目錄樹至: {abs_target} ...", file=sys.stderr)
+
+    record_map = {r["river_code"]: r for r in records}
+    created_dirs_cnt = 0
+
+    def build_dir_recursive(rec, parent_path):
+        nonlocal created_dirs_cnt
+        code = rec["river_code"]
+        name = rec["river_name"]
+        dir_name = f"{code}_{name}"
+        curr_dir = os.path.join(parent_path, dir_name)
+        os.makedirs(curr_dir, exist_ok=True)
+        created_dirs_cnt += 1
+
+        # 寫入 record.json
+        record_file = os.path.join(curr_dir, "record.json")
+        with open(record_file, "w", encoding="utf-8") as f:
+            json.dump(rec, f, ensure_ascii=False, indent=2)
+
+        # 找出直屬子支流並遞迴建立
+        children = [r for r in records if r.get("parent_code") == code]
+        for child in children:
+            build_dir_recursive(child, curr_dir)
+
+    office_dir_names = {
+        "1": "01_第一河川分署", "2": "02_第二河川分署", "3": "03_第三河川分署",
+        "4": "04_第四河川分署", "5": "05_第五河川分署", "6": "06_第六河川分署",
+        "7": "07_第七河川分署", "8": "08_第八河川分署", "9": "09_第九河川分署",
+        "10": "10_第十河川分署"
+    }
+
+    # 找出所有獨立主流 (parent_code == "0")
+    mainstems = [r for r in records if r.get("parent_code") == "0"]
+    for mainstem in mainstems:
+        attr = mainstem.get("attribute_json", {})
+        county = attr.get("primary_county", "未定縣市")
+        county_code = attr.get("primary_county_code", "00000")
+        office_id = attr.get("river_office_id", "")
+        
+        if county_code != "00000" and county != "未定縣市":
+            top_dir_name = f"{county_code}_{county}"
+        elif office_id in office_dir_names:
+            top_dir_name = office_dir_names[office_id]
+        else:
+            top_dir_name = "99999_未定縣市"
+
+        county_dir = os.path.join(abs_target, top_dir_name)
+        build_dir_recursive(mainstem, county_dir)
+
+    print(f"🎉【實體目錄樹建構完成】", file=sys.stderr)
+    print(f"📂 總建構目錄數: {created_dirs_cnt} 個", file=sys.stderr)
+    print(f"📍 目錄樹根路徑: {abs_target}", file=sys.stderr)
+
 def main():
     parser = argparse.ArgumentParser(description="WRA-Civ 全台水文拓樸 3D 萬用查詢與多格式轉譯 CLI 工具 (CGS v2.0)")
     subparsers = parser.add_subparsers(dest="command", help="子命令")
@@ -358,18 +418,22 @@ def main():
 
     # trace
     p_trace = subparsers.add_parser("trace", help="上下游拓樸追溯")
-    p_trace.add_argument("query", help="目標河流名稱或代碼")
+    p_trace.add_argument("query", help="目標河流名稱或程式碼")
     p_trace.add_argument("--direction", choices=["up", "down"], default="up", help="追溯方向")
     p_trace.add_argument("-f", "--format", default="tree", choices=["tree", "csv", "json", "jsonl", "geojson", "kml", "mermaid"])
     p_trace.add_argument("-o", "--output", help="輸出檔案路徑")
 
     # links
     p_links = subparsers.add_parser("links", help="查詢水脈權威外鏈面板")
-    p_links.add_argument("query", help="目標河流名稱或代碼")
+    p_links.add_argument("query", help="目標河流名稱或程式碼")
 
     # profile
     p_profile = subparsers.add_parser("profile", help="印出 3D 海拔縱剖面與降落圖")
     p_profile.add_argument("query", help="水系或河流名稱")
+
+    # export-dirs
+    p_exp = subparsers.add_parser("export-dirs", help="自動匯出 [縣市]/[代號_溪名]/... 實體目錄樹")
+    p_exp.add_argument("--target-dir", default="data/river_tree", help="目標目錄樹根路徑")
 
     args = parser.parse_args()
 
@@ -396,6 +460,8 @@ def main():
         cmd_links(records, args.query)
     elif args.command == "profile":
         cmd_profile_ascii(records, args.query)
+    elif args.command == "export-dirs":
+        cmd_export_dirs(records, args.target_dir)
     else:
         print(export_as_tree(records[:20]))
 

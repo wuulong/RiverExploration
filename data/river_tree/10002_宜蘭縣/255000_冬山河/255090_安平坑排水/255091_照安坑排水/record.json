@@ -1,0 +1,60 @@
+{
+  "river_code": "255091",
+  "river_name": "照安坑排水",
+  "parent_code": "255090",
+  "parent_name": "安平坑排水",
+  "basin_code": "255090",
+  "basin_name": "冬山河",
+  "topology_path": "0@255000@255090@255091",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "冬山河官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/照安坑排水",
+    "osm_url": "https://www.openstreetmap.org/search?query=照安坑排水",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "1",
+    "river_office_name": "第一河川分署",
+    "office_valid_counties": [
+      "宜蘭縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.7945632,
+    "outfall_lat": 24.6151929,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.7946,24.6152 落入 宜蘭縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-255091",
+      "confluence_lon": 121.7945632,
+      "confluence_lat": 24.6151929,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 11.45,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

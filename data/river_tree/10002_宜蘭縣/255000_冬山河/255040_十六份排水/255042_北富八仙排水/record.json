@@ -1,0 +1,60 @@
+{
+  "river_code": "255042",
+  "river_name": "北富八仙排水",
+  "parent_code": "255040",
+  "parent_name": "十六份排水",
+  "basin_code": "255040",
+  "basin_name": "冬山河",
+  "topology_path": "0@255000@255040@255042",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "冬山河官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/北富八仙排水",
+    "osm_url": "https://www.openstreetmap.org/search?query=北富八仙排水",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "1",
+    "river_office_name": "第一河川分署",
+    "office_valid_counties": [
+      "宜蘭縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.7614706,
+    "outfall_lat": 24.6701282,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.7615,24.6701 落入 宜蘭縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-255042",
+      "confluence_lon": 121.7614706,
+      "confluence_lat": 24.6701282,
+      "confluence_type": "Geometric_Endpoint_Match_1637m",
+      "estimated_length_km": 8.37,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

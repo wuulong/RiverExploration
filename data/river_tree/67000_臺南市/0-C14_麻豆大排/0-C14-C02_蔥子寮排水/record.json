@@ -1,0 +1,50 @@
+{
+  "river_code": "0-C14-C02",
+  "river_name": "蔥子寮排水",
+  "parent_code": "0-C14",
+  "parent_name": "麻豆大排",
+  "basin_code": "0-C14",
+  "basin_name": "將軍溪排水(將軍溪)",
+  "topology_path": "0@0-C14@0-C14-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "將軍溪排水(將軍溪)水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%94%A5%E5%AD%90%E5%AF%AE%E6%8E%92%E6%B0%B4",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E8%94%A5%E5%AD%90%E5%AF%AE%E6%8E%92%E6%B0%B4",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "",
+    "river_office_name": "",
+    "office_valid_counties": [],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "臺南市",
+    "primary_county_code": "67000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺南市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '將軍' 推導至 臺南市)",
+    "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

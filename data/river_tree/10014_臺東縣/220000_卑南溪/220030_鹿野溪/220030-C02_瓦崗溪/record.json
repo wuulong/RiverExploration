@@ -1,0 +1,60 @@
+{
+  "river_code": "220030-C02",
+  "river_name": "瓦崗溪",
+  "parent_code": "220030",
+  "parent_name": "鹿野溪",
+  "basin_code": "220030",
+  "basin_name": "卑南溪",
+  "topology_path": "0@220000@220030@220030-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "卑南溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E7%93%A6%E5%B4%97%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E7%93%A6%E5%B4%97%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "8",
+    "river_office_name": "第八河川分署",
+    "office_valid_counties": [
+      "臺東縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.0419297,
+    "outfall_lat": 22.9141566,
+    "primary_county": "臺東縣",
+    "primary_county_code": "10014",
+    "is_border_river": false,
+    "border_counties": [
+      "臺東縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.0419,22.9142 落入 臺東縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-220030-C02",
+      "confluence_lon": 121.0419297,
+      "confluence_lat": 22.9141566,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 17.36,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

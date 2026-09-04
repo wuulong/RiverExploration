@@ -1,0 +1,63 @@
+{
+  "river_code": "186000",
+  "river_name": "保力溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "186000",
+  "basin_name": "保力溪",
+  "topology_path": "0@186000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "保力溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/保力溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=保力溪",
+    "wikidata_id": "Q10887532"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "7",
+    "river_office_name": "第七河川分署",
+    "office_valid_counties": [
+      "高雄市",
+      "屏東縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.726191,
+    "outfall_lat": 22.0530062,
+    "primary_county": "屏東縣",
+    "primary_county_code": "10013",
+    "is_border_river": false,
+    "border_counties": [
+      "屏東縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.7262,22.0530 落入 屏東縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-186000",
+      "confluence_lon": 120.726191,
+      "confluence_lat": 22.0530062,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 0.0,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

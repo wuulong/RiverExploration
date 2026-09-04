@@ -1,0 +1,62 @@
+{
+  "river_code": "14305Z",
+  "river_name": "溪底溝排水",
+  "parent_code": "143050",
+  "parent_name": "大里溪",
+  "basin_code": "143050",
+  "basin_name": "烏溪",
+  "topology_path": "0@143000@143050@14305Z",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "烏溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/溪底溝排水",
+    "osm_url": "https://www.openstreetmap.org/search?query=溪底溝排水",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.7121446,
+    "outfall_lat": 24.1457022,
+    "primary_county": "臺中市",
+    "primary_county_code": "66000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺中市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.7121,24.1457 落入 臺中市 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-14305Z",
+      "confluence_lon": 120.7121446,
+      "confluence_lat": 24.1457022,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 6.44,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,62 @@
+{
+  "river_code": "226000",
+  "river_name": "都威溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "226000",
+  "basin_name": "都威溪",
+  "topology_path": "0@226000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "stream",
+  "stream_order": 1,
+  "description": "都威溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/都威溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=都威溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "8",
+    "river_office_name": "第八河川分署",
+    "office_valid_counties": [
+      "臺東縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.3977642,
+    "outfall_lat": 23.1893911,
+    "primary_county": "臺東縣",
+    "primary_county_code": "10014",
+    "is_border_river": false,
+    "border_counties": [
+      "臺東縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.3978,23.1894 落入 臺東縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-226000",
+      "confluence_lon": 121.3977642,
+      "confluence_lat": 23.1893911,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 0.0,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

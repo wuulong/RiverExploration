@@ -1,0 +1,60 @@
+{
+  "river_code": "244000-C03",
+  "river_name": "八堵毛溪",
+  "parent_code": "244000",
+  "parent_name": "美崙溪",
+  "basin_code": "244000",
+  "basin_name": "美崙溪",
+  "topology_path": "0@244000@244000-C03",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "美崙溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%85%AB%E5%A0%B5%E6%AF%9B%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%85%AB%E5%A0%B5%E6%AF%9B%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "9",
+    "river_office_name": "第九河川分署",
+    "office_valid_counties": [
+      "花蓮縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.5647039,
+    "outfall_lat": 24.0270904,
+    "primary_county": "花蓮縣",
+    "primary_county_code": "10015",
+    "is_border_river": false,
+    "border_counties": [
+      "花蓮縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.5647,24.0271 落入 花蓮縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-244000-C03",
+      "confluence_lon": 121.5647039,
+      "confluence_lat": 24.0270904,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 14.09,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

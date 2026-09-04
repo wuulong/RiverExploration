@@ -1,0 +1,64 @@
+{
+  "river_code": "140000",
+  "river_name": "大安溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "140000",
+  "basin_name": "大安溪",
+  "topology_path": "0@140000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "大安溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/大安溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=大安溪",
+    "wikidata_id": "Q278671"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.59495,
+    "outfall_lat": 24.4089,
+    "primary_county": "臺中市",
+    "primary_county_code": "66000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺中市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Nearest (出海口點位 120.5949,24.4089 最接近 臺中市 邊界)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Nearest",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-140000",
+      "confluence_lon": 120.59495,
+      "confluence_lat": 24.4089,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 262.8,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": "zh:大安溪"
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

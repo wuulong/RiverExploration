@@ -1,0 +1,62 @@
+{
+  "river_code": "255000",
+  "river_name": "冬山河",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "255000",
+  "basin_name": "蘭陽溪",
+  "topology_path": "0@255000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "蘭陽溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/冬山河",
+    "osm_url": "https://www.openstreetmap.org/search?query=冬山河",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "1",
+    "river_office_name": "第一河川分署",
+    "office_valid_counties": [
+      "宜蘭縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.835702,
+    "outfall_lat": 24.7152855,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.8357,24.7153 落入 宜蘭縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-255000",
+      "confluence_lon": 121.835702,
+      "confluence_lat": 24.7152855,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 50.49,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

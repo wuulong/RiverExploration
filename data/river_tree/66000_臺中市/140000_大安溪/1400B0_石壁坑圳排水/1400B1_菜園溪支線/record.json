@@ -1,0 +1,52 @@
+{
+  "river_code": "1400B1",
+  "river_name": "菜園溪支線",
+  "parent_code": "1400B0",
+  "parent_name": "石壁坑圳排水",
+  "basin_code": "1400B0",
+  "basin_name": "大安溪",
+  "topology_path": "0@140000@1400B0@1400B1",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "大安溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/菜園溪支線",
+    "osm_url": "https://www.openstreetmap.org/search?query=菜園溪支線",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

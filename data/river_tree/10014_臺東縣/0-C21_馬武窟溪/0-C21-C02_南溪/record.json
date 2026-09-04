@@ -1,0 +1,48 @@
+{
+  "river_code": "0-C21-C02",
+  "river_name": "南溪",
+  "parent_code": "0-C21",
+  "parent_name": "馬武窟溪",
+  "basin_code": "0-C21",
+  "basin_name": "馬武溪",
+  "topology_path": "0@0-C21@0-C21-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "馬武溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%8D%97%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%8D%97%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "",
+    "river_office_name": "",
+    "office_valid_counties": [],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

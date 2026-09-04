@@ -1,0 +1,52 @@
+{
+  "river_code": "235000",
+  "river_name": "水母溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "235000",
+  "basin_name": "水母溪",
+  "topology_path": "0@235000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "水母溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/水母溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=水母溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "8",
+    "river_office_name": "第八河川分署",
+    "office_valid_counties": [
+      "臺東縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "臺東縣",
+    "primary_county_code": "10014",
+    "is_border_river": false,
+    "border_counties": [
+      "臺東縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "River_Office_Single_County_Fallback (由 第八河川分署 唯一管轄縣市 臺東縣 推導)",
+    "county_derivation_tier": "Tier_4_River_Office_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

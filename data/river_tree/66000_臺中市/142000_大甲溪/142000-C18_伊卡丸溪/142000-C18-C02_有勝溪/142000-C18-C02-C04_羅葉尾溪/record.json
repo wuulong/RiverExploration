@@ -1,0 +1,62 @@
+{
+  "river_code": "142000-C18-C02-C04",
+  "river_name": "羅葉尾溪",
+  "parent_code": "142000-C18-C02",
+  "parent_name": "有勝溪",
+  "basin_code": "142000",
+  "basin_name": "大甲溪",
+  "topology_path": "0@142000@142000-C18@142000-C18-C02@142000-C18-C02-C04",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 4,
+  "description": "大甲溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E7%BE%85%E8%91%89%E5%B0%BE%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E7%BE%85%E8%91%89%E5%B0%BE%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.3368266,
+    "outfall_lat": 24.4003565,
+    "primary_county": "臺中市",
+    "primary_county_code": "66000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺中市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Nearest (出海口點位 121.3368,24.4004 最接近 臺中市 邊界)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Nearest",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-142000-C18-C02-C04",
+      "confluence_lon": 121.3368266,
+      "confluence_lat": 24.4003565,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 12.14,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

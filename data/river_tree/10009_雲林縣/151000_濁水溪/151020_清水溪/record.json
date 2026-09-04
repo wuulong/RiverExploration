@@ -1,0 +1,55 @@
+{
+  "river_code": "151020",
+  "river_name": "清水溪",
+  "parent_code": "151000",
+  "parent_name": "濁水溪",
+  "basin_code": "151000",
+  "basin_name": "濁水溪",
+  "topology_path": "0@151000@151020",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "濁水溪官方最大一級支流 (流經雲林、南投、嘉義) (原名稱/備註: 清水溪 (濁水溪水系))",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/清水溪_(濁水溪支流)",
+    "osm_url": "https://www.openstreetmap.org/search?query=清水溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "raw_river_name": "清水溪",
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "4",
+    "river_office_name": "第四河川分署",
+    "office_valid_counties": [
+      "彰化縣",
+      "雲林縣",
+      "南投縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "南投縣",
+    "primary_county_code": "10008",
+    "is_border_river": false,
+    "border_counties": [
+      "南投縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Text_Entity_Extraction (從名稱/描述語意萃取出 南投縣)",
+    "county_derivation_tier": "Tier_3_Text_Entity_Extraction",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

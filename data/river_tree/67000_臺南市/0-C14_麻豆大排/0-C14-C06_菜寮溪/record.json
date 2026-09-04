@@ -1,0 +1,51 @@
+{
+  "river_code": "0-C14-C06",
+  "river_name": "菜寮溪",
+  "parent_code": "0-C14",
+  "parent_name": "麻豆大排",
+  "basin_code": "0-C14",
+  "basin_name": "將軍溪排水(將軍溪)",
+  "topology_path": "0@0-C14@0-C14-C06",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "將軍溪排水(將軍溪)水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%8F%9C%E5%AF%AE%E6%BA%AA%EF%BC%88%E4%BD%B3%E9%87%8C%E6%8E%92%E6%B0%B4%E3%80%81%E5%B0%87%E8%BB%8D%E6%BA%AA%E4%B8%8A%E6%B8%B8%E5%88%86%E7%B7%9A%EF%BC%89",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E8%8F%9C%E5%AF%AE%E6%BA%AA%EF%BC%88%E4%BD%B3%E9%87%8C%E6%8E%92%E6%B0%B4%E3%80%81%E5%B0%87%E8%BB%8D%E6%BA%AA%E4%B8%8A%E6%B8%B8%E5%88%86%E7%B7%9A%EF%BC%89",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "raw_river_name": "菜寮溪",
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "",
+    "river_office_name": "",
+    "office_valid_counties": [],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "臺南市",
+    "primary_county_code": "67000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺南市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '將軍' 推導至 臺南市)",
+    "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

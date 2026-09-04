@@ -1,0 +1,55 @@
+{
+  "river_code": "154010-C03",
+  "river_name": "石榴班溪",
+  "parent_code": "154010",
+  "parent_name": "虎尾溪",
+  "basin_code": "154010",
+  "basin_name": "北港溪",
+  "topology_path": "0@154000@154010@154010-C03",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "雲林石榴班溪 (當地人稱梅林溪口以下為林子頭溪，以上為埤子頭溪)",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E7%9F%B3%E6%A6%B4%E7%8F%AD%E6%BA%AA%EF%BC%88%E7%95%B6%E5%9C%B0%E4%BA%BA%E7%A8%B1%E6%A2%85%E6%9E%97%E6%BA%AA%E5%8F%A3%E4%BB%A5%E4%B8%8B%E7%82%BA%E6%9E%97%E5%AD%90%E9%A0%AD%E6%BA%AA%EF%BC%8C%E4%BB%A5%E4%B8%8A%E7%82%BA%E5%9F%A4%E5%AD%90%E9%A0%AD%E6%BA%AA%EF%BC%89",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E7%9F%B3%E6%A6%B4%E7%8F%AD%E6%BA%AA%EF%BC%88%E7%95%B6%E5%9C%B0%E4%BA%BA%E7%A8%B1%E6%A2%85%E6%9E%97%E6%BA%AA%E5%8F%A3%E4%BB%A5%E4%B8%8B%E7%82%BA%E6%9E%97%E5%AD%90%E9%A0%AD%E6%BA%AA%EF%BC%8C%E4%BB%A5%E4%B8%8A%E7%82%BA%E5%9F%A4%E5%AD%90%E9%A0%AD%E6%BA%AA%EF%BC%89",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "雲林縣",
+    "primary_county_code": "10009",
+    "is_border_river": false,
+    "border_counties": [
+      "雲林縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Text_Entity_Extraction (從名稱/描述語意萃取出 雲林縣)",
+    "county_derivation_tier": "Tier_3_Text_Entity_Extraction",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

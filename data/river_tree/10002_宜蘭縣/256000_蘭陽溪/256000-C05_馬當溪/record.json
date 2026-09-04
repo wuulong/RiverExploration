@@ -1,0 +1,60 @@
+{
+  "river_code": "256000-C05",
+  "river_name": "馬當溪",
+  "parent_code": "256000",
+  "parent_name": "蘭陽溪",
+  "basin_code": "256000",
+  "basin_name": "蘭陽溪",
+  "topology_path": "0@256000@256000-C05",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "蘭陽溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E9%A6%AC%E7%95%B6%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E9%A6%AC%E7%95%B6%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "1",
+    "river_office_name": "第一河川分署",
+    "office_valid_counties": [
+      "宜蘭縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.3791185,
+    "outfall_lat": 24.4251896,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.3791,24.4252 落入 宜蘭縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-256000-C05",
+      "confluence_lon": 121.3791185,
+      "confluence_lat": 24.4251896,
+      "confluence_type": "Geometric_Endpoint_Match_349m",
+      "estimated_length_km": 15.69,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

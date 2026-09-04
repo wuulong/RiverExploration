@@ -1,0 +1,52 @@
+{
+  "river_code": "246000-C06",
+  "river_name": "荖西溪",
+  "parent_code": "246000",
+  "parent_name": "立霧溪",
+  "basin_code": "246000",
+  "basin_name": "立霧溪",
+  "topology_path": "0@246000@246000-C06",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "立霧溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%8D%96%E8%A5%BF%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E8%8D%96%E8%A5%BF%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "9",
+    "river_office_name": "第九河川分署",
+    "office_valid_counties": [
+      "花蓮縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "花蓮縣",
+    "primary_county_code": "10015",
+    "is_border_river": false,
+    "border_counties": [
+      "花蓮縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "River_Office_Single_County_Fallback (由 第九河川分署 唯一管轄縣市 花蓮縣 推導)",
+    "county_derivation_tier": "Tier_4_River_Office_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

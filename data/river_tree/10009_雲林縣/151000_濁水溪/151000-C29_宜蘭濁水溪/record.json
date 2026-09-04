@@ -1,0 +1,54 @@
+{
+  "river_code": "151000-C29",
+  "river_name": "宜蘭濁水溪",
+  "parent_code": "151000",
+  "parent_name": "濁水溪",
+  "basin_code": "151000",
+  "basin_name": "濁水溪",
+  "topology_path": "0@151000@151000-C29",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "濁水溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%AE%9C%E8%98%AD%E6%BF%81%E6%B0%B4%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%AE%9C%E8%98%AD%E6%BF%81%E6%B0%B4%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "4",
+    "river_office_name": "第四河川分署",
+    "office_valid_counties": [
+      "彰化縣",
+      "雲林縣",
+      "南投縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Text_Entity_Extraction (從名稱/描述語意萃取出 宜蘭縣)",
+    "county_derivation_tier": "Tier_3_Text_Entity_Extraction",
+    "is_office_county_matched": false,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

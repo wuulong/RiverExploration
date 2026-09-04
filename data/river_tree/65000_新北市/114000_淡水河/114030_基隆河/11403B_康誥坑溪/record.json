@@ -1,0 +1,62 @@
+{
+  "river_code": "11403B",
+  "river_name": "康誥坑溪",
+  "parent_code": "114030",
+  "parent_name": "基隆河",
+  "basin_code": "114030",
+  "basin_name": "淡水河",
+  "topology_path": "0@114000@114030@11403B",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "淡水河官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/康誥坑溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=康誥坑溪",
+    "wikidata_id": "Q11064064"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "10",
+    "river_office_name": "第十河川分署",
+    "office_valid_counties": [
+      "基隆市",
+      "臺北市",
+      "新北市"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.6592172,
+    "outfall_lat": 25.0453608,
+    "primary_county": "新北市",
+    "primary_county_code": "65000",
+    "is_border_river": false,
+    "border_counties": [
+      "新北市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.6592,25.0454 落入 新北市 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-11403B",
+      "confluence_lon": 121.6592172,
+      "confluence_lat": 25.0453608,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 13.34,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

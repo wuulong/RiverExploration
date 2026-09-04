@@ -1,0 +1,63 @@
+{
+  "river_code": "134040",
+  "river_name": "峨眉溪",
+  "parent_code": "134000",
+  "parent_name": "中港溪",
+  "basin_code": "134000",
+  "basin_name": "中港溪",
+  "topology_path": "0@134000@134040",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "中港溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/峨眉溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=峨眉溪",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "2",
+    "river_office_name": "第二河川分署",
+    "office_valid_counties": [
+      "桃園市",
+      "新竹縣",
+      "新竹市",
+      "苗栗縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.965587,
+    "outfall_lat": 24.6744277,
+    "primary_county": "苗栗縣",
+    "primary_county_code": "10005",
+    "is_border_river": false,
+    "border_counties": [
+      "苗栗縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.9656,24.6744 落入 苗栗縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-134040",
+      "confluence_lon": 120.965587,
+      "confluence_lat": 24.6744277,
+      "confluence_type": "Geometric_Endpoint_Match_1847m",
+      "estimated_length_km": 2.65,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

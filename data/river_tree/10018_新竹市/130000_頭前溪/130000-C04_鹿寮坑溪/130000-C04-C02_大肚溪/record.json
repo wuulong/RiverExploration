@@ -1,0 +1,53 @@
+{
+  "river_code": "130000-C04-C02",
+  "river_name": "大肚溪",
+  "parent_code": "130000-C04",
+  "parent_name": "鹿寮坑溪",
+  "basin_code": "130000",
+  "basin_name": "頭前溪",
+  "topology_path": "0@130000@130000-C04@130000-C04-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "頭前溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%82%9A%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%A4%A7%E8%82%9A%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "2",
+    "river_office_name": "第二河川分署",
+    "office_valid_counties": [
+      "桃園市",
+      "新竹縣",
+      "新竹市",
+      "苗栗縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

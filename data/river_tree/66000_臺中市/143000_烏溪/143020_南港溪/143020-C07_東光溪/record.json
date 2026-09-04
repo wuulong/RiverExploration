@@ -1,0 +1,53 @@
+{
+  "river_code": "143020-C07",
+  "river_name": "東光溪",
+  "parent_code": "143020",
+  "parent_name": "南港溪",
+  "basin_code": "143020",
+  "basin_name": "烏溪",
+  "topology_path": "0@143000@143020@143020-C07",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "烏溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E6%9D%B1%E5%85%89%E6%BA%AA%EF%BC%88%E6%9C%A8%E5%B1%90%E6%AC%84%E6%BA%AA%E3%80%81%E6%9C%A8%E5%B1%A5%E6%AC%84%E6%BA%AA%EF%BC%89",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E6%9D%B1%E5%85%89%E6%BA%AA%EF%BC%88%E6%9C%A8%E5%B1%90%E6%AC%84%E6%BA%AA%E3%80%81%E6%9C%A8%E5%B1%A5%E6%AC%84%E6%BA%AA%EF%BC%89",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "raw_river_name": "東光溪",
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

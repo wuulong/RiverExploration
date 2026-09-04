@@ -1,0 +1,63 @@
+{
+  "river_code": "154015-C01",
+  "river_name": "芭蕉溪",
+  "parent_code": "154015",
+  "parent_name": "雲林溪",
+  "basin_code": "154015",
+  "basin_name": "北港溪",
+  "topology_path": "0@154000@154010@154015@154015-C01",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 4,
+  "description": "北港溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%8A%AD%E8%95%89%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E8%8A%AD%E8%95%89%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.5114976,
+    "outfall_lat": 23.7039463,
+    "primary_county": "雲林縣",
+    "primary_county_code": "10009",
+    "is_border_river": false,
+    "border_counties": [
+      "雲林縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.5115,23.7039 落入 雲林縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-154015-C01",
+      "confluence_lon": 120.5114976,
+      "confluence_lat": 23.7039463,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 15.23,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

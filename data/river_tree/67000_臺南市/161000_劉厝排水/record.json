@@ -1,0 +1,56 @@
+{
+  "river_code": "161000",
+  "river_name": "劉厝排水",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "161000",
+  "basin_name": "劉厝排水(七股溪)",
+  "topology_path": "0@161000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "劉厝排水(七股溪)官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/劉厝排水(七股溪)",
+    "osm_url": "https://www.openstreetmap.org/search?query=劉厝排水(七股溪)",
+    "wikidata_id": "Q35331776"
+  },
+  "attribute_json": {
+    "raw_river_name": "劉厝排水",
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "臺南市",
+    "primary_county_code": "67000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺南市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '七股' 推導至 臺南市)",
+    "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

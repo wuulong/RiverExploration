@@ -1,0 +1,54 @@
+{
+  "river_code": "114011",
+  "river_name": "三峽溪",
+  "parent_code": "114010",
+  "parent_name": "大漢溪",
+  "basin_code": "114010",
+  "basin_name": "淡水河",
+  "topology_path": "0@114000@114010@114011",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 3,
+  "description": "淡水河官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/三峽溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=三峽溪",
+    "wikidata_id": "Q7419001"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "10",
+    "river_office_name": "第十河川分署",
+    "office_valid_counties": [
+      "基隆市",
+      "臺北市",
+      "新北市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "新北市",
+    "primary_county_code": "65000",
+    "is_border_river": false,
+    "border_counties": [
+      "新北市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '淡水' 推導至 新北市)",
+    "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,52 @@
+{
+  "river_code": "237000-C07",
+  "river_name": "磨仔溪",
+  "parent_code": "237000",
+  "parent_name": "秀姑巒溪",
+  "basin_code": "237000",
+  "basin_name": "秀姑巒溪",
+  "topology_path": "0@237000@237000-C07",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "秀姑巒溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E7%A3%A8%E4%BB%94%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E7%A3%A8%E4%BB%94%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "9",
+    "river_office_name": "第九河川分署",
+    "office_valid_counties": [
+      "花蓮縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "花蓮縣",
+    "primary_county_code": "10015",
+    "is_border_river": false,
+    "border_counties": [
+      "花蓮縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "River_Office_Single_County_Fallback (由 第九河川分署 唯一管轄縣市 花蓮縣 推導)",
+    "county_derivation_tier": "Tier_4_River_Office_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

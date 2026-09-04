@@ -1,0 +1,50 @@
+{
+  "river_code": "0-C24",
+  "river_name": "雪山東麓野溪群",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "0-C24",
+  "basin_name": "福德溪",
+  "topology_path": "0@0-C24",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 1,
+  "description": "福德溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E9%9B%AA%E5%B1%B1%E5%B1%B1%E8%84%88%E6%9D%B1%E5%81%B4%E6%B0%B4%E7%B3%BB",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E9%9B%AA%E5%B1%B1%E5%B1%B1%E8%84%88%E6%9D%B1%E5%81%B4%E6%B0%B4%E7%B3%BB",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "",
+    "river_office_name": "",
+    "office_valid_counties": [],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "宜蘭縣",
+    "primary_county_code": "10002",
+    "is_border_river": false,
+    "border_counties": [
+      "宜蘭縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '雪山東麓' 推導至 宜蘭縣)",
+    "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

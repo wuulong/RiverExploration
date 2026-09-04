@@ -1,0 +1,52 @@
+{
+  "river_code": "114021-C03",
+  "river_name": "內洞溪",
+  "parent_code": "114021",
+  "parent_name": "南勢溪",
+  "basin_code": "114021",
+  "basin_name": "淡水河",
+  "topology_path": "0@114000@114020@114021@114021-C03",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 4,
+  "description": "南勢溪支流，內洞森林遊樂區三疊瀑布之水源，陰濕微氣候蕨類繁茂",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%85%A7%E6%B4%9E%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/?mlat=24.8275&mlon=121.5284#map=15/24.8275/121.5284",
+    "wikidata_id": "2026-06-24"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "10",
+    "river_office_name": "第十河川分署",
+    "office_valid_counties": [
+      "基隆市",
+      "臺北市",
+      "新北市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

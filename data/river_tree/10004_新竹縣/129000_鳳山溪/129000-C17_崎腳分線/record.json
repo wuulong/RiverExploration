@@ -1,0 +1,53 @@
+{
+  "river_code": "129000-C17",
+  "river_name": "崎腳分線",
+  "parent_code": "129000",
+  "parent_name": "鳳山溪",
+  "basin_code": "129000",
+  "basin_name": "鳳山溪",
+  "topology_path": "0@129000@129000-C17",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "鳳山溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%B4%8E%E8%85%B3%E5%88%86%E7%B7%9A",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%B4%8E%E8%85%B3%E5%88%86%E7%B7%9A",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "2",
+    "river_office_name": "第二河川分署",
+    "office_valid_counties": [
+      "桃園市",
+      "新竹縣",
+      "新竹市",
+      "苗栗縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

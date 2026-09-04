@@ -1,0 +1,55 @@
+{
+  "river_code": "114010-C02",
+  "river_name": "薩克亞金溪",
+  "parent_code": "114010",
+  "parent_name": "大漢溪",
+  "basin_code": "114010",
+  "basin_name": "淡水河",
+  "topology_path": "0@114000@114010@114010-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "淡水河水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E8%96%A9%E5%85%8B%E4%BA%9E%E9%87%91%E6%BA%AA%20%28%E7%99%BD%E7%9F%B3%E6%BA%AA%29",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E8%96%A9%E5%85%8B%E4%BA%9E%E9%87%91%E6%BA%AA%20%28%E7%99%BD%E7%9F%B3%E6%BA%AA%29",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "raw_river_name": "薩克亞金溪",
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "10",
+    "river_office_name": "第十河川分署",
+    "office_valid_counties": [
+      "基隆市",
+      "臺北市",
+      "新北市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "新北市",
+    "primary_county_code": "65000",
+    "is_border_river": false,
+    "border_counties": [
+      "新北市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Locality_Keyword_Match (從傳統鄉鎮/地名關鍵字 '淡水' 推導至 新北市)",
+    "county_derivation_tier": "Tier_3_Locality_Keyword_Match",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

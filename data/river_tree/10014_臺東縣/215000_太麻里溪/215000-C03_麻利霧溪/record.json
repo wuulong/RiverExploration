@@ -1,0 +1,60 @@
+{
+  "river_code": "215000-C03",
+  "river_name": "麻利霧溪",
+  "parent_code": "215000",
+  "parent_name": "太麻里溪",
+  "basin_code": "215000",
+  "basin_name": "太麻里溪",
+  "topology_path": "0@215000@215000-C03",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "太麻里溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E9%BA%BB%E5%88%A9%E9%9C%A7%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E9%BA%BB%E5%88%A9%E9%9C%A7%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "8",
+    "river_office_name": "第八河川分署",
+    "office_valid_counties": [
+      "臺東縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.9226439,
+    "outfall_lat": 22.6256423,
+    "primary_county": "臺東縣",
+    "primary_county_code": "10014",
+    "is_border_river": false,
+    "border_counties": [
+      "臺東縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.9226,22.6256 落入 臺東縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-215000-C03",
+      "confluence_lon": 120.9226439,
+      "confluence_lat": 22.6256423,
+      "confluence_type": "OSM_Shared_Node",
+      "estimated_length_km": 20.66,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,64 @@
+{
+  "river_code": "142000",
+  "river_name": "大甲溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "142000",
+  "basin_name": "南湖溪",
+  "topology_path": "0@142000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "南湖溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/大甲溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=大甲溪",
+    "wikidata_id": "Q714246"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "3",
+    "river_office_name": "第三河川分署",
+    "office_valid_counties": [
+      "臺中市",
+      "南投縣",
+      "彰化縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.7355499,
+    "outfall_lat": 24.2833526,
+    "primary_county": "臺中市",
+    "primary_county_code": "66000",
+    "is_border_river": false,
+    "border_counties": [
+      "臺中市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.7355,24.2834 落入 臺中市 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-142000",
+      "confluence_lon": 120.7355499,
+      "confluence_lat": 24.2833526,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 295.39,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": "zh:大甲溪"
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

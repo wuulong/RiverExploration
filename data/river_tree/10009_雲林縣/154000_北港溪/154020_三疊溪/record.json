@@ -1,0 +1,63 @@
+{
+  "river_code": "154020",
+  "river_name": "三疊溪",
+  "parent_code": "154000",
+  "parent_name": "北港溪",
+  "basin_code": "154000",
+  "basin_name": "北港溪",
+  "topology_path": "0@154000@154020",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 2,
+  "description": "北港溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/三疊溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=三疊溪",
+    "wikidata_id": "Q7416346"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "5",
+    "river_office_name": "第五河川分署",
+    "office_valid_counties": [
+      "雲林縣",
+      "嘉義縣",
+      "嘉義市",
+      "臺南市"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.366258,
+    "outfall_lat": 23.6053257,
+    "primary_county": "嘉義縣",
+    "primary_county_code": "10010",
+    "is_border_river": false,
+    "border_counties": [
+      "嘉義縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.3663,23.6053 落入 嘉義縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-154020",
+      "confluence_lon": 120.366258,
+      "confluence_lat": 23.6053257,
+      "confluence_type": "Geometric_Endpoint_Match_29m",
+      "estimated_length_km": 64.7,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

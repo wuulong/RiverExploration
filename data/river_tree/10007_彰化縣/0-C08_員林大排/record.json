@@ -1,0 +1,60 @@
+{
+  "river_code": "0-C08",
+  "river_name": "員林大排",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "0-C08",
+  "basin_name": "福興溪排水",
+  "topology_path": "0@0-C08",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 1,
+  "description": "福興溪排水水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%93%A1%E6%9E%97%E5%A4%A7%E6%8E%92",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%93%A1%E6%9E%97%E5%A4%A7%E6%8E%92",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "",
+    "river_office_name": "",
+    "office_valid_counties": [],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.4070444,
+    "outfall_lat": 24.0567617,
+    "primary_county": "彰化縣",
+    "primary_county_code": "10007",
+    "is_border_river": false,
+    "border_counties": [
+      "彰化縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 120.4070,24.0568 落入 彰化縣 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-0-C08",
+      "confluence_lon": 120.4070444,
+      "confluence_lat": 24.0567617,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 0.0,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

@@ -1,0 +1,60 @@
+{
+  "river_code": "0-C05",
+  "river_name": "八連溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "0-C05",
+  "basin_name": "八蓮溪",
+  "topology_path": "0@0-C05",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 1,
+  "description": "八蓮溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%85%AB%E9%80%A3%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%85%AB%E9%80%A3%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "",
+    "river_office_name": "",
+    "office_valid_counties": [],
+    "has_outfall_gps": true,
+    "outfall_lon": 121.6439062,
+    "outfall_lat": 25.0797193,
+    "primary_county": "新北市",
+    "primary_county_code": "65000",
+    "is_border_river": false,
+    "border_counties": [
+      "新北市"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Spatial_Join_Contains (出海口點位 121.6439,25.0797 落入 新北市 多邊形內)",
+    "county_derivation_tier": "Tier_2_Spatial_Join_Contains",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-0-C05",
+      "confluence_lon": 121.6439062,
+      "confluence_lat": 25.0797193,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 42.12,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": ""
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

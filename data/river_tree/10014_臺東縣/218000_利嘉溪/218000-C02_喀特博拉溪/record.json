@@ -1,0 +1,52 @@
+{
+  "river_code": "218000-C02",
+  "river_name": "喀特博拉溪",
+  "parent_code": "218000",
+  "parent_name": "利嘉溪",
+  "basin_code": "218000",
+  "basin_name": "利嘉溪",
+  "topology_path": "0@218000@218000-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 2,
+  "description": "利嘉溪水系民間支流",
+  "contributor": "wuulong@gmail.com",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E5%96%80%E7%89%B9%E5%8D%9A%E6%8B%89%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E5%96%80%E7%89%B9%E5%8D%9A%E6%8B%89%E6%BA%AA",
+    "wikidata_id": ""
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "8",
+    "river_office_name": "第八河川分署",
+    "office_valid_counties": [
+      "臺東縣"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "臺東縣",
+    "primary_county_code": "10014",
+    "is_border_river": false,
+    "border_counties": [
+      "臺東縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "River_Office_Single_County_Fallback (由 第八河川分署 唯一管轄縣市 臺東縣 推導)",
+    "county_derivation_tier": "Tier_4_River_Office_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

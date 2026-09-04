@@ -1,0 +1,51 @@
+{
+  "river_code": "163020-C02",
+  "river_name": "紅水泉溪",
+  "parent_code": "163020",
+  "parent_name": "菜寮溪",
+  "basin_code": "163020",
+  "basin_name": "曾文溪",
+  "topology_path": "0@163000@163020@163020-C02",
+  "is_civilian": 1,
+  "source_type": "Wiki",
+  "waterway_type": "stream",
+  "stream_order": 3,
+  "description": "曾文溪水系民間支流",
+  "contributor": "",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/%E7%B4%85%E6%B0%B4%E6%B3%89%E6%BA%AA",
+    "osm_url": "https://www.openstreetmap.org/search?query=%E7%B4%85%E6%B0%B4%E6%B3%89%E6%BA%AA",
+    "wikidata_id": "2026-08-29"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "6",
+    "river_office_name": "第六河川分署",
+    "office_valid_counties": [
+      "臺南市",
+      "高雄市"
+    ],
+    "has_outfall_gps": false,
+    "outfall_lon": null,
+    "outfall_lat": null,
+    "primary_county": "未定縣市",
+    "primary_county_code": "00000",
+    "is_border_river": false,
+    "border_counties": [],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Unassigned_Fallback",
+    "county_derivation_tier": "Tier_4_Fallback",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {},
+    "elevation": {}
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}

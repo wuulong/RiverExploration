@@ -4,7 +4,7 @@
 [metadata]
 name: batch_extract_confluence_atlas.py
 title: 全台 150 水系實體水網幾何匯流點與多維水文屬性全量計算引擎 (CGS v3.0.0)
-description: 支援中斷點續做 (--resume)、狀態查詢 (--status)、乾跑測試 (--dry-run) 的 OSM 幾何演算引擎。演算法演算 2,132 筆水脈之實體匯流點 GPS、OSM Node ID、交點品質標籤 (confluence_type)、幾何線條長度 (estimated_length_km) 與多語別名，完全不改動 CSV，全量輸出至獨立 JSON 檔案。
+description: 支援中斷點續做 (--resume)、狀態查詢 (--status)、乾跑測試 (--dry-run) 的 OSM 幾何演算引擎。演演算法演算 2,132 筆水脈之實體匯流點 GPS、OSM Node ID、交點品質標籤 (confluence_type)、幾何線條長度 (estimated_length_km) 與多語別名，完全不改動 CSV，全量輸出至獨立 JSON 檔案。
 category: hydrology
 manual: scripts/manuals/batch_extract_confluence_atlas.md
 dependencies: json, csv, urllib, os, sys, math, time, argparse
@@ -63,7 +63,7 @@ def generate_river_name_variants(name: str) -> list:
     return list(dict.fromkeys(variants))
 
 def is_valid_chinese_river_name(name: str) -> bool:
-    """檢查是否為有效的中文河流/排水名稱（過濾純數字或純代碼）"""
+    """檢查是否為有效的中文河流/排水名稱（過濾純數字或純程式碼）"""
     if not name: return False
     if re.match(r'^[A-Za-z0-9\-]+$', name):
         return False
@@ -80,7 +80,7 @@ def calculate_way_length_km(geometry):
     return round(total_m / 1000.0, 2)
 
 def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", basin_code: str = "000000", offline: bool = False):
-    """水系級一次性批次打包 QL 下載 (Spec v3.2.0)，支援 --offline 剛性離線保護模式"""
+    """水系級一次性批次打包 QL 下載 (Spec v3.2.0)，支援 --offline 硬性離線保護模式"""
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
@@ -99,7 +99,7 @@ def fetch_osm_geom_for_basin(river_names: list, basin_name: str = "default", bas
         except Exception:
             pass
 
-    # 2. 若啟用 --offline 剛性離線模式，未命中時絕對不打 API，安全回傳
+    # 2. 若啟用 --offline 硬性離線模式，未命中時絕對不打 API，安全回傳
     if offline:
         print(f"\n  ├─ 🛡️ [離線保護模式 (--offline)] 快取未命中水系 [{basin_code}_{basin_name}]，跳過網路 API 下載。", file=sys.stderr)
         return []
@@ -217,7 +217,7 @@ def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool 
         main_river = next((r for r in b_records if r["river_name"].strip() == b_name), b_records[0])
         b_code = main_river["river_code"].strip()
 
-        # 斷點續做保護：檢查該水系內是否所有項目都有經緯度
+        # 斷點續做保護：檢查該水系內是否所有專案都有經緯度
         all_computed = True
         for r in b_records:
             rcode = r["river_code"]
@@ -293,7 +293,7 @@ def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool 
             parent_geom = river_geoms.get(raw_parent_name) or river_geoms.get(clean_parent_name)
 
             if my_geom and parent_geom:
-                # 策略 A: 拓撲共享實體節點 (OSM Shared Node)
+                # 策略 A: 拓樸共享實體節點 (OSM Shared Node)
                 shared_nodes = my_geom["nodes"].intersection(parent_geom["nodes"])
                 if shared_nodes:
                     shared_node_id = list(shared_nodes)[0]
@@ -332,6 +332,39 @@ def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool 
             else:
                 stats["no_geo"] += 1
 
+            # 5. 特殊處理獨立主流 (parent_code == "0") 之實體出海口端點 (P2, P1)
+            if str(r.get("parent_code")) == "0":
+                # 搜尋對應水系快取檔案 basin_*_raw.json
+                possible_files = [f for f in os.listdir(GEOM_CACHE_DIR) if f.startswith(f"basin_{b_code}_") and f.endswith("_raw.json")]
+                if possible_files:
+                    geom_f = os.path.join(GEOM_CACHE_DIR, possible_files[0])
+                    try:
+                        with open(geom_f, "r", encoding="utf-8") as gf:
+                            gdata = json.load(gf)
+                            elements = gdata if isinstance(gdata, list) else gdata.get("elements", [])
+                            best_coords = None
+                            for el in elements:
+                                if el.get("type") == "way" and "geometry" in el:
+                                    tags = el.get("tags", {})
+                                    w_name = tags.get("name", "")
+                                    if name in w_name or w_name in name:
+                                        coords = [(pt["lon"], pt["lat"]) for pt in el["geometry"]]
+                                        if len(coords) >= 2:
+                                            if not best_coords or len(coords) > len(best_coords):
+                                                best_coords = coords
+                            
+                            if best_coords and len(best_coords) >= 2:
+                                p2_lon, p2_lat = best_coords[-1]
+                                p1_lon, p1_lat = best_coords[-2]
+                                entry["confluence_lon"] = p2_lon
+                                entry["confluence_lat"] = p2_lat
+                                entry["p1_lon"] = p1_lon
+                                entry["p1_lat"] = p1_lat
+                                entry["confluence_type"] = "Outfall_Sea"
+                                entry["confluence_elevation_m"] = 0.0
+                    except Exception as e:
+                        pass
+
             atlas_result[code] = entry
             sys.stderr.write(f"\n  ├─ [{r_idx}/{len(b_records)}] [{code}] {name:<12} ➔ Status: {entry['confluence_type']:<30} (GPS: {entry['confluence_lon']}, {entry['confluence_lat']})")
             sys.stderr.flush()
@@ -357,13 +390,13 @@ def analyze_confluence_atlas(csv_path: str, output_json_path: str, resume: bool 
 
 def main():
     parser = argparse.ArgumentParser(description="全台 150 水系實體水網幾何匯流點與多維水文屬性全量計算引擎 (CGS v3.2.0)")
-    parser.add_argument("-c", "--csv", default=CSV_PATH, help="來源拓撲登記表 CSV 路徑")
+    parser.add_argument("-c", "--csv", default=CSV_PATH, help="來源拓樸登記表 CSV 路徑")
     parser.add_argument("-o", "--out", default=OUTPUT_JSON_PATH, help="產出 JSON 檔案路徑")
     parser.add_argument("-r", "--resume", action="store_true", help="啟用中斷點續做模式")
     parser.add_argument("-n", "--limit", type=int, default=None, help="限制處理水系數量")
     parser.add_argument("-b", "--basin", type=str, default=None, help="指定計算單一水系名稱 (例如: 頭前溪)")
     parser.add_argument("-s", "--status", action="store_true", help="顯示當前計算進度與統計看板")
-    parser.add_argument("--offline", action="store_true", help="剛性離線保護模式：快取未命中時絕對不打 API 下載")
+    parser.add_argument("--offline", action="store_true", help="硬性離線保護模式：快取未命中時絕對不打 API 下載")
 
     args = parser.parse_args()
 

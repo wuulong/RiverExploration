@@ -1,0 +1,65 @@
+{
+  "river_code": "151000",
+  "river_name": "濁水溪",
+  "parent_code": "0",
+  "parent_name": "",
+  "basin_code": "151000",
+  "basin_name": "北勢溪",
+  "topology_path": "0@151000",
+  "is_civilian": 0,
+  "source_type": "WRA",
+  "waterway_type": "river",
+  "stream_order": 1,
+  "description": "北勢溪官方水系",
+  "contributor": "WRA",
+  "links": {
+    "walkgis_url": "",
+    "wikipedia_url": "https://zh.wikipedia.org/wiki/濁水溪",
+    "osm_url": "https://www.openstreetmap.org/search?query=濁水溪",
+    "wikidata_id": "Q708374"
+  },
+  "attribute_json": {
+    "code_status": "draft",
+    "deprecated_codes": [],
+    "replaced_by": "",
+    "river_office_id": "4",
+    "river_office_name": "第四河川分署",
+    "office_valid_counties": [
+      "彰化縣",
+      "雲林縣",
+      "南投縣"
+    ],
+    "has_outfall_gps": true,
+    "outfall_lon": 120.8685303,
+    "outfall_lat": 23.7801544,
+    "primary_county": "雲林縣",
+    "primary_county_code": "10009",
+    "is_border_river": true,
+    "border_counties": [
+      "雲林縣",
+      "彰化縣"
+    ],
+    "arbitration_rule": "Right_Bank_Outfall",
+    "county_assignment_reason": "Right_Bank_Border_Arbitration (界河右岸原則仲裁歸屬 雲林縣)",
+    "county_derivation_tier": "Tier_1_Border_Arbitration",
+    "is_office_county_matched": true,
+    "provenance": {
+      "last_updated": "2026-09-04"
+    }
+  },
+  "plugins": {
+    "gis": {
+      "confluence_id": "J-151000",
+      "confluence_lon": 120.8685303,
+      "confluence_lat": 23.7801544,
+      "confluence_type": "Outfall_Sea",
+      "estimated_length_km": 501.36,
+      "estimated_velocity_ms": null,
+      "osm_wikipedia_tag": "zh:濁水溪"
+    },
+    "elevation": {
+      "confluence_elevation_m": 0.0
+    }
+  },
+  "updated_at": "2026-09-04 11:22:45"
+}
