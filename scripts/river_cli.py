@@ -3,467 +3,262 @@
 """
 [metadata]
 name: river_cli.py
-title: WRA-Civ 全台水文拓樸 3D 萬用查詢與多格式轉譯 CLI 工具 (Spec v2.4 / CGS v2.0)
-description: 提供全台 1,418 筆水脈之 3D 海拔縱剖面 (profile)、權威外鏈 (links)、多維度模糊搜尋、階層/屬性過濾、上下游拓樸追溯，並支援 CSV, JSON, JSONL, 3D GeoJSON, 3D KML, Mermaid, 豐富彩樹 (Tree) 一鍵轉譯匯出。
+title: WRA-Civ 全台水文拓樸 3D 萬用查詢與多格式轉譯 CLI 工具 (CGS v2.4)
+description: 提供全台 1,418 筆水脈之 3D 海拔縱剖面、權威外鏈、多維度模糊搜尋、上下游拓樸追溯，並支援管道 (Pipe) 動態注入 (hydrate)、共同祖先切片 (slice)、幾何聚合 (stats) 與拓樸完整檢核 (lint)。
 category: hydrology
 manual: scripts/manuals/river_cli.md
 dependencies: csv, json, os, sys, argparse, re
-cgs_version: 2.0
+cgs_version: 2.4
+spec: scripts/specs/river_cli.spec.md
+bman: RiverExploration:ch11_6
+seman: tw-wra-db:2
 """
 
 import os
 import sys
 import json
-import csv
-import re
 import argparse
 from datetime import datetime
 
-__cli_spec_version__ = "2.0"
+__cli_spec_version__ = "2.4"
 
+# 將所在目錄加入 sys.path 以載入 wra_river 模組
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-BOOK_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, ".."))
-if BOOK_ROOT not in sys.path:
-    sys.path.insert(0, BOOK_ROOT)
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
 
-JSONL_PATH = os.path.join(BOOK_ROOT, "taiwan_river_topology_registry.jsonl")
-CSV_PATH = os.path.join(BOOK_ROOT, "taiwan_river_topology_registry.csv")
+from wra_river import (
+    load_registry,
+    filter_records,
+    trace_topology,
+    compute_lca,
+    slice_subgraph,
+    compute_topology_stats,
+    lint_topology,
+    export_as_tree,
+    export_as_geojson,
+    export_as_kml,
+    export_as_mermaid,
+    generate_profile_ascii,
+    format_authority_links,
+    hydrate_external_data,
+    build_physical_directory_tree
+)
 
-def load_registry(data_path: str = None) -> list:
-    """載入水文註冊表 (預設優先讀取 Master JSONL 檔案)"""
-    target_path = data_path or (JSONL_PATH if os.path.exists(JSONL_PATH) else CSV_PATH)
-    
-    if not os.path.exists(target_path):
-        print(f"[ERROR] 找不到水文註冊表檔案: {target_path}", file=sys.stderr)
-        sys.exit(1)
-        
-    records = []
-    if target_path.endswith(".jsonl"):
-        with open(target_path, "r", encoding="utf-8") as f:
-            for line in f:
-                if line.strip():
-                    records.append(json.loads(line))
+def log_msg(level: str, msg: str):
+    tag_map = {'INFO': 'ℹ️ [INFO]', 'WARN': '⚠️ [WARN]', 'ERROR': '❌ [ERROR]'}
+    print(f"{tag_map.get(level, f'[{level}]')} {msg}", file=sys.stderr)
+
+def output_result(content: str, out_path: str = None):
+    """標準管道友善輸出：支援寫入指定檔案或輸出 stdout"""
+    if out_path and out_path != '-':
+        with open(out_path, 'w', encoding='utf-8') as f:
+            f.write(content + '\n')
+        log_msg('INFO', f'已輸出至: {out_path}')
     else:
-        with open(target_path, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                records.append(row)
-    return records
+        print(content)
 
-def filter_records(records: list, query: str = None, basin: str = None, max_order: int = None, 
-                   official_only: bool = False, civ_only: bool = False, geo_only: bool = False) -> list:
-    """依據多維度條件篩選水脈紀錄"""
-    filtered = []
-    
-    # 建立全庫索引便於自動補齊主流頭節點
-    records_by_code = {r["river_code"]: r for r in records}
-    
-    for r in records:
-        # 1. 流域篩選
-        if basin and r.get("basin_name", "").strip() != basin.strip() and r.get("river_name", "").strip() != basin.strip():
-            continue
-            
-        # 2. 模糊關鍵字搜尋 (匹配名稱、程式碼、描述)
-        if query:
-            q = query.strip().lower()
-            r_name = r.get("river_name", "").lower()
-            r_code = r.get("river_code", "").lower()
-            r_desc = r.get("description", "").lower()
-            if q not in r_name and q not in r_code and q not in r_desc:
-                continue
-                
-        # 3. Stream Order 階層限制 (主流頭節點放行)
-        if max_order is not None and r.get("parent_code") != "0":
-            try:
-                order = int(r.get("stream_order", 99))
-                if order > max_order:
-                    continue
-            except ValueError:
-                pass
-                
-        # 4. 官方 vs 民間
-        is_civ = str(r.get("is_civilian", 0)).strip() == "1"
-        if official_only and is_civ:
-            continue
-        if civ_only and not is_civ:
-            continue
-            
-        # 5. GPS 座標
-        has_geo = str(r.get("has_osm_geo", 0)).strip() == "1" or r.get("plugins", {}).get("gis", {}).get("confluence_lon") is not None
-        if geo_only and not has_geo:
-            continue
-            
-        filtered.append(r)
-        
-    # 若指定 basin，確保該流域的主流根節點 (parent_code == 0) 被包含在最頂層
-    if basin:
-        filtered_codes = {r["river_code"] for r in filtered}
-        for r in records:
-            if (r.get("river_name", "").strip() == basin.strip() or r.get("basin_name", "").strip() == basin.strip()) and r.get("parent_code") == "0":
-                if r["river_code"] not in filtered_codes:
-                    filtered.insert(0, r)
-                break
-                
-    return filtered
+def format_records_output(records: list, fmt: str) -> str:
+    """依指定格式轉譯紀錄集"""
+    if fmt == "tree":
+        return export_as_tree(records)
+    elif fmt == "json":
+        return json.dumps(records, ensure_ascii=False, indent=2)
+    elif fmt == "jsonl":
+        return "\n".join([json.dumps(r, ensure_ascii=False) for r in records])
+    elif fmt == "geojson":
+        return json.dumps(export_as_geojson(records), ensure_ascii=False, indent=2)
+    elif fmt == "kml":
+        return export_as_kml(records)
+    elif fmt == "mermaid":
+        return export_as_mermaid(records)
+    return str(records)
 
-def trace_topology(records: list, target_code_or_name: str, direction: str = "down") -> list:
-    """追溯指定河流之上下游拓樸親緣"""
-    records_by_code = {r["river_code"]: r for r in records}
-    records_by_name = {r["river_name"]: r for r in records}
-    
-    start_node = records_by_code.get(target_code_or_name) or records_by_name.get(target_code_or_name)
-    if not start_node:
-        print(f"[ERROR] 找不到指定的目標河流: {target_code_or_name}", file=sys.stderr)
-        return []
-        
-    result = []
-    if direction == "up":
-        # 向上追溯至出海口
-        path_codes = [c for c in start_node["topology_path"].split("@") if c and c != "0"]
-        for c in path_codes:
-            if c in records_by_code:
-                result.append(records_by_code[c])
-    else:
-        # 向下擴展所有子孫溪流
-        root_code = start_node["river_code"]
-        for r in records:
-            path = r.get("topology_path", "")
-            if root_code in path.split("@"):
-                result.append(r)
-    return result
-
-def export_as_tree(records: list) -> str:
-    """轉譯為帶有 3D 海拔與實體幾何品質的豐富 Terminal 樹狀結構"""
-    by_parent = {}
-    record_map = {r["river_code"]: r for r in records}
-    
-    for r in records:
-        p_code = r["parent_code"]
-        by_parent.setdefault(p_code, []).append(r)
-        
-    roots = [r for r in records if r["parent_code"] not in record_map]
-    
-    lines = []
-    def build_branch(node, prefix="", is_root=False):
-        name = node["river_name"]
-        code = node["river_code"]
-        is_civ = str(node.get("is_civilian", 0)) == "1"
-        tag = "\033[33m[民間]\033[0m" if is_civ else "\033[34m[官方]\033[0m"
-        order = f"階層:{node.get('stream_order','?')}"
-        
-        # 提取 3D 高程與 GIS 幾何品質資訊
-        ele = node.get("plugins", {}).get("elevation", {}).get("confluence_elevation_m")
-        ele_str = f" ⛰️ \033[36m{ele}m\033[0m" if ele is not None else ""
-        
-        gis = node.get("plugins", {}).get("gis", {})
-        c_type = gis.get("confluence_type")
-        c_type_str = f" | 📍 \033[32m{c_type}\033[0m" if c_type else ""
-
-        info_line = f"{name} ({code}) {tag} ({order}){ele_str}{c_type_str}"
-        
-        if is_root:
-            lines.append(f"🌊 {info_line}")
-        else:
-            lines.append(f"{prefix}└── {info_line}")
-        
-        children = by_parent.get(code, [])
-        for child in children:
-            c_prefix = "" if is_root else prefix + "    "
-            build_branch(child, c_prefix, is_root=False)
-            
-    for r in roots:
-        build_branch(r, is_root=True)
-        
-    return "\n".join(lines)
-
-def export_as_geojson(records: list) -> dict:
-    """轉譯為標準 3D GeoJSON 點/線資產 (包含 [lon, lat, elevation_m] 3D Z軸)"""
-    features = []
-    for r in records:
-        gis = r.get("plugins", {}).get("gis", {})
-        ele = r.get("plugins", {}).get("elevation", {}).get("confluence_elevation_m")
-        
-        lon = gis.get("confluence_lon") or r.get("confluence_lon")
-        lat = gis.get("confluence_lat") or r.get("confluence_lat")
-        
-        geometry = None
-        if lon is not None and lat is not None:
-            try:
-                coords = [float(lon), float(lat)]
-                if ele is not None:
-                    coords.append(float(ele))
-                geometry = {
-                    "type": "Point",
-                    "coordinates": coords
-                }
-            except (ValueError, TypeError):
-                pass
-                
-        feature = {
-            "type": "Feature",
-            "properties": r,
-            "geometry": geometry
-        }
-        features.append(feature)
-        
-    return {
-        "type": "FeatureCollection",
-        "features": features
-    }
-
-def export_as_kml(records: list) -> str:
-    """轉譯為標準 3D KML 格式 (供 Google Earth 3D 擬真載入)"""
-    kml_lines = [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<kml xmlns="http://www.opengis.net/kml/2.2">',
-        '  <Document>',
-        '    <name>WRA-Civ 台灣水文拓樸註冊表 (3D Hydrological Spec)</name>'
-    ]
-    for r in records:
-        gis = r.get("plugins", {}).get("gis", {})
-        ele = r.get("plugins", {}).get("elevation", {}).get("confluence_elevation_m", 0.0)
-        lon = gis.get("confluence_lon") or r.get("confluence_lon")
-        lat = gis.get("confluence_lat") or r.get("confluence_lat")
-        name = r.get("river_name", "")
-        code = r.get("river_code", "")
-        desc = r.get("description", "")
-        
-        if lon and lat:
-            kml_lines.extend([
-                '    <Placemark>',
-                f'      <name>{name} ({code})</name>',
-                f'      <description>{desc}</description>',
-                '      <Point>',
-                f'        <coordinates>{lon},{lat},{ele}</coordinates>',
-                '      </Point>',
-                '    </Placemark>'
-            ])
-    kml_lines.extend([
-        '  </Document>',
-        '</kml>'
-    ])
-    return "\n".join(kml_lines)
-
-def export_as_mermaid(records: list) -> str:
-    """轉譯為黑夜模式高對比雙色 Mermaid 拓樸圖"""
-    lines = ["graph TD"]
-    
-    record_map = {r["river_code"]: r for r in records}
-    defined_nodes = set()
-    
-    for r in records:
-        code = r["river_code"]
-        name = r["river_name"]
-        p_code = r["parent_code"]
-        is_civ = str(r.get("is_civilian")) == "1"
-        
-        node_id = f"N_{code.replace('-', '_')}"
-        if node_id not in defined_nodes:
-            lines.append(f'    {node_id}["{name} ({code})"]')
-            defined_nodes.add(node_id)
-            
-        if p_code and p_code in record_map:
-            p_node_id = f"N_{p_code.replace('-', '_')}"
-            lines.append(f'    {p_node_id} --> {node_id}')
-            
-    return "\n".join(lines)
-
-def cmd_links(records: list, query: str):
-    """查詢並印出特定水脈的所有外部權威連結 (Links)"""
-    target = next((r for r in records if query.lower() in r.get("river_name", "").lower() or query.lower() in r.get("river_code", "").lower()), None)
-    if not target:
-        print(f"❌ 找不到符合條件的水脈: {query}", file=sys.stderr)
-        return
-
-    links = target.get("links", {})
-    qid = links.get("wikidata_id", "")
-    wikidata_url_str = f"{qid} (https://www.wikidata.org/wiki/{qid})" if qid else "無"
-
-    print(f"\n🔗 【{target['river_name']} ({target['river_code']}) 權威連結面板】")
-    print(f"  ├─ 📌 Wikidata ID    : {wikidata_url_str}")
-    print(f"  ├─ 📖 Wikipedia URL  : {links.get('wikipedia_url') or '無'}")
-    print(f"  ├─ 🗺️ OpenStreetMap : {links.get('osm_url') or '無'}")
-    print(f"  └─ 🌐 WalkGIS URL    : {links.get('walkgis_url') or '無'}\n")
-
-def get_display_width(text: str) -> int:
-    """計算包含中文全形字元的 Terminal 顯示寬度"""
-    import unicodedata
-    w = 0
-    for ch in text:
-        if unicodedata.east_asian_width(ch) in ('F', 'W', 'A'):
-            w += 2
-        else:
-            w += 1
-    return w
-
-def pad_display(text: str, target_width: int) -> str:
-    """將含有中文字的字串補齊空格至指定的 Terminal 顯示寬度"""
-    w = get_display_width(text)
-    pad = target_width - w
-    return text + " " * max(0, pad)
-
-def cmd_profile_ascii(records: list, query: str):
-    """產出特定水系全體水脈的 3D 海拔 ASCII 剖面降落圖 (具備無高程水脈之 Graceful Fallback)"""
-    basin_records = [r for r in records if r.get("basin_name") == query or r.get("basin_code") == query]
-    if not basin_records:
-        basin_records = [r for r in records if query in r.get("basin_name", "") or query in r.get("river_name", "")]
-        
-    if not basin_records:
-        print(f"❌ 找不到水系/河流 [{query}] 的相關紀錄！", file=sys.stderr)
-        return
-
-    # 分離有高程與無高程紀錄
-    ele_records = [r for r in basin_records if r.get("plugins", {}).get("elevation", {}).get("confluence_elevation_m") is not None]
-    no_ele_records = [r for r in basin_records if r.get("plugins", {}).get("elevation", {}).get("confluence_elevation_m") is None]
-
-    sorted_ele = sorted(ele_records, key=lambda x: x["plugins"]["elevation"]["confluence_elevation_m"], reverse=True)
-    max_ele = sorted_ele[0]["plugins"]["elevation"]["confluence_elevation_m"] if sorted_ele else 1.0
-    min_ele = sorted_ele[-1]["plugins"]["elevation"]["confluence_elevation_m"] if sorted_ele else 0.0
-
-    print(f"\n⛰️ 【{query} 水系全體水脈 3D 海拔縱剖面與降落趨勢圖】")
-    print(f"📊 已獲取高程: {len(ele_records)} 筆 (最高: {max_ele}m | 最低: {min_ele}m) | 待厚化高程: {len(no_ele_records)} 筆")
-    print("=" * 80)
-    
-    # 動態計算水系中最長名稱與程式碼寬度
-    max_code_w = max(len(r['river_code']) for r in basin_records) + 2  # 包含括號 ()
-    
-    # 1. 輸出已知高程水脈
-    for r in sorted_ele:
-        ele = r["plugins"]["elevation"]["confluence_elevation_m"]
-        bar_len = int((ele / (max_ele or 1)) * 30)
-        bar = "█" * bar_len
-        r_name_padded = pad_display(r['river_name'], 22)
-        code_str_padded = f"({r['river_code']})".ljust(max_code_w)
-        print(f"  {r_name_padded} {code_str_padded} | {bar:<30} {ele:>6.1f} m")
-
-    # 2. 全容性顯示待厚化高程水脈 (Graceful Fallback)
-    if no_ele_records:
-        print("-" * 85)
-        print("  📋 [待厚化高程水脈清單]:")
-        for r in no_ele_records:
-            r_name_padded = pad_display(r['river_name'], 22)
-            code_str_padded = f"({r['river_code']})".ljust(max_code_w)
-            print(f"  {r_name_padded} {code_str_padded} | {'░' * 5:<30}    ? m (待測量)")
-            
-    print("=" * 80 + "\n")
-
-def cmd_export_dirs(records: list, target_dir: str):
-    """將全台水脈按 [縣市]/[代號_溪名]/... 自動建立階層目錄並發放 record.json"""
-    import os, json
-    abs_target = os.path.abspath(target_dir)
-    print(f"📁 準備構建實體目錄樹至: {abs_target} ...", file=sys.stderr)
-
-    record_map = {r["river_code"]: r for r in records}
-    created_dirs_cnt = 0
-
-    def build_dir_recursive(rec, parent_path):
-        nonlocal created_dirs_cnt
-        code = rec["river_code"]
-        name = rec["river_name"]
-        dir_name = f"{code}_{name}"
-        curr_dir = os.path.join(parent_path, dir_name)
-        os.makedirs(curr_dir, exist_ok=True)
-        created_dirs_cnt += 1
-
-        # 寫入 record.json
-        record_file = os.path.join(curr_dir, "record.json")
-        with open(record_file, "w", encoding="utf-8") as f:
-            json.dump(rec, f, ensure_ascii=False, indent=2)
-
-        # 找出直屬子支流並遞迴建立
-        children = [r for r in records if r.get("parent_code") == code]
-        for child in children:
-            build_dir_recursive(child, curr_dir)
-
-    office_dir_names = {
-        "1": "01_第一河川分署", "2": "02_第二河川分署", "3": "03_第三河川分署",
-        "4": "04_第四河川分署", "5": "05_第五河川分署", "6": "06_第六河川分署",
-        "7": "07_第七河川分署", "8": "08_第八河川分署", "9": "09_第九河川分署",
-        "10": "10_第十河川分署"
-    }
-
-    # 找出所有獨立主流 (parent_code == "0")
-    mainstems = [r for r in records if r.get("parent_code") == "0"]
-    for mainstem in mainstems:
-        attr = mainstem.get("attribute_json", {})
-        county = attr.get("primary_county", "未定縣市")
-        county_code = attr.get("primary_county_code", "00000")
-        office_id = attr.get("river_office_id", "")
-        
-        if county_code != "00000" and county != "未定縣市":
-            top_dir_name = f"{county_code}_{county}"
-        elif office_id in office_dir_names:
-            top_dir_name = office_dir_names[office_id]
-        else:
-            top_dir_name = "99999_未定縣市"
-
-        county_dir = os.path.join(abs_target, top_dir_name)
-        build_dir_recursive(mainstem, county_dir)
-
-    print(f"🎉【實體目錄樹建構完成】", file=sys.stderr)
-    print(f"📂 總建構目錄數: {created_dirs_cnt} 個", file=sys.stderr)
-    print(f"📍 目錄樹根路徑: {abs_target}", file=sys.stderr)
+def add_common_flags(p):
+    p.add_argument("-i", "--input", default=None, help="輸入檔案路徑 (支援 '-' 代表 stdin 管道)")
+    p.add_argument("-o", "--output", default=None, help="輸出檔案路徑 (預設 stdout)")
+    p.add_argument("-j", "--json", action="store_true", help="單行緊湊 JSON 輸出")
+    p.add_argument("-q", "--quiet", action="store_true", help="極簡輸出模式 (純 river_code)")
+    p.add_argument("-v", "--verbose", action="store_true", help="輸出詳細日誌")
 
 def main():
-    parser = argparse.ArgumentParser(description="WRA-Civ 全台水文拓樸 3D 萬用查詢與多格式轉譯 CLI 工具 (CGS v2.0)")
+    parser = argparse.ArgumentParser(description="WRA-Civ 全台水文拓樸 3D 萬用查詢與多格式轉譯 CLI 工具 (CGS v2.4)")
+    add_common_flags(parser)
     subparsers = parser.add_subparsers(dest="command", help="子命令")
 
-    # search / query
+    # search
     p_search = subparsers.add_parser("search", help="模糊搜尋水脈")
+    add_common_flags(p_search)
     p_search.add_argument("query", nargs="?", default=None, help="搜尋關鍵字")
     p_search.add_argument("-b", "--basin", help="指定水系名稱")
+    p_search.add_argument("-c", "--county", help="指定歸屬縣市名稱")
     p_search.add_argument("-n", "--max-order", type=int, help="限制最大河階順序")
     p_search.add_argument("-f", "--format", default="tree", choices=["tree", "csv", "json", "jsonl", "geojson", "kml", "mermaid"])
-    p_search.add_argument("-o", "--output", help="輸出檔案路徑")
 
     # trace
     p_trace = subparsers.add_parser("trace", help="上下游拓樸追溯")
+    add_common_flags(p_trace)
     p_trace.add_argument("query", help="目標河流名稱或程式碼")
-    p_trace.add_argument("--direction", choices=["up", "down"], default="up", help="追溯方向")
+    p_trace.add_argument("--direction", choices=["up", "down"], default="up", help="追溯方向 (up: 出海口/父系, down: 子孫)")
     p_trace.add_argument("-f", "--format", default="tree", choices=["tree", "csv", "json", "jsonl", "geojson", "kml", "mermaid"])
-    p_trace.add_argument("-o", "--output", help="輸出檔案路徑")
+
+    # hydrate
+    p_hydrate = subparsers.add_parser("hydrate", help="動態外部資料注入器 (Pipe Hydrator)")
+    add_common_flags(p_hydrate)
+    p_hydrate.add_argument("--namespace", required=True, help="外掛命名空間 (plugins.<namespace>)")
+    p_hydrate.add_argument("--key", help="對應鍵名稱 (預設依 river_code 或 river_name)")
+
+    # slice
+    p_slice = subparsers.add_parser("slice", help="拓樸動態切片與最小連通子圖提取器 (Subgraph Slicer)")
+    add_common_flags(p_slice)
+    p_slice.add_argument("targets", nargs="*", help="目標河流名稱或程式碼")
+    p_slice.add_argument("--lca", action="store_true", help="計算 LCA 共同祖先連通子圖")
+    p_slice.add_argument("-f", "--format", default="tree", choices=["tree", "json", "jsonl", "mermaid"])
+
+    # stats
+    p_stats = subparsers.add_parser("stats", help="水文拓樸幾何聚合計算器")
+    add_common_flags(p_stats)
+
+    # lint
+    p_lint = subparsers.add_parser("lint", help="水文拓樸完整迴路檢核器")
+    add_common_flags(p_lint)
+    p_lint.add_argument("--strict", action="store_true", help="嚴格模式 (包含警告即失敗)")
 
     # links
     p_links = subparsers.add_parser("links", help="查詢水脈權威外鏈面板")
+    add_common_flags(p_links)
     p_links.add_argument("query", help="目標河流名稱或程式碼")
 
     # profile
-    p_profile = subparsers.add_parser("profile", help="印出 3D 海拔縱剖面與降落圖")
+    p_profile = subparsers.add_parser("profile", help="印出 3D 海拔縱剖面降落圖")
+    add_common_flags(p_profile)
     p_profile.add_argument("query", help="水系或河流名稱")
 
     # export-dirs
     p_exp = subparsers.add_parser("export-dirs", help="自動匯出 [縣市]/[代號_溪名]/... 實體目錄樹")
+    add_common_flags(p_exp)
     p_exp.add_argument("--target-dir", default="data/river_tree", help="目標目錄樹根路徑")
+
+    # CGS 标准命令: version, schema, manual
+    p_ver = subparsers.add_parser("version", help="顯示 CLI 版本資訊")
+    add_common_flags(p_ver)
+    p_schema = subparsers.add_parser("schema", help="輸出註冊表資料 Schema")
+    add_common_flags(p_schema)
+    p_man = subparsers.add_parser("manual", help="查看詳細使用說明手冊")
+    add_common_flags(p_man)
 
     args = parser.parse_args()
 
-    records = load_registry()
+    # 1. 處理無須載入註冊表的快速指令
+    if args.command == "version":
+        ver_info = {
+            "name": "river_cli.py",
+            "cli_spec_version": __cli_spec_version__,
+            "cgs_compliance": "2.4",
+            "features": ["3D-profile", "LCA-slice", "pipe-hydrate", "geo-export", "lint", "stats"]
+        }
+        output_result(json.dumps(ver_info, ensure_ascii=False, indent=2) if not args.quiet else __cli_spec_version__, args.output)
+        return
 
+    if args.command == "schema":
+        schema_info = {
+            "entity": "TaiwanRiverRecord",
+            "primary_key": "river_code",
+            "fields": ["river_code", "river_name", "basin_name", "basin_code", "parent_code", "stream_order", "topology_path", "plugins", "links"]
+        }
+        output_result(json.dumps(schema_info, ensure_ascii=False, indent=2), args.output)
+        return
+
+    if args.command == "manual":
+        man_path = os.path.join(BOOK_ROOT, "scripts", "manuals", "river_cli.md")
+        if os.path.exists(man_path):
+            with open(man_path, "r", encoding="utf-8") as f:
+                output_result(f.read(), args.output)
+        else:
+            output_result("請參閱 scripts/manuals/river_cli.md", args.output)
+        return
+
+    # 2. 載入資料 (優先讀取 -i/--input，若為 '-' 則自 stdin 讀取)
+    input_source = getattr(args, 'input', None)
+    records = load_registry(input_source)
+
+    # 3. 子命令路由分流
     if args.command in ["search", "query"]:
-        matched = filter_records(records, query=args.query, basin=args.basin, max_order=args.max_order)
-        if args.format == "tree":
-            print(export_as_tree(matched))
-        elif args.format == "geojson":
-            print(json.dumps(export_as_geojson(matched), ensure_ascii=False, indent=2))
-        elif args.format == "kml":
-            print(export_as_kml(matched))
-        elif args.format == "mermaid":
-            print(export_as_mermaid(matched))
-        elif args.format == "json":
-            print(json.dumps(matched, ensure_ascii=False, indent=2))
-        elif args.format == "jsonl":
-            print("\n".join([json.dumps(r, ensure_ascii=False) for r in matched]))
+        matched = filter_records(records, query=args.query, basin=args.basin, county=args.county, max_order=args.max_order)
+        if args.quiet:
+            output_result("\n".join([r["river_code"] for r in matched]), args.output)
+        else:
+            output_result(format_records_output(matched, args.format), args.output)
+
     elif args.command == "trace":
-        matched = trace_topology(records, args.query, direction=args.direction)
-        print(export_as_tree(matched))
+        try:
+            matched = trace_topology(records, args.query, direction=args.direction)
+            output_result(format_records_output(matched, args.format), args.output)
+        except ValueError as e:
+            log_msg('ERROR', str(e))
+            sys.exit(1)
+
+    elif args.command == "hydrate":
+        # 讀取 stdin 或外部 JSON 檔案作為注入源
+        raw_ext = sys.stdin.read().strip()
+        if not raw_ext:
+            log_msg('WARN', '未自 stdin 接收到外部注入資料')
+            return
+        try:
+            ext_items = json.loads(raw_ext)
+            if isinstance(ext_items, dict):
+                ext_items = [ext_items]
+        except Exception as e:
+            log_msg('ERROR', f'外部注入資料 JSON 解析失敗: {e}')
+            sys.exit(1)
+
+        updated_records, cnt = hydrate_external_data(records, ext_items, args.namespace, args.key)
+        log_msg('INFO', f'已成功將外部資料注入至 {cnt} 筆水脈的 plugins.{args.namespace} 命名空間')
+        output_result("\n".join([json.dumps(r, ensure_ascii=False) for r in updated_records]), args.output)
+
+    elif args.command == "slice":
+        if not args.targets:
+            log_msg('ERROR', '請指定至少一個水脈目標進行切片')
+            sys.exit(1)
+        sliced = slice_subgraph(records, args.targets, use_lca=args.lca)
+        output_result(format_records_output(sliced, args.format), args.output)
+
+    elif args.command == "stats":
+        st = compute_topology_stats(records)
+        if args.json:
+            output_result(json.dumps(st, ensure_ascii=False), args.output)
+        else:
+            output_result(json.dumps(st, ensure_ascii=False, indent=2), args.output)
+
+    elif args.command == "lint":
+        res = lint_topology(records, strict=args.strict)
+        log_msg('INFO', f"=== 水文拓樸完整迴路檢核 (驗證數: {res['checked_count']}) ===")
+        for w in res['warnings']:
+            log_msg('WARN', w)
+        for e in res['errors']:
+            log_msg('ERROR', e)
+        if not res['passed']:
+            log_msg('ERROR', f"❌ 檢核失敗：共檢測出 {len(res['errors'])} 個致命錯誤")
+            sys.exit(1)
+        log_msg('INFO', '🎉 拓樸檢核通過！無環狀依賴與孤兒節點')
+
     elif args.command == "links":
-        cmd_links(records, args.query)
+        target = next((r for r in records if args.query.lower() in r.get("river_name", "").lower() or args.query.lower() in r.get("river_code", "").lower()), None)
+        if not target:
+            log_msg('ERROR', f"找不到符合條件的水脈: {args.query}")
+            sys.exit(1)
+        output_result(format_authority_links(target), args.output)
+
     elif args.command == "profile":
-        cmd_profile_ascii(records, args.query)
+        output_result(generate_profile_ascii(records, args.query), args.output)
+
     elif args.command == "export-dirs":
-        cmd_export_dirs(records, args.target_dir)
+        res = build_physical_directory_tree(records, args.target_dir)
+        log_msg('INFO', f"🎉 實體目錄樹建構完成: 共建立 {res['created_dirs_count']} 個目錄於 {res['root_dir']}")
+
     else:
-        print(export_as_tree(records[:20]))
+        # 預設無參數時印出頂層前 20 筆
+        output_result(export_as_tree(records[:20]), args.output)
 
 if __name__ == "__main__":
     main()

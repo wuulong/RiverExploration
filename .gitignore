@@ -9,6 +9,11 @@ cache/osm_geoms
 # Icon must end with two \r
 Icon
 
+# python
+*.pyc
+**/*.pyc
+__pycache__/
+**/__pycache__/
 
 # Thumbnails
 ._*

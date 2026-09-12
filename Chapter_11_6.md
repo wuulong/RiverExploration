@@ -38,7 +38,7 @@ flowchart TD
 
 1. **權威結構分佈 (`is_civilian`)**：
    * **水利署官方權威 6 碼 (`is_civilian=0`)**：**727 筆 (51.3%)** —— 100% 對照整合經濟部水利署全台主流與主要支流。
-   * **民間延伸編碼 (`-C[nn]`, `is_civilian=1`)**：**691 筆 (48.7%)** —— 由 WRA-Civ 拓樸演算演演演演演算法派發。
+   * **民間延伸編碼 (`-C[nn]`, `is_civilian=1`)**：**691 筆 (48.7%)** —— 由 WRA-Civ 拓樸演算演演演演演演算法派發。
 
 2. **Stream Order (拓樸階層感) 涵蓋分佈**：
    * **1 階 (主流)**：178 筆 (12.6%) —— 涵蓋全台 150 條獨立入海河口與大幹流。
@@ -49,7 +49,7 @@ flowchart TD
 3. **實體 GIS 幾何與 3D 海拔高程厚化率 (`plugins`)**：
    * **實體幾何匯流點已定位**：**356 筆 (25.1%)**
      * **`OSM_Shared_Node` (100% 拓樸精確節點)**：**304 筆** —— 在地圖上有實體交點 Node。
-     * **`Nearest_Match` (幾何端點吸附匹配)**：**52 筆** —— 演演演演演算法自動找到兩者最接近端點完成幾何匹配。
+     * **`Nearest_Match` (幾何端點吸附匹配)**：**52 筆** —— 演演演演演演算法自動找到兩者最接近端點完成幾何匹配。
    * **3D 海拔高程已厚化注入 (`plugins.elevation`)**：**356 筆 (25.1%)** —— 全量注入 3D 海拔高度，賦能終端機與 GIS 3D 透視分析。
 
 ---
@@ -114,7 +114,7 @@ flowchart TD
   4. **Tier 4 (Basin & Office Fallback)**：由河川分署管轄區域與親緣關係補齊。
 * **`attribute_json` 相關新增與生命週期屬性**：
   * **`code_status`（程式碼生命週期狀態）**：
-    * **`draft`（草案中/演演演演算法推導態）**：代表該水脈編碼、拓樸關係或歸屬屬性仍屬於自動化程式（LLM/GIS）初次推導產出的草案，允許隨演演演演算法升級進行修正或重新命名。
+    * **`draft`（草案中/演演演演演算法推導態）**：代表該水脈編碼、拓樸關係或歸屬屬性仍屬於自動化程式（LLM/GIS）初次推導產出的草案，允許隨演演演演演算法升級進行修正或重新命名。
     * **`confirmed`（權威鎖定態）**：代表該筆水脈已經過人工審計或社群對照整合確認，具備最高穩定度。**系統會啟動「程式碼鎖定警報」，嚴禁任何腳本直接刪除已 confirmed 的 `river_code`**。
     * **`deprecated`（廢棄/已被替代態）**：當水脈因重構而廢棄或被更準確的編碼取代時，編碼不直接刪除，而是轉為此狀態並留存追溯履歷。
   * **`deprecated_codes`**：陣列格式，記錄過去曾使用過但已廢棄的舊編碼清單（例如舊版 CSV 中誤編的編碼）。
@@ -150,7 +150,7 @@ data/river_tree/
 1. **官方 6 碼物理凍結機制 (Official Standard Anchor)**：
    * 所有水利署官方管轄主流與重要支流（`is_civilian=0`），強制綁定經濟部水利署 6 位數權威編碼（如 `130000` 頭前溪, `151000` 濁水溪）。此類編碼具備國家級權威性，系統**硬性凍結禁止變更**。
 2. **民間編碼確定性排序派發 (Deterministic Indexing)**：
-   * 民間延伸支流（`is_civilian=1`）之 `-C[nn]` 後綴編碼（如 `166000-C01`, `166000-C02`），在採集演演算法中**禁止採用隨機 Hash 或動態生成 UUID**。
+   * 民間延伸支流（`is_civilian=1`）之 `-C[nn]` 後綴編碼（如 `166000-C01`, `166000-C02`），在採集演演演算法中**禁止採用隨機 Hash 或動態生成 UUID**。
    * 系統依據「物理匯流點距離出海口里程」或「拓樸結構順序」進行確定性排序（Deterministic Order）派發編碼。只要水網親緣拓樸不變，重新跑腳本產出的 `-C[nn]` 編碼便 100% 保持不變。
 3. **`code_status` 門鎖防護機制 (Status Verdict Lock)**：
    * 轉檔與維護腳本（`convert_topology_to_jsonl.py`）建置了「 confirmed 程式碼鎖定警報」。當某筆編碼被標記為 `code_status: confirmed` 後，若腳本在執行過程中檢測到該 `river_code` 缺失，會**自動中斷並丟出 Exit Code 1 警報**，防止任何程式因重構而意外刪除已認證的編碼。
@@ -215,12 +215,23 @@ python3 scripts/river_cli.py search 王爺坑溪
 # D. 上下游親緣鏈追溯 (從「油羅溪 130020」一路向上追回出海口主流)
 python3 scripts/river_cli.py trace 130020 --direction up
 
-# E. 導出 3D GeoJSON 空間圖資 (包含 Z 軸高程，供 QGIS 直接開啟)
+# E. [CGS v2.4 管道水理運算] 共同祖先切片 ➔ 幾何統計聚合 (Map-Reduce Pipeline)
+python3 scripts/river_cli.py slice 油羅溪 上坪溪 --lca -f jsonl | python3 scripts/river_cli.py stats -i -
+
+# F. [CGS v2.4 管道水理運算] 共同祖先連通子圖轉譯為 Mermaid 拓樸圖
+python3 scripts/river_cli.py slice 油羅溪 上坪溪 --lca -f mermaid
+
+# G. [CGS v2.4 拓樸迴路檢核] 物理迴路完整迴路與孤兒節點健檢
+python3 scripts/river_cli.py lint
+
+# H. 導出 3D GeoJSON 空間圖資 (包含 Z 軸高程，供 QGIS 直接開啟)
 python3 scripts/river_cli.py search -b "頭前溪" -f geojson -o touqian_3d.geojson
 
-# F. 導出 3D KML 檔 (供 Google Earth 3D 擬真載入)
+# I. 導出 3D KML 檔 (供 Google Earth 3D 擬真載入)
 python3 scripts/river_cli.py search -b "淡水河" -f kml -o tamsui_3d.kml
 ```
+
+> 📖 **專題對外手冊**：關於與外界談論、外接整合與 API 開發之完整指引，請直接查閱專題白皮書：[WRA-Civ 專題手冊 (WRA-Civ/README.md)](WRA-Civ/README.md)。
 
 ---
 
