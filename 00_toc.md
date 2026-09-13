@@ -4,15 +4,15 @@ book_id: "RiverExploration"
 title: "流域導航：台灣母親之河的深度探索與實踐指南"
 category: "methodology"
 author: "wuulong / Antigravity"
-version: "2.4.0"
+version: "2.5.1"
 ---
 
 # 《流域導航：台灣母親之河的深度探索與實踐指南》
 
 ## 版本資訊
-*   **版本**：v2.4 (3D Hydrological Elevation & AI-Native JSONL Migration)
-*   **日期**：2026-08-30
-*   **狀態**：完成全台 1,418 條水脈 3D 水理拓樸大一統、AI-Native JSONL 雙軌格式上線、354 筆實體 3D 海拔高程與幾何厚化。
+*   **版本**：v2.5.1 (Official-Civ Topology Alignment & Pipeline-Native CGS v2.4)
+*   **日期**：2026-09-13
+*   **狀態**：完成水利署官方 6 碼與民間程式碼衝突治理 (1,380 筆純化)、變更履歷追溯落庫、CGS v2.4 管道水理運算實裝、WRA-Civ 專題手冊歸檔。
 
 ## 目錄
 

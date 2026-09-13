@@ -1,5 +1,23 @@
 # 版本歷史
 
+## v2.5.1 (Official-Civ Topology Alignment & Pipeline-Native CGS v2.4) - 2026-09-13
+*   **核心升級**：水利署官方公告 6 碼與民間延伸程式碼衝突治理（17 組重複水脈純化對齊）、變更履歷追溯機制落庫、CGS v2.4 深度管道 (Pipeline-Native) 水理運算實裝、WRA-Civ 專題手冊對外白皮書歸檔。
+*   **方法論與技術進展**：
+    *   **官方/民間衝突治理 (1,397 ➔ 1,380 筆純化)**：排查並解決北勢溪 (`114022`)、三峽河 (`114011` 三峽溪)、水璉溪 (`241000`)、石榴班溪 (`154011`) 等 17 組在草案階段之同名重複定義，確定官方程式碼唯一權威。
+    *   **變更履歷追溯落庫 (`attribute_json`)**：官方 6 碼節點完整記錄 `deprecated_codes`、`merged_draft_codes` 與 `aliases` 別名，確保歷史脈絡與外部查詢永不斷鏈。
+    *   **子樹親緣平滑遷移**：將原民間重複程式碼轄下之 8 筆子溪流（翠池、帖比倫溪、梅林溪等）之 `parent_code` 與 `topology_path` 平移至官方 6 碼下。
+    *   **98 筆水系名稱校準**：修正淡水河（原誤植魚寮溪）、大甲溪（原誤植南湖溪）等主流與支流之 `basin_name`，精準對齊根出海口主流。
+    *   **CGS v2.4 管道水理運算**：`river_cli.py` 模組化重構（拆出 `wra_river` 套件），支援 `slice --lca` 共同祖先連通子圖切片、`stats` 幾何 Map-Reduce 串流聚合、`hydrate` 動態外掛注入與 `lint` 物理完整迴路檢核。
+    *   **WRA-Civ 專題手冊歸檔**：建立 `WRA-Civ/README.md` 對外白皮書，提供三維對話切入點與外接整合規範。
+*   **專書與工具歸檔**：
+    *   `taiwan_river_topology_registry.jsonl` (v2.5.1)
+    *   `taiwan_river_topology_registry.csv` (v2.5.1)
+    *   `scripts/river_cli.py` (CGS v2.4) 與 `scripts/wra_river/`
+    *   `scripts/clean_and_merge_duplicate_rivers.py` (v2.5.1)
+    *   `WRA-Civ/README.md`
+
+---
+
 ## v2.5 (Hierarchical Directory Tree Export & Right-Bank Border Arbitration) - 2026-09-04
 *   **核心升級**：全台 1,403 個「縣市 ➔ 獨立水系 ➔ 支流親緣樹」實體目錄構造匯出（`data/river_tree/`）、右岸界河優先仲裁與 100% 縣市四階歸屬推導機制上線、水脈檔名極致淨化與備註/異名完整 `attribute_json` 落庫。
 *   **方法論與技術進展**：
@@ -59,7 +77,7 @@
 *   **核心升級**：從「HGIS 對照整合」邁向「跨時空模型化與遺蹟導航」。
 *   **方法論增補**：
     *   導入 **OO-History (物件導向歷史)**：建立 Root-Spec-Entity 三層繼承架構，降低考古資料厚化成本。
-    *   建立 **Layer 3 演義法則**：引入「生存第一原理」、「能源平衡模型」與「遷徙演演演演演演演演演演演演演演演演演演演演演演演演演演演演演算法」發想生活樣態。
+    *   建立 **Layer 3 演義法則**：引入「生存第一原理」、「能源平衡模型」與「遷徙演演演演演演演演演演演演演演演演演演演演演演演演演演演演演演算法」發想生活樣態。
     *   定義 **Layer 4 空間驗證**：利用離河距離 (HRD) 聚類分析與高程位能模型作為物理證據。
 *   **章節增改**：
     *   新增 2.6 (考古遺跡讀取與 ID 勾稽)、5.4 (OO-History 立論)、5.5 (劇本演義與南科案例)、10.4 (預測-驗證-修正工作流)、13 (未來展望)。
